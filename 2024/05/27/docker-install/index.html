@@ -33,7 +33,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/9.jpg');
+            background-image: url('/medias/background/16.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -73,7 +73,8 @@
 
 <meta name="generator" content="Hexo 7.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -423,7 +424,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    978
+                    977
                 </div>
                 
 
@@ -440,9 +441,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
         <!-- 代码块折行 -->
@@ -454,18 +452,18 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用-apt-存储库安装"><a href="#使用-apt-存储库安装" class="headerlink" title="使用 apt 存储库安装"></a>使用 apt 存储库安装</h3><p>在新主机上首次安装 Docker Engine 之前，需要设置 Docker 存储库。之后，您可以从存储库安装和更新 Docker。</p>
-<h4 id="1-设置-Docker-的apt存储库。"><a href="#1-设置-Docker-的apt存储库。" class="headerlink" title="1. 设置 Docker 的apt存储库。"></a>1. 设置 Docker 的<code>apt</code>存储库。</h4><pre><code class="bash">sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+<h4 id="1-设置-Docker-的apt存储库。"><a href="#1-设置-Docker-的apt存储库。" class="headerlink" title="1. 设置 Docker 的apt存储库。"></a>1. 设置 Docker 的<code>apt</code>存储库。</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ca-certificates curl
+<span class="token function">sudo</span> <span class="token function">install</span> -m 0755 -d /etc/apt/keyrings
+<span class="token function">sudo</span> curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+<span class="token function">sudo</span> <span class="token function">chmod</span> a+r /etc/apt/keyrings/docker.asc
 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] \          https://download.docker.com/linux/ubuntu \
-$(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \
-sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt-get update
-</code></pre>
+<span class="token keyword">echo</span> \
+  <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/etc/apt/keyrings/docker.asc] \          https://download.docker.com/linux/ubuntu \
+$(. /etc/os-release &amp;&amp; echo "</span><span class="token variable">$VERSION_CODENAME</span><span class="token string">") stable"</span> <span class="token operator">|</span> \
+<span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">></span> /dev/null
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><code>sudo apt-get update</code>:</p>
 <ul>
@@ -796,9 +794,6 @@ sudo apt-get update
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -986,7 +981,7 @@ sudo apt-get update
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">995</span>
+                        class="white-color">993</span>
             
             
             
