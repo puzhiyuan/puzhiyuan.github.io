@@ -33,7 +33,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/0.jpg');
+            background-image: url('/medias/background/9.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -461,7 +461,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] 					        https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] \          https://download.docker.com/linux/ubuntu \
 $(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
 sudo apt-get update
@@ -545,7 +545,8 @@ sudo apt-get update
 </ul>
 <p>此命令下载测试镜像并在容器中运行它。当容器运行时，它会打印一条消息并退出。</p>
 <p>如果您在将用户添加到组之前运行 Docker CLI 命令<code>docker</code>，可能会看到以下错误：</p>
-<pre><code>WARNING: Error loading config file: /home/user/.docker/config.json -stat /home/user/.docker/config.json: permission denied
+<pre><code>WARNING: Error loading config file: /home/user/.docker/config.json -stat
+/home/user/.docker/config.json: permission denied
 </code></pre>
 <p>此错误表明由于之前使用过该命令，该目录的权限设置不正确。<br>要解决此问题，删除<code>~/.docker/</code>目录（它会自动重新创建，但所有自定义设置都会丢失），或者使用以下命令更改其所有权和权限：</p>
 <ul>
