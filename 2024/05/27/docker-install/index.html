@@ -4,18 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hello hexo, Puzhiyuan&#39;Blog">
-    <meta name="description" content="hello hexo.
-pip install pytorch
-pip isnajd 
-
-sad
-sadsad
-fds
-f
-
-escape: /^\\([`*\[\]()#$+\-.!_&amp;gt;])/,
-em: /^\*((?:\*\*|[">
+    <meta name="keywords" content="docker安装, Puzhiyuan&#39;Blog">
+    <meta name="description" content="安装使用 apt 存储库安装在新主机上首次安装 Docker Engine 之前，需要设置 Docker 存储库。之后，您可以从存储库安装和更新 Docker。
+1. 设置 Docker 的apt存储库。sudo apt-get updat">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +18,7 @@ em: /^\*((?:\*\*|[">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hello hexo | Puzhiyuan&#39;Blog</title>
+    <title>docker安装 | Puzhiyuan&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <!-- 
     <style>
@@ -42,7 +33,7 @@ em: /^\*((?:\*\*|[">
 
     <style>
         body{
-            background-image: url('/medias/background/2.jpg');
+            background-image: url('/medias/background/0.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -364,12 +355,12 @@ em: /^\*((?:\*\*|[">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hello hexo</h1>
+                    <h1 class="description center-align post-title">docker安装</h1>
                 </div>
             </div>
         </div>
@@ -391,12 +382,25 @@ em: /^\*((?:\*\*|[">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -405,21 +409,21 @@ em: /^\*((?:\*\*|[">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-05-26
+                    2024-05-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-05-26
+                    2024-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    978
                 </div>
                 
 
@@ -449,18 +453,107 @@ em: /^\*((?:\*\*|[">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>hello hexo.</p>
-<pre><code class="bash">pip install pytorch
-pip isnajd 
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="使用-apt-存储库安装"><a href="#使用-apt-存储库安装" class="headerlink" title="使用 apt 存储库安装"></a>使用 apt 存储库安装</h3><p>在新主机上首次安装 Docker Engine 之前，需要设置 Docker 存储库。之后，您可以从存储库安装和更新 Docker。</p>
+<h4 id="1-设置-Docker-的apt存储库。"><a href="#1-设置-Docker-的apt存储库。" class="headerlink" title="1. 设置 Docker 的apt存储库。"></a>1. 设置 Docker 的<code>apt</code>存储库。</h4><pre><code class="bash">sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-sad
-sadsad
-fds
-f
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] 					        https://download.docker.com/linux/ubuntu \
+$(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
 </code></pre>
-<pre><code class="bash">escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
-em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+<ul>
+<li><p><code>sudo apt-get update</code>:</p>
+<ul>
+<li>更新系统的软件包列表，以确保系统可以访问最新的软件包。</li>
+</ul>
+</li>
+<li><p><code>sudo apt-get install ca-certificates curl</code>:</p>
+<ul>
+<li>安装两个软件包：<ul>
+<li><code>ca-certificates</code>：用于验证服务器的数字证书，确保连接的安全性。</li>
+<li><code>curl</code>：一个用于传输数据的命令行工具。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>sudo install -m 0755 -d /etc/apt/keyrings</code>:</p>
+<ul>
+<li>创建目录 <code>/etc/apt/keyrings</code>，权限为 0755。</li>
+<li>目录的拥有者可以读取、写入和执行，其他用户只能读取和执行。</li>
+</ul>
+</li>
+<li><p><code>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc</code>:</p>
+<ul>
+<li>使用 <code>curl</code> 命令从 Docker 官方网站下载 GPG 公钥文件。</li>
+<li>将文件保存到 <code>/etc/apt/keyrings/docker.asc</code>。</li>
+</ul>
+</li>
+<li><p><code>sudo chmod a+r /etc/apt/keyrings/docker.asc</code>:</p>
+<ul>
+<li>将文件 <code>/etc/apt/keyrings/docker.asc</code> 的权限设置为所有用户都可以读取。</li>
+</ul>
+</li>
+<li><p><code>echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</code></p>
+<ul>
+<li>使用 <code>echo</code> 命令创建 Docker 的 Apt 源列表。</li>
+<li>使用 <code>dpkg --print-architecture</code> 确定系统架构。</li>
+<li>使用 <code>signed-by=/etc/apt/keyrings/docker.asc</code> 指定 GPG 公钥文件的路径。</li>
+<li>使用 <code>. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME"</code> 确定当前系统版本代号。</li>
+<li>使用 <code>sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</code> 将 Apt 源列表写入文件 <code>/etc/apt/sources.list.d/docker.list</code>，并将标准输出重定向到 <code>/dev/null</code> 以隐藏命令行输出。</li>
+</ul>
+</li>
+<li><p><code>sudo apt-get update</code>:</p>
+<ul>
+<li>更新系统的软件包列表，以确保添加的 Docker 源生效。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-安装-Docker-软件包。"><a href="#2-安装-Docker-软件包。" class="headerlink" title="2. 安装 Docker 软件包。"></a>2. 安装 Docker 软件包。</h4><p>要安装最新版本，请运行：</p>
+<ul>
+<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></li>
+</ul>
+<h4 id="3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。"><a href="#3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。" class="headerlink" title="3. 通过运行镜像来验证Docker Engine安装是否成功 hello-world。"></a>3. 通过运行镜像来验证Docker Engine安装是否成功 <code>hello-world</code>。</h4><ul>
+<li><code>sudo docker run hello-world</code></li>
+</ul>
+<h4 id="4-以非-root-用户身份管理-Docker"><a href="#4-以非-root-用户身份管理-Docker" class="headerlink" title="4. 以非 root 用户身份管理 Docker"></a>4. 以非 root 用户身份管理 Docker</h4><p>  Docker 守护进程绑定到 Unix 套接字，而不是 TCP 端口。默认情况下，该 <code>root</code>用户拥有      Unix 套接字，其他用户只能使用 <code>sudo</code>. Docker 守护进程始终以<code>root</code>用户身份运行。</p>
+<p>  如果您不想<code>docker</code>在命令前面加上<code>sudo</code>，请创建一个名为 的 Unix 组<code>docker</code>并向其中添加用户。当 Docker 守护进程启动时，它会创建一个可由组成员访问的 Unix 套接字<code>docker</code>。在某些 Linux 发行版上，系统在使用包管理器安装 Docker Engine 时会自动创建该组。在这种情况下，您无需手动创建组。</p>
+<p>  创建<code>docker</code>组并添加您的用户：</p>
+<ul>
+<li><p>创建<code>docker</code>群组。</p>
+<ul>
+<li><code>sudo groupadd docker</code></li>
+</ul>
+</li>
+<li><p>将您的用户添加到<code>docker</code>组中。</p>
+<ul>
+<li><code>sudo usermod -aG docker $USER</code></li>
+</ul>
+</li>
+<li><p>激活对组的更改：</p>
+<ul>
+<li><code>newgrp docker</code></li>
+</ul>
+</li>
+<li><p>验证是否可以不用<code>sudo</code>执行<code>docker</code></p>
+<ul>
+<li><code>docker run hello-world</code></li>
+</ul>
+<p>此命令下载测试镜像并在容器中运行它。当容器运行时，它会打印一条消息并退出。</p>
+<p>如果您在将用户添加到组之前运行 Docker CLI 命令<code>docker</code>，可能会看到以下错误：</p>
+<pre><code>WARNING: Error loading config file: /home/user/.docker/config.json -stat /home/user/.docker/config.json: permission denied
 </code></pre>
+<p>此错误表明由于之前使用过该命令，该目录的权限设置不正确。<br>要解决此问题，删除<code>~/.docker/</code>目录（它会自动重新创建，但所有自定义设置都会丢失），或者使用以下命令更改其所有权和权限：</p>
+<ul>
+<li><code>sudo chown "$USER":"$USER" /home/"$USER"/.docker -R</code></li>
+<li><code>sudo chmod g+rwx "$HOME/.docker" -R</code></li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -487,7 +580,7 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://puzhiyuan.github.io/2024/05/26/hello-hexo/">https://puzhiyuan.github.io/2024/05/26/hello-hexo/</a>
+                    <a href="https://puzhiyuan.github.io/2024/05/27/docker-install/">https://puzhiyuan.github.io/2024/05/27/docker-install/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,7 +617,11 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -601,9 +698,10 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/05/27/docker-install/">
                     <div class="card-image">
@@ -621,9 +719,9 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -636,6 +734,7 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -651,7 +750,7 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2024/05/26/hello-hexo/">
@@ -681,7 +780,6 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -802,6 +900,13 @@ em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
