@@ -33,7 +33,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/16.jpg');
+            background-image: url('/medias/background/15.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -459,11 +459,13 @@
 <span class="token function">sudo</span> <span class="token function">chmod</span> a+r /etc/apt/keyrings/docker.asc
 
 <span class="token keyword">echo</span> \
-  <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/etc/apt/keyrings/docker.asc] \          https://download.docker.com/linux/ubuntu \
+  <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/etc/apt/keyrings/docker.asc] \
+https://download.docker.com/linux/ubuntu \
 $(. /etc/os-release &amp;&amp; echo "</span><span class="token variable">$VERSION_CODENAME</span><span class="token string">") stable"</span> <span class="token operator">|</span> \
 <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">></span> /dev/null
+  
 <span class="token function">sudo</span> <span class="token function">apt-get</span> update
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><code>sudo apt-get update</code>:</p>
 <ul>
@@ -543,9 +545,9 @@ $(. /etc/os-release &amp;&amp; echo "</span><span class="token variable">$VERSIO
 </ul>
 <p>此命令下载测试镜像并在容器中运行它。当容器运行时，它会打印一条消息并退出。</p>
 <p>如果您在将用户添加到组之前运行 Docker CLI 命令<code>docker</code>，可能会看到以下错误：</p>
-<pre><code>WARNING: Error loading config file: /home/user/.docker/config.json -stat
+<pre class="line-numbers language-bash"><code class="language-bash">WARNING: Error loading config file: /home/user/.docker/config.json -stat
 /home/user/.docker/config.json: permission denied
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>此错误表明由于之前使用过该命令，该目录的权限设置不正确。<br>要解决此问题，删除<code>~/.docker/</code>目录（它会自动重新创建，但所有自定义设置都会丢失），或者使用以下命令更改其所有权和权限：</p>
 <ul>
 <li><code>sudo chown "$USER":"$USER" /home/"$USER"/.docker -R</code></li>
