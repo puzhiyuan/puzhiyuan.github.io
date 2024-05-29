@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="注意力机制与Transformer在图像处理中的应用, Puzhiyuan&#39;Blog">
-    <meta name="description" content="注意力机制通过空间、通道和融合方式提升图像处理性能，而Transformer架构展现了其在图像识别、目标检测和3D处理中的高效能力。">
+    <meta name="keywords" content="融合BEV感知算法, Puzhiyuan&#39;Blog">
+    <meta name="description" content="单模态感知系统受环境敏感性、数据稀疏性和信息维度限制，难以提供全面感知。多模态融合弥补了这些缺陷。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>注意力机制与Transformer在图像处理中的应用 | Puzhiyuan&#39;Blog</title>
+    <title>融合BEV感知算法 | Puzhiyuan&#39;Blog</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
     <!-- 
     <style>
@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/17.jpg');
+            background-image: url('/medias/background/16.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -355,12 +355,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/30.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">注意力机制与Transformer在图像处理中的应用</h1>
+                    <h1 class="description center-align post-title">融合BEV感知算法</h1>
                 </div>
             </div>
         </div>
@@ -384,8 +384,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-                                <span class="chip bg-color">注意力机制</span>
+                            <a href="../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                                <span class="chip bg-color">多模态融合</span>
                             </a>
                         
                     </div>
@@ -396,8 +396,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
-                                3D目标检测
+                            <a href="../../../../categories/BEV/" class="post-category">
+                                BEV
                             </a>
                         
                     </div>
@@ -409,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-05-27
+                    2024-05-29
                 </div>
                 
 
@@ -423,7 +423,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
@@ -450,103 +450,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-注意力机制概述"><a href="#1-注意力机制概述" class="headerlink" title="1. 注意力机制概述"></a>1. 注意力机制概述</h4><p>注意力机制是深度学习中的一种技术，用于提高模型对重要特征的关注度。主要有三种类型的注意力机制：空间注意力、通道注意力和融合注意力。</p>
-<h5 id="空间注意力-Spatial-Attention"><a href="#空间注意力-Spatial-Attention" class="headerlink" title="空间注意力 (Spatial Attention)"></a>空间注意力 (Spatial Attention)</h5><p>空间注意力机制是一种专注于图像中特定区域的技术，它允许模型在处理图像时能够集中于那些对于任务最为重要的区域。这种机制通常通过计算一个注意力权重矩阵来实现，该矩阵能够为图像中的每个像素分配一个权重，表明其在当前任务中的重要性。空间注意力可以显著提高模型对图像内容的理解能力，特别是在处理具有复杂背景或多个对象的图像时。</p>
-<p><strong>代表性模型：</strong></p>
+                <h3 id="1-为什么要做融合（单模态的缺陷）"><a href="#1-为什么要做融合（单模态的缺陷）" class="headerlink" title="1. 为什么要做融合（单模态的缺陷）"></a>1. 为什么要做融合（单模态的缺陷）</h3><p>单模态（单一传感器类型）的感知系统在复杂环境中容易受到局限。以下是一些主要缺陷：</p>
 <ul>
-<li><strong>Spatial Transformer Networks (STN)</strong>：STN通过学习输入图像中的几何变换来实现空间注意力。它包含三个主要组件：定位网络（Localization Net）、网格生成器（Grid Generator）和采样器（Sampler）。定位网络生成变换参数，网格生成器利用这些参数生成变换后的坐标，采样器根据这些坐标对输入图像进行变换，从而聚焦于图像中的重要区域。</li>
+<li><strong>环境敏感性</strong>：<ul>
+<li><strong>摄像头</strong>：在光线条件不佳的情况下，如夜晚、强逆光或雾霾天气，摄像头的性能会显著下降，导致图像质量变差，目标物体难以识别。</li>
+<li><strong>激光雷达（LiDAR）</strong>：虽然LiDAR在多种环境光照下都能提供稳定的三维数据，但在雨雪等恶劣天气中，LiDAR的激光束会被散射或吸收，影响点云的质量和密度。积水或积雪地面也会导致LiDAR数据的反射失真。</li>
 </ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527153100117.png" alt="STN结构图" style="zoom: 50%;">
+</li>
+<li><strong>数据稀疏性</strong>：<ul>
+<li><strong>LiDAR</strong>：LiDAR点云数据本质上是稀疏的，尤其是距离传感器较远的地方，点云密度显著下降。LiDAR通常只能生成有限数量的扫描线（通常是16线、32线或64线），这使得点云数据在某些区域可能不连续或缺失。</li>
+<li><strong>摄像头</strong>：尽管摄像头可以生成高分辨率的二维图像，但在某些情况下，如低对比度或纹理缺失的表面上，图像信息也可能不完整或不清晰。</li>
+</ul>
+</li>
+<li><strong>信息维度限制</strong>：<ul>
+<li><strong>摄像头</strong>：摄像头捕捉的图像是二维的，无法直接提供物体的距离和深度信息。要从二维图像中提取三维信息，通常需要复杂的计算和假设，如立体视觉或单目深度估计，这些方法往往依赖于场景中的纹理和几何特征，精度可能受限。</li>
+<li><strong>LiDAR</strong>：LiDAR提供的点云数据是三维的，能够精确测量物体的距离和形状。但是，LiDAR点云缺乏丰富的颜色和纹理信息，难以区分具有相似形状但不同颜色的物体，也难以识别道路标志、交通信号灯等需要颜色信息的目标。</li>
+</ul>
+</li>
+</ul>
+<p>融合技术通过整合来自不同传感器的数据，弥补了单模态的缺陷。具体优势包括：</p>
+<ul>
+<li><strong>综合环境信息</strong>：融合摄像头和LiDAR数据，可以在各种环境条件下提供更加稳定和准确的感知能力。例如，LiDAR可以在夜间或强光条件下提供可靠的三维结构信息，而摄像头可以在白天提供丰富的颜色和纹理信息。</li>
+<li><strong>密集且连续的数据</strong>：通过融合，可以在点云数据中添加图像的密集信息，使得最终的数据既包含三维的几何结构，又有丰富的纹理和颜色信息。这种融合可以有效地填补LiDAR点云的稀疏性和不连续性问题。</li>
+<li><strong>多维信息利用</strong>：融合后的数据既包含二维图像的细节信息，也有三维点云的空间信息，能够更全面地描述环境中的物体和场景。这样，感知系统可以更准确地进行物体检测、分类和跟踪，提高整体系统的性能和可靠性。</li>
+</ul>
+<h3 id="2-融合有哪些方式"><a href="#2-融合有哪些方式" class="headerlink" title="2. 融合有哪些方式"></a>2. 融合有哪些方式</h3><p>在感知系统中，数据融合可以分为前融合（数据级融合）、深度融合（特征级融合）、后融合（决策级融合）和不对称融合。以下是每种融合方式的详细介绍：</p>
+<img src="/2024/05/29/rong-he-bev-gan-zhi-suan-fa/image-20240529145957017.png" alt="融合分类" style="zoom: 50%;">
 
-<h5 id="通道注意力-Channel-Attention"><a href="#通道注意力-Channel-Attention" class="headerlink" title="通道注意力 (Channel Attention)"></a>通道注意力 (Channel Attention)</h5><p>通道注意力机制关注的是特征通道的重要性。与空间注意力不同，通道注意力不关心图像的空间分布，而是关注不同特征通道对最终任务的贡献。通过调整特征通道的权重，通道注意力可以帮助模型识别哪些特征对于当前任务最为关键。这种机制通常通过全局平均池化（GAP）或全局最大池化（GMP）等操作来实现。</p>
-<p><strong>代表性模型：</strong></p>
-<ul>
-<li><strong>Squeeze-and-Excitation Networks (SENet)</strong>：SENet通过一个Squeeze-and-Excitation模块来实现通道注意力。该模块首先全局压缩每个通道的信息，然后通过全连接层和非线性激活函数生成通道权重。</li>
-</ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527152746304.png" alt="SENet结构图" style="zoom: 50%;">
+<h4 id="前融合（数据级融合）"><a href="#前融合（数据级融合）" class="headerlink" title="前融合（数据级融合）"></a>前融合（数据级融合）</h4><p>前融合指的是在数据层面上进行融合，直接将不同传感器的原始数据整合在一起。这种方法通过将不同类型的传感器数据进行预处理和对齐，从而在早期阶段就融合信息。</p>
+<img src="/2024/05/29/rong-he-bev-gan-zhi-suan-fa/image-20240529150021812.png" alt="前融合" style="zoom: 67%;">
 
-<h5 id="融合注意力-Hybrid-Attention"><a href="#融合注意力-Hybrid-Attention" class="headerlink" title="融合注意力 (Hybrid Attention)"></a>融合注意力 (Hybrid Attention)</h5><p>融合注意力是一种结合了空间注意力和通道注意力的方法。它旨在同时考虑图像的空间和通道信息，以获得更全面的特征表示。通过这种方式，模型可以更精确地识别图像中的关键区域和关键特征，从而提高处理复杂视觉任务的能力。</p>
-<p><strong>代表性模型：</strong></p>
+<p>前融合主要分为图像到点云数据的融合和点云数据到图像的融合：</p>
 <ul>
-<li><strong>Convolutional Block Attention Module(CBAM)</strong>：CBAM不仅包含了空间注意力，还包含了通道注意力。通过交替使用这两种注意力机制，CBAM能够更全面地捕捉图像中的重要特征。</li>
-</ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527152340460.png" alt="CBAM结构图" style="zoom: 50%;">
-
-<h4 id="2-Transformer架构在图像处理中的应用"><a href="#2-Transformer架构在图像处理中的应用" class="headerlink" title="2. Transformer架构在图像处理中的应用"></a>2. Transformer架构在图像处理中的应用</h4><p>Transformer架构最初在自然语言处理（NLP）领域取得了巨大的成功，其自注意力机制能够很好地捕捉<strong>序列数据</strong>中的长距离依赖关系。近年来，Transformer架构也被引入到图像处理领域，取得了显著的效果。以下是几种主要的基于Transformer的图像处理算法：</p>
-<h5 id="Vision-Transformer-ViT"><a href="#Vision-Transformer-ViT" class="headerlink" title="Vision Transformer (ViT)"></a>Vision Transformer (ViT)</h5><p>ViT是将Transformer直接应用于图像处理的先驱模型。其核心思想是将图像划分为固定大小的图像块（patch），并将这些图像块视为序列输入到Transformer中。ViT在大规模数据集上的表现非常优秀。</p>
-<ul>
-<li><p><strong>工作流程</strong>：</p>
-<ol>
-<li><strong>图像块划分</strong>：将输入图像划分为固定大小的图像块（例如16x16的patch）。</li>
-<li><strong>线性嵌入</strong>：将每个图像块展平（flatten）并通过线性变换（Linear Projection）映射到固定长度的向量。</li>
-<li><strong>位置嵌入</strong>：为每个图像块添加位置嵌入（Position Embedding），以保留位置信息。</li>
-<li><strong>Transformer编码器</strong>：将嵌入的图像块序列输入到Transformer编码器中，通过多头自注意力机制和前馈神经网络进行处理。</li>
-<li><strong>分类头</strong>：使用多层感知机（MLP Head）对最终的特征表示进行分类。</li>
-</ol>
+<li><p><strong>图像 -&gt; 点云</strong>：在这种方式中，摄像头捕获的2D图像数据被投影到LiDAR点云的3D空间中，使每个点云点都具有颜色和纹理信息。这个过程通常涉及对摄像头和LiDAR进行外部校准，使它们的坐标系对齐。通过这种方式，点云不仅包含空间信息，还具有丰富的语义信息。</p>
+</li>
+<li><p><strong>点云 -&gt; 图像</strong>：这种方式将LiDAR点云的数据投影到摄像头图像上，使图像中的每个像素都具有深度信息。这一过程通常涉及将3D点云投影到2D图像平面上，并结合像素位置与深度值。这对于理解场景的几何结构非常有帮助，例如在自动驾驶中，可以更准确地检测障碍物和行人。</p>
 </li>
 </ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527153441940.png" alt="ViT结构图" style="zoom:50%;">
-
-<ul>
-<li><strong>优点</strong>：通过自注意力机制，ViT能够捕捉图像中的全局依赖关系。</li>
-<li><strong>缺点</strong>：对于较小的数据集，ViT的表现不如传统的卷积神经网络（CNN）。</li>
-</ul>
-<h5 id="Swin-Transformer"><a href="#Swin-Transformer" class="headerlink" title="Swin Transformer"></a>Swin Transformer</h5><p>Swin Transformer改进了ViT，通过引入分层的特征表示和滑动窗口（shifted window）机制来提升模型的效率和性能。其分层结构类似于CNN，能够更好地捕捉多尺度信息。</p>
-<ul>
-<li><p><strong>工作流程</strong>：</p>
-<ol>
-<li><strong>分层特征表示</strong>：将输入图像划分为不重叠的图像块，并逐层提取特征，每一层的特征分辨率逐渐降低。</li>
-<li><strong>局部自注意力</strong>：在每一层中，使用滑动窗口机制在局部区域内计算自注意力，减少计算复杂度。</li>
-<li><strong>跨窗口连接</strong>：通过Shifted Window机制，将相邻窗口的特征连接起来，捕捉全局信息。</li>
-<li><strong>多层堆叠</strong>：多层的Swin Transformer Block堆叠起来形成整个网络，通过跨层连接和分层特征表示，实现高效的特征提取。</li>
-</ol>
-<img src="/2024/05/27/transformer-in-3d/image-20240527192258763.png" alt="分层和滑动窗口" style="zoom:50%;">
-</li>
-<li><p><strong>优点</strong>：更高效的计算，适用于多尺度特征提取。</p>
-</li>
-<li><p><strong>缺点</strong>：结构相对复杂。</p>
-</li>
-</ul>
-<h5 id="DEtection-TRansformer-DETR"><a href="#DEtection-TRansformer-DETR" class="headerlink" title="DEtection TRansformer (DETR)"></a>DEtection TRansformer (DETR)</h5><p>DETR是一种基于Transformer的目标检测算法。它将目标检测问题视为一个集合预测问题，通过Transformer架构直接生成检测框和类别。</p>
-<ul>
-<li><p><strong>工作流程</strong>：</p>
-<ol>
-<li><strong>特征提取</strong>：使用CNN从输入图像中提取特征。</li>
-<li><strong>位置编码</strong>：为特征图添加位置编码，以保留空间信息。</li>
-<li><strong>Transformer编码器</strong>：将位置编码的特征图输入到Transformer编码器中，通过多头自注意力机制和前馈神经网络进行处理。</li>
-<li><strong>Transformer解码器</strong>：使用一组可学习的查询（queries）作为输入，解码器通过交互注意力机制生成检测结果，包括边界框和类别。</li>
-<li><strong>损失计算</strong>：使用匈牙利算法进行集合匹配，计算损失并进行反向传播。</li>
-</ol>
-</li>
-</ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527155834911.png" alt="DETR结构图" style="zoom:50%;">
+<h4 id="深度融合（特征级融合）"><a href="#深度融合（特征级融合）" class="headerlink" title="深度融合（特征级融合）"></a>深度融合（特征级融合）</h4><p>深度融合是在特征层面进行融合，即通过深度学习模型提取来自不同传感器的数据特征，然后在特征空间中进行融合。这种方法通常依赖于神经网络来进行特征提取和融合。</p>
+<img src="/2024/05/29/rong-he-bev-gan-zhi-suan-fa/image-20240529150042640.png" alt="深度融合" style="zoom: 67%;">
 
 <ul>
-<li><p><strong>优点</strong>：简化了传统检测管道，无需手工设计的锚框。</p>
+<li><p><strong>特征提取与融合</strong>：在这种方法中，首先分别从图像和点云数据中提取特征。例如，可以使用卷积神经网络（CNN）从图像中提取特征，使用PointNet或其他点卷积网络从点云中提取特征。然后，这些特征在中间层进行融合。通过在特征层面进行融合，可以充分利用不同传感器的数据特点，实现更丰富的表示和更高的感知准确性。</p>
 </li>
-<li><p><strong>缺点</strong>：训练时间较长，对大规模数据集依赖较强。</p>
-</li>
-</ul>
-<h5 id="DETR3D"><a href="#DETR3D" class="headerlink" title="DETR3D"></a>DETR3D</h5><p>DETR3D是对DETR的扩展，用于3D目标检测。它将3D点云数据投影到多个视角，并通过Transformer架构进行处理，从而实现高效的3D目标检测。</p>
-<ul>
-<li><p><strong>工作流程</strong>：</p>
-<ol>
-<li><strong>多视角投影</strong>：将3D点云数据投影到多个2D视角。</li>
-<li><strong>特征提取</strong>：在每个视角上使用CNN提取特征。</li>
-<li><strong>位置编码</strong>：为每个视角的特征图添加位置编码。</li>
-<li><strong>Transformer编码器</strong>：将多视角的特征图输入到Transformer编码器中，通过多头自注意力机制和前馈神经网络进行处理。</li>
-<li><strong>Transformer解码器</strong>：使用一组可学习的查询（queries）作为输入，解码器通过交互注意力机制生成3D检测结果。</li>
-<li><strong>损失计算</strong>：使用匈牙利算法进行集合匹配，计算损失并进行反向传播。</li>
-</ol>
+<li><p><strong>融合方式</strong>：深度融合的具体实现可以有多种方式，例如简单的特征拼接、特征加权平均或使用更复杂的融合模块（如注意力机制）来动态调整不同特征的重要性。通过这些方法，融合后的特征可以捕捉到更多的语义信息和空间关系。</p>
 </li>
 </ul>
-<img src="/2024/05/27/transformer-in-3d/image-20240527155702173.png" alt="DETR3D结构图" style="zoom:50%;">
+<h4 id="后融合（决策级融合）"><a href="#后融合（决策级融合）" class="headerlink" title="后融合（决策级融合）"></a>后融合（决策级融合）</h4><p>后融合是在决策层面进行融合，即对来自不同传感器的数据分别进行处理，得到各自的感知结果，然后将这些结果进行融合。</p>
+<img src="/2024/05/29/rong-he-bev-gan-zhi-suan-fa/image-20240529150103997.png" alt="后融合" style="zoom:67%;">
 
 <ul>
-<li><strong>优点</strong>：能够处理复杂的3D场景，效果显著。</li>
-<li><strong>缺点</strong>：计算资源需求高，训练复杂。</li>
+<li><p><strong>结果整合</strong>：在这种方法中，不同传感器的数据通过各自的处理，得到独立的感知结果（如物体检测、分类或跟踪结果）。然后，通过某种规则（如置信度、时空一致性或优先级）将这些结果进行整合。后融合可以利用不同传感器的独立判断，从而提高整体决策的可靠性和鲁棒性。</p>
+</li>
+<li><p><strong>融合策略</strong>：常见的后融合策略包括投票机制、置信度加权、基于规则的整合以及基于机器学习的方法（如融合网络）。这些策略可以根据具体应用需求进行选择，以最大化融合效果。</p>
+</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>注意力机制（空间注意力、通道注意力、融合注意力）通过不同方式提升模型对重要特征的关注度，而Transformer架构的引入为图像处理领域带来了新的突破。ViT、Swin Transformer、DETR、DETR3D等模型展示了Transformer在图像处理中的强大能力和广阔前景。</p>
+<h4 id="不对称融合"><a href="#不对称融合" class="headerlink" title="不对称融合"></a>不对称融合</h4><p>不对称融合是指不同传感器的数据在不同阶段或不同层级进行融合，利用每个传感器的独特优势。</p>
+<ul>
+<li><strong>层级不对称融合</strong>：在这种方法中，可以在低层级使用一种传感器的数据进行预处理和粗略感知，在高层级使用另一种传感器的数据进行细节处理和精细感知。例如，可以先用LiDAR点云进行粗略物体检测，然后用摄像头图像进行精细分类和定位。</li>
+<li><strong>阶段不对称融合</strong>：这种方法在不同处理阶段利用不同传感器的数据。例如，首先利用LiDAR点云数据进行初步检测和跟踪，然后在后处理阶段结合摄像头图像数据进行更详细的分析和验证。</li>
+</ul>
+<h3 id="3-融合BEV感知算法"><a href="#3-融合BEV感知算法" class="headerlink" title="3. 融合BEV感知算法"></a>3. 融合BEV感知算法</h3><ul>
+<li><strong>前融合在BEV中的应用</strong>：通过将图像和点云数据投影到共同的BEV坐标系中，生成包含多模态信息的全局视图。</li>
+<li><strong>深度融合在BEV中的应用</strong>：在深度学习模型中，从图像和点云数据中分别提取特征，并在中间层进行融合。</li>
+<li><strong>后融合在BEV中的应用</strong>：对图像和点云数据分别进行处理，得到各自的BEV感知结果，然后将这些结果进行融合。</li>
+<li><strong>不对称融合在BEV中的应用</strong>：在不同阶段或层级上利用不同传感器的数据，充分发挥各自的优势。</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.12832">Multi-modal Sensor Fusion for Auto Driving Perception: A Survey</a></p>
 
                 
             </div>
@@ -611,8 +581,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-                                    <span class="chip bg-color">注意力机制</span>
+                                <a href="../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                                    <span class="chip bg-color">多模态融合</span>
                                 </a>
                             
                         </div>
@@ -695,31 +665,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="../docker-install/">
+                <a href="../bev-san/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/37.jpg" class="responsive-img" alt="docker安装">
+                        <img src="../../../../medias/featureimages/25.jpg" class="responsive-img" alt="BEV-SAN">
                         
-                        <span class="card-title">docker安装</span>
+                        <span class="card-title">BEV-SAN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            BEV-SAN通过高度空间切片和注意力机制改进了BEV 3D目标检测。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-29
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../categories/%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    工具
+                            <a href="../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    3D目标检测
                                 </a>
                             
                             
@@ -729,8 +699,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                        <span class="chip bg-color">多模态融合</span>
                     </a>
                     
                 </div>
@@ -741,27 +711,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="">
+                <a href="../../28/3d-to-2d-module/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/30.jpg" class="responsive-img" alt="注意力机制与Transformer在图像处理中的应用">
+                        <img src="../../../../medias/featureimages/42.jpg" class="responsive-img" alt="3D to 2D module">
                         
-                        <span class="card-title">注意力机制与Transformer在图像处理中的应用</span>
+                        <span class="card-title">3D to 2D module</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            注意力机制通过空间、通道和融合方式提升图像处理性能，而Transformer架构展现了其在图像识别、目标检测和3D处理中的高效能力。
+                            3D数据通过显式和隐式映射转换为2D，以辅助3D特征提取和优化。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-28
                             </span>
                         <span class="publish-author">
                             
@@ -775,12 +745,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-                        <span class="chip bg-color">注意力机制</span>
+                    <a href="../../../../tags/3D%E8%BD%AC2D/">
+                        <span class="chip bg-color">3D转2D</span>
                     </a>
                     
                 </div>
