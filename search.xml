@@ -49,6 +49,8 @@
             
             <tag> BEV </tag>
             
+            <tag> 纯视觉 </tag>
+            
         </tags>
       
     </entry>
@@ -101,6 +103,8 @@
             
             <tag> 多模态融合 </tag>
             
+            <tag> BEV </tag>
+            
         </tags>
       
     </entry>
@@ -117,7 +121,7 @@
       
       <categories>
           
-          <category> BEV </category>
+          <category> 3D目标检测 </category>
           
       </categories>
       
@@ -125,6 +129,8 @@
         <tags>
             
             <tag> 多模态融合 </tag>
+            
+            <tag> BEV </tag>
             
         </tags>
       
