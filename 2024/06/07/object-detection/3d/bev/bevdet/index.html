@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="BEVDet, Puzhiyuan&#39;Blog">
-    <meta name="description" content="BEVDet是一套模块化设计的3D目标检测系统，通过改进的数据增强和NMS策略，有效提升了车辆检测的准确性和鲁棒性。">
+    <meta name="description" content="模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/3.jpg');
+            background-image: url('/medias/background/5.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-07
+                    2024-06-08
                 </div>
                 
 
@@ -455,7 +455,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="BEVDet"><a href="#BEVDet" class="headerlink" title="BEVDet"></a>BEVDet</h3><p>偏向于工程性的论文，在LSS的基础上提出的一些改进和优化。</p>
-<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607212353323.png" alt="image-20240607212353323" style="zoom:50%;">
+<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607212353323.png" alt="BEVDet结构" style="zoom:50%;">
 
 <p>BEVDet采用模块化设计，由四个模块组成：</p>
 <ul>
@@ -499,7 +499,7 @@
 </li>
 </ul>
 <h4 id="改进的NMS"><a href="#改进的NMS" class="headerlink" title="改进的NMS"></a>改进的NMS</h4><p><strong>问题</strong>：在BEV空间中，不同类别的对象占据的地面面积是不同的,传统的NMS算法通常使用固定的IOU阈值来决定是否抑制预测框，可能导致对于小面积对象的预测框无法正确地与真实框匹配。</p>
-<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607221540969.png" alt="image-20240607221540969" style="zoom:50%;">
+<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607221540969.png" alt="Scale-NMS处理" style="zoom:50%;">
 
 <p><strong>处理</strong>：Scale-NMS为每个类别定义了一个特定的缩放因子（验证集上进行超参数搜索得到的），根据对象的类别对预测框的大小进行缩放，缩放后通过传统的NMS算法进行处理，最后再将预测框的大小还原。</p>
 
@@ -667,7 +667,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            BEVDet是一套模块化设计的3D目标检测系统，通过改进的数据增强和NMS策略，有效提升了车辆检测的准确性和鲁棒性。
+                            模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。
                         
                     </div>
                     <div class="publish-info">
