@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>BEVDet4D</title>
+      <link href="/2024/06/11/object-detection/3d/bev/bevdet4d/"/>
+      <url>/2024/06/11/object-detection/3d/bev/bevdet4d/</url>
+      
+        <content type="html"><![CDATA[<h3 id="BEVDet4D"><a href="#BEVDet4D" class="headerlink" title="BEVDet4D"></a>BEVDet4D</h3><ul><li><p>升级 BEVDet 框架，将前一帧的特征与当前帧中的相应特征融合，使 BEVDet4D 能够通过查询和比较两个候选特征来访问时间线索。</p></li><li><p>通过将速度预测退化为两个相邻特征中的位置偏移预测来简化速度预测的任务。</p></li></ul><img src="/2024/06/11/object-detection/3d/bev/bevdet4d/image-20240611092302619.png" alt="BEVDet4D结构" style="zoom:50%;"><h3 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h3><p>BEVDet4D的总体框架建立在BEVDet基线之上，由四种模块组成：Image-view Encoder、View Transformer、BEV Encoder和Head。</p><h4 id="引入时间维度"><a href="#引入时间维度" class="headerlink" title="引入时间维度"></a>引入时间维度</h4><p>BEVDet4D相比于BEVDet引入时间维度，通过整合多个时间帧的信息，捕捉物体的动态变化和运动轨迹。</p><h4 id="空间对齐操作"><a href="#空间对齐操作" class="headerlink" title="空间对齐操作"></a>空间对齐操作</h4><p>在BEV Encoder之后做时序上的特征融合，因为BEV空间以自车坐标为原点建立的，此时前一帧的BEV特征和当前帧的BEV特征在空间是有偏差的、不对齐的，所以不能做直接的相加。</p><ol><li><strong>定义坐标及转换</strong>：</li></ol><ul><li><p><strong>全局坐标系</strong>：以$O_g-XYZ$表示，是一个固定的参考框架，用于描述场景中所有物体的绝对位置。</p></li><li><p><strong>自我坐标系</strong>：以$O_e(T)-XYZ$表示，是与自动驾驶车辆相关的坐标系，随车辆位置和方向变化。</p></li><li><p><strong>目标坐标系</strong>：以$O_t(T)-XYZ$表示，是用于描述特定目标物体位置的坐标系。</p></li><li><p><strong>坐标系的变换矩阵</strong>：$\text T^{dst}_{src}$表示从源坐标系转换到目标坐标系。例如，$\text T^{ego}_g$表示从全局坐标系转换到自我坐标系。</p></li><li><p><strong>目标坐标</strong>：全局坐标系中，</p><ul><li>静态的目标是 $O_s − XYZ$ （绿色），</li><li>移动的目标是 $O_m − XYZ$ （蓝色）。<img src="/2024/06/11/object-detection/3d/bev/bevdet4d/image-20240611103354196.png" alt="空间对齐" style="zoom:50%;"></li></ul></li></ul><ol start="2"><li><strong>操作</strong>：</li></ol><p>一个静态对象，在全局坐标系中的位置在两个相邻帧中表示为 $\text P^g_s(\text T)$ 和 $\text P^g_s(\text T−1)$，那么两个特征的位置移动应表述为：</p><p>$$<br>\text P ^ {e(T)} _ {s}(T) - \text P ^ {e(T-1)} _ {s}(T-1)  \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T-1)} _ {g} \text P ^ {g} _ {s}(T-1) \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T-1)} _ {e(T)} \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T-1)<br>$$</p><p>如果我们直接连接这两帧特征，那么后面的模块的学习目标（即目标在两个特征中的位置移动）与自我运动相关（即 $ \text T ^ {e( \text T-1 )} _ {e( \text T )} $ )。为了避免这种情况，将相邻帧中的目标移动 $\text T ^ {e(\text T)} _ {e(\text T-1)}$ 消除自我运动的部分。</p><p>$$<br>\text P ^ {e( T)} _ {s}(T) - \text T ^ {e(T)} _ {e(T-1)} \text P ^ {e(T-1)} _ {s}(T-1) \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T)} _ {e(T-1)} \text T ^ {e(T-1)} _ {g} \text P ^ {g} _ {s}(T-1)\\<br>= \text T ^{e(T)} _{g} \text P ^{g} _{s}(T) - \text T ^{e(T)} _{e(T-1)} \text T ^{e(T-1)} _{e(T)} \text T ^{e(T)} _{g} \text P ^{g} _{s}(T-1)\\<br>= \text P ^{e(T)} _{s}(T) - \text P ^{e(T)} _{s}(T-1)<br>$$</p><p>给定前一帧 $\mathbf{F}(T − 1, P^{e(T−1)})$ 和当前帧 $\mathbf{F}(T, P^{e(T)})$ 的特征，可以通过以下方式获得对齐特征：</p><p>$$<br>\mathbf{F’}(T-1, \text P^{e(T)}) = \mathbf{F}(T-1, \text T^{e(T-1)}_{e(T)}\text P^{e(T)})<br>$$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 3D目标检测 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BEV </tag>
+            
+            <tag> 纯视觉 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BEVDet</title>
       <link href="/2024/06/07/object-detection/3d/bev/bevdet/"/>
       <url>/2024/06/07/object-detection/3d/bev/bevdet/</url>
