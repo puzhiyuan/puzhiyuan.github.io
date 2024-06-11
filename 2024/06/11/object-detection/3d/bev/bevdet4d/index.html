@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="BEVDet, Puzhiyuan&#39;Blog">
-    <meta name="description" content="模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。">
+    <meta name="keywords" content="BEVDet4D, Puzhiyuan&#39;Blog">
+    <meta name="description" content="BEVDet4D通过融合时间维度和空间对齐操作，简化速度预测并提高检测性能。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BEVDet | Puzhiyuan&#39;Blog</title>
+    <title>BEVDet4D | Puzhiyuan&#39;Blog</title>
     <link rel="icon" type="image/png" href="../../../../../../../favicon.png">
     <!-- 
     <style>
@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/8.jpg');
+            background-image: url('/medias/background/1.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -355,12 +355,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../medias/featureimages/47.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BEVDet</h1>
+                    <h1 class="description center-align post-title">BEVDet4D</h1>
                 </div>
             </div>
         </div>
@@ -413,21 +413,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-07
+                    2024-06-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-08
+                    2024-06-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    770
+                    819
                 </div>
                 
 
@@ -454,54 +454,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="BEVDet"><a href="#BEVDet" class="headerlink" title="BEVDet"></a>BEVDet</h3><p>偏向于工程性的论文，在LSS的基础上提出的一些改进和优化。</p>
-<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607212353323.png" alt="BEVDet结构" style="zoom:50%;">
+                <h3 id="BEVDet4D"><a href="#BEVDet4D" class="headerlink" title="BEVDet4D"></a>BEVDet4D</h3><ul>
+<li><p>升级 BEVDet 框架，将前一帧的特征与当前帧中的相应特征融合，使 BEVDet4D 能够通过查询和比较两个候选特征来访问时间线索。</p>
+</li>
+<li><p>通过将速度预测退化为两个相邻特征中的位置偏移预测来简化速度预测的任务。</p>
+</li>
+</ul>
+<img src="/2024/06/11/object-detection/3d/bev/bevdet4d/image-20240611092302619.png" alt="BEVDet4D结构" style="zoom:50%;">
 
-<p>BEVDet采用模块化设计，由四个模块组成：</p>
+<h3 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h3><p>BEVDet4D的总体框架建立在BEVDet基线之上，由四种模块组成：Image-view Encoder、View Transformer、BEV Encoder和Head。</p>
+<h4 id="引入时间维度"><a href="#引入时间维度" class="headerlink" title="引入时间维度"></a>引入时间维度</h4><p>BEVDet4D相比于BEVDet引入时间维度，通过整合多个时间帧的信息，捕捉物体的动态变化和运动轨迹。</p>
+<h4 id="空间对齐操作"><a href="#空间对齐操作" class="headerlink" title="空间对齐操作"></a>空间对齐操作</h4><p>在BEV Encoder之后做时序上的特征融合，因为BEV空间以自车坐标为原点建立的，此时前一帧的BEV特征和当前帧的BEV特征在空间是有偏差的、不对齐的，所以不能做直接的相加。</p>
+<ol>
+<li><strong>定义坐标及转换</strong>：</li>
+</ol>
 <ul>
-<li>使用 Image-view encoder用于图像特征提取，包括主干和颈部</li>
-<li>View transformer将特征从图像视图转换为BEV空间</li>
-<li>BEV Encoder进一步对BEV特征进行编码</li>
-<li>在BVE特征的基础上构建特定任务的Head，并预测3D对象的目标值</li>
-</ul>
-<h3 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h3><h4 id="Image-view-Encoder"><a href="#Image-view-Encoder" class="headerlink" title="Image-view Encoder"></a>Image-view Encoder</h4><ul>
-<li><p>特征提取的Backbone</p>
+<li><p><strong>全局坐标系</strong>：以$O_g-XYZ$表示，是一个固定的参考框架，用于描述场景中所有物体的绝对位置。</p>
+</li>
+<li><p><strong>自我坐标系</strong>：以$O_e(T)-XYZ$表示，是与自动驾驶车辆相关的坐标系，随车辆位置和方向变化。</p>
+</li>
+<li><p><strong>目标坐标系</strong>：以$O_t(T)-XYZ$表示，是用于描述特定目标物体位置的坐标系。</p>
+</li>
+<li><p><strong>坐标系的变换矩阵</strong>：$\text T^{dst}_{src}$表示从源坐标系转换到目标坐标系。例如，$\text T^{ego}_g$表示从全局坐标系转换到自我坐标系。</p>
+</li>
+<li><p><strong>目标坐标</strong>：全局坐标系中，</p>
 <ul>
-<li>ResNet</li>
-<li>SwinTransformer</li>
-</ul>
-</li>
-<li><p>多尺度特征融合的Neck</p>
-<ul>
-<li>FPN-LSS（FPN和Lift-Splat-Shoot中提出的颈部结构）</li>
+<li>静态的目标是 $O_s − XYZ$ （绿色），</li>
+<li>移动的目标是 $O_m − XYZ$ （蓝色）。<img src="/2024/06/11/object-detection/3d/bev/bevdet4d/image-20240611103354196.png" alt="空间对齐" style="zoom:50%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="View-Transformer"><a href="#View-Transformer" class="headerlink" title="View Transformer"></a>View Transformer</h4><p>利用Lift-Splat-Shoot中提出的View Transformer构建，通过分类方式对深度进行密集预测。然后，利用分类分数和得到的图像视图特征绘制预定义点云。最后，通过沿垂直方向(即Z坐标轴)进行池化操作，可以生成BEV特征。</p>
-<h4 id="BEV-Encoder"><a href="#BEV-Encoder" class="headerlink" title="BEV Encoder"></a>BEV Encoder</h4><p>结构类似于具有主干和颈部的Image-view Encoder。</p>
-<h4 id="Head"><a href="#Head" class="headerlink" title="Head"></a>Head</h4><p>自动驾驶仪中的3D物体检测主要针对行人、车辆、障碍物等可移动物体的位置、尺度、方向、速度等进行检测。所以这里直接采用CenterPoint第一阶段的3D目标检测头。</p>
-<h3 id="创新"><a href="#创新" class="headerlink" title="创新"></a>创新</h3><h4 id="数据增强策略"><a href="#数据增强策略" class="headerlink" title="数据增强策略"></a>数据增强策略</h4><p><strong>问题</strong>：BEVDet在BEV空间中的过度拟合能力。</p>
-<p><strong>处理</strong>：在Image-view encoder中使用更复杂的数据增强技术。</p>
-<p><strong>问题</strong>：</p>
-<ul>
-<li><p>如果存在BEV Encoder模块，仅在Image-view encoder中使用数据增强可能不会有积极效果，甚至可能会降低模型的性能。</p>
-</li>
-<li><p>BEV Encoder的学习任务可用的训练样本相对于Image-view encoder较少（6：1）。</p>
-</li>
-<li><p>Image-view encoder以逐像素的方式将图像的特征转换到BEV空间，在数据增强的视角下将图像空间和BEV空间解耦，意味着对图像进行的数据增强不会直接影响到BEV空间的特征。</p>
-</li>
-</ul>
-<p><strong>处理</strong>：</p>
-<ul>
-<li><p>对输入图像应用数据增强$A$，这个变换会改变图像中每个像素的位置。但是，我们希望在BEV空间中保持这些像素点的空间关系不变。所以需要在视图变换过程中应用逆变换$A^{-1}$，确保变换后的图像在BEV空间中的表示与原始图像相同。</p>
-</li>
-<li><p>为BEV空间构建了专门的数据增强策略，包括翻转、缩放和旋转等操作。</p>
-</li>
-</ul>
-<h4 id="改进的NMS"><a href="#改进的NMS" class="headerlink" title="改进的NMS"></a>改进的NMS</h4><p><strong>问题</strong>：在BEV空间中，不同类别的对象占据的地面面积是不同的,传统的NMS算法通常使用固定的IOU阈值来决定是否抑制预测框，可能导致对于小面积对象的预测框无法正确地与真实框匹配。</p>
-<img src="/2024/06/07/object-detection/3d/bev/bevdet/image-20240607221540969.png" alt="Scale-NMS处理" style="zoom:50%;">
-
-<p><strong>处理</strong>：Scale-NMS为每个类别定义了一个特定的缩放因子（验证集上进行超参数搜索得到的），根据对象的类别对预测框的大小进行缩放，缩放后通过传统的NMS算法进行处理，最后再将预测框的大小还原。</p>
+<ol start="2">
+<li><strong>操作</strong>：</li>
+</ol>
+<p>一个静态对象，在全局坐标系中的位置在两个相邻帧中表示为 $\text P^g_s(\text T)$ 和 $\text P^g_s(\text T−1)$，那么两个特征的位置移动应表述为：</p>
+<p>$$<br>\text P ^ {e(T)} _ {s}(T) - \text P ^ {e(T-1)} _ {s}(T-1)  \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T-1)} _ {g} \text P ^ {g} _ {s}(T-1) \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T-1)} _ {e(T)} \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T-1)<br>$$</p>
+<p>如果我们直接连接这两帧特征，那么后面的模块的学习目标（即目标在两个特征中的位置移动）与自我运动相关（即 $ \text T ^ {e( \text T-1 )} _ {e( \text T )} $ )。为了避免这种情况，将相邻帧中的目标移动 $\text T ^ {e(\text T)} _ {e(\text T-1)}$ 消除自我运动的部分。</p>
+<p>$$<br>\text P ^ {e( T)} _ {s}(T) - \text T ^ {e(T)} _ {e(T-1)} \text P ^ {e(T-1)} _ {s}(T-1) \\<br>= \text T ^ {e(T)} _ {g} \text P ^ {g} _ {s}(T) - \text T ^ {e(T)} _ {e(T-1)} \text T ^ {e(T-1)} _ {g} \text P ^ {g} _ {s}(T-1)\\<br>= \text T ^{e(T)} _{g} \text P ^{g} _{s}(T) - \text T ^{e(T)} _{e(T-1)} \text T ^{e(T-1)} _{e(T)} \text T ^{e(T)} _{g} \text P ^{g} _{s}(T-1)\\<br>= \text P ^{e(T)} _{s}(T) - \text P ^{e(T)} _{s}(T-1)<br>$$</p>
+<p>给定前一帧 $\mathbf{F}(T − 1, P^{e(T−1)})$ 和当前帧 $\mathbf{F}(T, P^{e(T)})$ 的特征，可以通过以下方式获得对齐特征：</p>
+<p>$$<br>\mathbf{F’}(T-1, \text P^{e(T)}) = \mathbf{F}(T-1, \text T^{e(T-1)}_{e(T)}\text P^{e(T)})<br>$$</p>
 
                 
             </div>
@@ -650,11 +641,12 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../../../../11/object-detection/3d/bev/bevdet4d/">
+                <a href="">
                     <div class="card-image">
                         
                         
@@ -670,9 +662,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -685,6 +677,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -707,24 +700,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../../../../../04/object-detection/3d/bev/detr3d/">
+                <a href="../../../../../07/object-detection/3d/bev/bevdet/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../../medias/featureimages/47.jpg" class="responsive-img" alt="DETR3D">
+                        <img src="../../../../../../../medias/featureimages/47.jpg" class="responsive-img" alt="BEVDet">
                         
-                        <span class="card-title">DETR3D</span>
+                        <span class="card-title">BEVDet</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DETR3D通过直接在3D空间中进行预测，简化了检测流程，提高了准确性和推理速度。
+                            模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-07
                             </span>
                         <span class="publish-author">
                             
