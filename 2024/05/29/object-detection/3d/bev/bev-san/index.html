@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/9.jpg');
+            background-image: url('/medias/background/1.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -455,12 +455,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong>《BEV-SAN: Accurate BEV 3D Object Detection via Slice Attention Networks》</strong>，作者提出了一种新的用于鸟瞰图（BEV）3D目标检测的方法，称为BEV Slice Attention Network（BEV-SAN）。</p>
-<h3 id="问题提出："><a href="#问题提出：" class="headerlink" title="问题提出："></a>问题提出：</h3><ul>
+<h3 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h3><ul>
 <li><strong>现有方法的局限性</strong>：传统的BEV 3D目标检测方法构建BEV特征时，将多视图相机特征聚合到平坦的网格中，但这种方法未能强调不同高度信息的特征，例如，障碍物位于较低的高度，而卡车位于较高的高度。不同物体类别在不同的高度上有不同的分布，因此，仅使用平坦的BEV空间无法充分利用不同高度的优势。</li>
 </ul>
 <img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529154303108.png" alt="3D框在高度维度的分布" style="zoom:50%;">
 
-<h3 id="方法概述："><a href="#方法概述：" class="headerlink" title="方法概述："></a>方法概述：</h3><ul>
+<h3 id="方法概述"><a href="#方法概述" class="headerlink" title="方法概述"></a>方法概述</h3><ul>
 <li><strong>BEV-SAN简介</strong>: 提出了切片注意力网络（BEV-SAN），通过在高度维度上进行采样，构建全局和局部BEV切片，然后通过注意力机制融合这些切片的特征，生成用于任务头的最终特征图。</li>
 </ul>
 <img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529154341187.png" alt="BEV-SAN框架" style="zoom:50%;">
@@ -503,7 +503,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="局限性："><a href="#局限性：" class="headerlink" title="局限性："></a>局限性：</h3><ol>
+<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><ol>
 <li><p><strong>计算和存储成本</strong>：尽管提出了优化潜力，但额外的计算和存储成本仍然是一个考虑因素。</p>
 </li>
 <li><p><strong>对深度值准确性的敏感性</strong>：BEV-SAN遵循BEVDepth的流程，对深度值或深度分布的准确性敏感。</p>
@@ -511,7 +511,7 @@
 <li><p><strong>对其他基线方法的适用性</strong>：如何将SAN应用于其他基线方法（如BEVFormer）仍是一个待解决的问题。</p>
 </li>
 </ol>
-<h3 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h3><p>BEV-SAN通过探索BEV空间中不同高度的内在属性，提供了一种新的3D目标检测方法。通过全局和局部切片的提取以及两阶段融合策略，BEV-SAN在多个评估指标上显示出优越的性能。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>BEV-SAN通过探索BEV空间中不同高度的内在属性，提供了一种新的3D目标检测方法。通过全局和局部切片的提取以及两阶段融合策略，BEV-SAN在多个评估指标上显示出优越的性能。</p>
 
                 
             </div>
