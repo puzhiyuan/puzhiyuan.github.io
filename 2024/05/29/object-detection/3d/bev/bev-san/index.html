@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/6.jpg');
+            background-image: url('/medias/background/9.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-07
+                    2024-06-14
                 </div>
                 
 
@@ -458,12 +458,12 @@
 <h3 id="问题提出："><a href="#问题提出：" class="headerlink" title="问题提出："></a>问题提出：</h3><ul>
 <li><strong>现有方法的局限性</strong>：传统的BEV 3D目标检测方法构建BEV特征时，将多视图相机特征聚合到平坦的网格中，但这种方法未能强调不同高度信息的特征，例如，障碍物位于较低的高度，而卡车位于较高的高度。不同物体类别在不同的高度上有不同的分布，因此，仅使用平坦的BEV空间无法充分利用不同高度的优势。</li>
 </ul>
-<img src="/2024/05/29/object-detection/3d/bev/bev-san/BLOG\source\_posts\BEV-SAN\image-20240529154303108.png" alt="image-20240529154303108" style="zoom:50%;">
+<img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529154303108.png" alt="3D框在高度维度的分布" style="zoom:50%;">
 
 <h3 id="方法概述："><a href="#方法概述：" class="headerlink" title="方法概述："></a>方法概述：</h3><ul>
 <li><strong>BEV-SAN简介</strong>: 提出了切片注意力网络（BEV-SAN），通过在高度维度上进行采样，构建全局和局部BEV切片，然后通过注意力机制融合这些切片的特征，生成用于任务头的最终特征图。</li>
 </ul>
-<img src="/2024/05/29/object-detection/3d/bev/bev-san/BLOG\source\_posts\BEV-SAN\image-20240529154341187.png" alt="image-20240529154341187" style="zoom:50%;">
+<img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529154341187.png" alt="BEV-SAN框架" style="zoom:50%;">
 
 <ul>
 <li><strong>创新点</strong>:<ul>
@@ -481,7 +481,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2024/05/29/object-detection/3d/bev/bev-san/BLOG\source\_posts\BEV-SAN\image-20240529185017726.png" alt="image-20240529185017726" style="zoom:50%;">
+<img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529185017726.png" alt="全局切片和局部切片融合" style="zoom:50%;">
 
 <ul>
 <li><strong>局部切片</strong>: 通过LiDAR引导采样，突出显示信息量丰富的高度范围<ul>
@@ -492,7 +492,7 @@
 </ul>
 </li>
 </ul>
-<img src="/2024/05/29/object-detection/3d/bev/bev-san/BLOG\source\_posts\BEV-SAN\image-20240529181254964.png" alt="image-20240529181254964" style="zoom:50%;">
+<img src="/2024/05/29/object-detection/3d/bev/bev-san/image-20240529181254964.png" alt="激光雷达点云在高度维度的分布" style="zoom:50%;">
 </li>
 <li><p><strong>特征融合</strong></p>
 <ul>
