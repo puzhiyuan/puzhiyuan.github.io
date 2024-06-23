@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="3D to 2D module, Puzhiyuan&#39;Blog">
-    <meta name="description" content="3D数据通过显式和隐式映射转换为2D，以辅助3D特征提取和优化。">
+    <meta name="keywords" content="BEVDepth, Puzhiyuan&#39;Blog">
+    <meta name="description" content="BEVDepth通过深度监督、相机感知和深度细化模块提升多视图3D目标检测精度和泛化能力。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>3D to 2D module | Puzhiyuan&#39;Blog</title>
+    <title>BEVDepth | Puzhiyuan&#39;Blog</title>
     <link rel="icon" type="image/png" href="../../../../../../../favicon.png">
     <!-- 
     <style>
@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/9.jpg');
+            background-image: url('/medias/background/18.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -355,12 +355,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../medias/featureimages/42.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../medias/featureimages/40.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">3D to 2D module</h1>
+                    <h1 class="description center-align post-title">BEVDepth</h1>
                 </div>
             </div>
         </div>
@@ -384,8 +384,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../../../../tags/3D%E8%BD%AC2D/">
-                                <span class="chip bg-color">3D转2D</span>
+                            <a href="../../../../../../../tags/BEV/">
+                                <span class="chip bg-color">BEV</span>
+                            </a>
+                        
+                            <a href="../../../../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                                <span class="chip bg-color">多模态融合</span>
                             </a>
                         
                     </div>
@@ -409,21 +413,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-05-28
+                    2024-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-05-29
+                    2024-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    910
+                    1.8k
                 </div>
                 
 
@@ -450,44 +454,99 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="3D到2D转换"><a href="#3D到2D转换" class="headerlink" title="3D到2D转换"></a>3D到2D转换</h3><p>在生成鸟瞰图（BEV，Bird’s Eye View）时，除了从2D图像转换到3D空间外，还可能会采用一种策略，即首先将3D数据转换为2D表示，然后利用2D数据的丰富特征来辅助和优化3D特征的提取和处理。这种策略通常基于以下几个原因：</p>
-<ol>
-<li><strong>2D数据的丰富性</strong>：2D图像通常包含丰富的纹理和颜色信息，这些信息对于物体识别和分类非常有用。相比之下，3D数据（如点云或体素）通常只包含空间位置信息，缺乏颜色和纹理信息。</li>
-<li><strong>2D特征的成熟技术</strong>：在2D图像处理领域，已经发展出许多成熟的特征提取和分析技术，如卷积神经网络（CNN）。这些技术可以直接应用于2D数据，提取出有用的特征。</li>
-<li><strong>跨模态融合</strong>：通过将3D数据转换为2D表示，可以更容易地将2D特征与3D特征结合起来。这种跨模态融合可以提高模型对场景的理解能力，尤其是在处理遮挡、光照变化等问题时。</li>
-<li><strong>端到端优化</strong>：在某些情况下，将3D数据转换为2D表示，并利用2D特征来优化3D特征，可以实现端到端的训练和优化。这意味着整个模型可以从输入到输出进行联合优化，提高性能。</li>
+                <img src="/2024/06/23/object-detection/3d/bev/bevdepth/image-20240612101031335.png" alt="BEVDepth框架" style="zoom:50%;">
+
+<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><ol>
+<li>BEVDepth，一种新的多视图3D检测器，它利用来自点云的深度监督来指导深度学习。</li>
+<li>创新地提出将相机的内在和外在特征编码到一个深度学习模块中，使检测器对各种相机设置具有鲁棒性。</li>
+<li>引入深度细化模块对学习深度进行细化。</li>
 </ol>
-<p>这个过程可以通过显式映射和隐式映射两种方式实现。</p>
-<h4 id="1-显式映射"><a href="#1-显式映射" class="headerlink" title="1. 显式映射"></a>1. 显式映射</h4><p><strong>典型算法</strong>：</p>
-<ul>
-<li><p><strong>DETR3D（Detection Transformer for 3D）</strong>：</p>
-<ul>
-<li>利用Transformer架构直接从3D点云中进行目标检测，并将结果映射到2D空间。</li>
-<li><strong>过程</strong>：使用多视图投影和位置编码，将3D点云信息输入到Transformer模型中，进行目标检测和坐标转换。</li>
-<li><strong>优点</strong>：能够处理复杂的3D场景，检测精度高。</li>
-<li><strong>缺点</strong>：计算复杂度较高，需要较多的计算资源。</li>
+<h4 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h4><ol>
+<li><strong>基于视觉的3D目标检测</strong><ul>
+<li>直接从2D图像特征预测3D边界框<ul>
+<li>CenterNet (2019)可以用于3D检测，只需对检测头进行微小的更改。</li>
+<li>M3D-RPN (2019)提出了深度感知卷积层来增强空间感知。</li>
+<li>D4LCN (2020)采用深度图来指导动态核学习。</li>
+<li>FCOS3D (2021)通过将3D目标转换为图像域，预测物体的2D和3D属性。</li>
+<li>PGD (2022)提出了几何关系图，便于三维目标检测的深度估计。</li>
+<li>DD3D (2021)证明深度预训练可以显著提高端到端3D检测。</li>
 </ul>
 </li>
-<li><p><strong>FUTR3D</strong>：</p>
-<ul>
-<li>结合未来帧预测和3D检测，通过显式映射实现从3D到2D的转换。</li>
-<li><strong>过程</strong>：使用时序卷积网络预测未来帧的3D点云变化，然后通过几何变换将3D点云映射到2D平面。</li>
-<li><strong>优点</strong>：适用于动态场景，能够预测并处理未来帧的变化。</li>
-<li><strong>缺点</strong>：预测模型的准确性依赖于训练数据质量，对复杂场景的适应性可能受限。</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-隐式映射"><a href="#2-隐式映射" class="headerlink" title="2. 隐式映射"></a>2. 隐式映射</h4><p><strong>典型算法</strong>：</p>
-<ul>
-<li><strong>PETR（Position Embedding Transformer for 3D Object Detection）</strong>：<ul>
-<li>通过位置嵌入将3D信息隐式编码到2D特征中，使用Transformer模型进行检测。</li>
-<li><strong>过程</strong>：利用位置嵌入将3D点的位置编码为高维特征，输入到Transformer模型中，进行目标检测和特征映射。</li>
-<li><strong>优点</strong>：能够处理复杂的3D结构，模型具有较高的灵活性和适应性。</li>
-<li><strong>缺点</strong>：模型训练和推理过程计算复杂度较高，需要大量的计算资源和训练数据。</li>
+<li>预测3D空间中的物体（将二维图像特征转换为三维空间）<ul>
+<li>LSS (2020)提出了一种视图变换方法，预测深度分布并将图像特征投影到鸟瞰视图(BEV)上。</li>
+<li>BEVFormer (2022)通过局部关注和网格状BEV查询执行2D-to-3D转换。</li>
+<li>DETR3D (2022)通过变形器和对象查询检测3D对象。</li>
+<li>PETR (2022)通过引入3D位置感知表示进一步提高了性能。</li>
 </ul>
 </li>
 </ul>
-<p>在从3D到2D构建BEV空间的过程中，显式映射和隐式映射是两种主要方法。显式映射通过明确的几何关系将3D点投影到2D平面上，典型算法如DETR3D和FUTR3D能够处理复杂的3D场景和动态变化。隐式映射则通过神经网络学习隐式地将3D信息编码到2D特征中，典型算法如PETR具有较高的灵活性和适应性。在实际应用中，需要根据具体需求和计算资源选择合适的映射方法和算法。</p>
+</li>
+<li><strong>基于激光雷达的3D目标检测</strong><ul>
+<li>VoxelNet (2018)将点云体素化，将其从稀疏体素转换为密集体素，然后在密集空间中提出边界框，以帮助卷积期间的索引。</li>
+<li>SECOND (2018)通过引入基于VoxelNet的更有效的结构和采样技术，提高了在KITTI数据集上的性能。稀疏卷积也用于SECOND以提高速度。</li>
+<li>PointPillars (2019)使用柱子而不是3D卷积过程对点云进行编码，使其快速但保持良好的性能。</li>
+<li>CenterPoint (2021)提出了一种无锚点检测器，将CenterNet (2019)扩展到3D空间，并在nuScenes数据集和Waymo开放数据集上实现高性能。</li>
+<li>PointRCNN (2019)与上面讨论的基于网格的方法不同，它直接从点云创建建议。然后使用激光雷达分割来识别提议的前景点，并在第二阶段产生边界框。使用霍夫投票来收集点特征，然后从聚类中提出边界框。</li>
+<li>PV-RCNN (2020)在保持效率的同时允许点特征的可调节接受域。</li>
+</ul>
+</li>
+</ol>
+<h4 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h4><ol>
+<li>当检测器在没有深度损失的情况下进行训练时（就像 Lift-splat 一样），它仅通过学习部分深度来检测物体。用一个随机初始化张量替换Lift-splat的 $D^{pred}$ ，并在训练和测试阶段冻结它。结果表示，在用随机软值代替 $D^{pred}$ 后，mAP只下降了3.7%。进一步将软随机深度替换为硬随机深度(每个位置一次热激活)，mAP下降了6.9%。这说明，只要在正确位置的深度被激活，检测头就可以工作。</li>
+</ol>
+<img src="/2024/06/23/object-detection/3d/bev/bevdepth/image-20240623132246154.png" alt="随机初始化深度维度矩阵效果对比" style="zoom:50%;">
+
+<ol start="2">
+<li>Lift-splat检测器仅学习预测部分区域的深度。大多数像素都没有经过训练来预测合理的深度，可能导致其对图像大小、相机参数等超参数非常敏感，缺乏泛化能力。使用输入大小 256×704 训练Lift-splat检测器和改进的检测器，然后使用192×640、256×704和320×864尺寸进行测试。</li>
+</ol>
+<img src="/2024/06/23/object-detection/3d/bev/bevdepth/image-20240623131520745.png" alt="泛化能力对比" style="zoom:50%;">
+
+<ol start="3">
+<li>在没有深度监督的情况下，图像特征无法正确投影。因此，池化操作仅聚合部分语义信息。增强型检测器在这种情况下表现更好。</li>
+</ol>
+<img src="/2024/06/23/object-detection/3d/bev/bevdepth/image-20240623130035322.png" alt="深度信息对投影结果的影响" style="zoom:50%;">
+
+<h4 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h4><h5 id="1-显示深度监督"><a href="#1-显示深度监督" class="headerlink" title="1. 显示深度监督"></a>1. 显示深度监督</h5><p>Lift-splat中深度模块的唯一监督来自于检测损失，但是单独的检测损失远远不足以监督深度模块。因此，可以从点云数据中导出的真实 $D_{gt}$ 来监督中间深度预测 $D^{pred}$。通过从点云数据 $P$ 中提取真实深度信息 $D_{gt}$，并将其投影到相机视图以生成2.5D图像坐标。具体步骤如下：</p>
+<ul>
+<li><strong>坐标转换</strong>： 使用旋转矩阵 $R_i \in \mathbb{R}^{3 \times 3}$ 和平移向量 $t_i \in \mathbb{R}^{3}$ 将LiDAR点云从LiDAR坐标系转换到第 $i$ 个相机坐标系：</li>
+</ul>
+<p>$$<br>P_{\text{cam}, i} = R_i \cdot P + t_i<br>$$</p>
+<ul>
+<li><strong>投影到图像平面</strong>： 使用相机的内参矩阵 $K_i \in \mathbb{R}^{3 \times 3}$ 将三维点投影到二维图像平面，同时保留深度信息，得到2.5D图像坐标 $P_{\text{img}, i}(u, v, d)$，其中 $u$ 和 $v$ 表示像素坐标，$d$ 表示深度：</li>
+</ul>
+<p>$$<br>\begin{pmatrix} u \ v \ 1 \end{pmatrix} = K_i \cdot P_{\text{cam}, i}<br>$$</p>
+<ul>
+<li><strong>处理投影结果</strong>： 如果某个点云的2.5D投影没有落入第 $i$ 个视图，就直接丢弃它。然后，在 $P_{\text{img}, i}$ 上应用最小池化和单热化操作，以确保投影点云和预测深度之间的形状对齐。这些操作定义为 $\phi$：</li>
+</ul>
+<p>$$<br>D_{gt} = \phi(P_{\text{img}, i})<br>$$</p>
+<ul>
+<li><strong>深度监督</strong>： 最后，使用二元交叉熵损失函数 $L_{\text{depth}}$ 来监督模型的中间深度预测 $D_{pred}$：</li>
+</ul>
+<p>$$<br>L_{\text{depth}} = \text{Binary Cross-Entropy}(D_{gt}, D_{pred})<br>$$</p>
+<h5 id="2-相机感知深度预测"><a href="#2-相机感知深度预测" class="headerlink" title="2. 相机感知深度预测"></a>2. 相机感知深度预测</h5><p>经典视觉模型中估计深度与相机内参相关，而相机可能具有不同的 FOV（Field of View）。因此，可以将相机内参作为 DepthNet 的输入之一。具体步骤如下：</p>
+<ul>
+<li><p><strong>相机内参的引入</strong>： 深度估计与相机内参有关，特别是在视场（FOV）不同的多视角数据集中。为此，将相机内参作为DepthNet的输入之一。</p>
+</li>
+<li><p><strong>内参特征化</strong>：首先，将相机内参通过MLP扩展到特征空间的维度。</p>
+</li>
+<li><p><strong>重权重图像特征</strong>：使用Squeeze-and-Excitation（SE）模块对图像特征 $F_{2d}^{i}$ 进行重新加权，自适应地调整特征的权重，增强相关特征和抑制无关特征。</p>
+</li>
+<li><p><strong>拼接相机外参</strong>：将相机的外参（包括旋转矩阵 $R_i$ 和平移向量 $t_i$）与内参拼接，帮助DepthNet感知图像特征 $F_{2d}^{i}$ 在自车坐标系中的空间位置。</p>
+</li>
+<li><p><strong>整体架构</strong>：原始的DepthNet记为 $\psi$，总体的相机感知深度预测可以表示为：</p>
+</li>
+</ul>
+<p>$$<br>D_{pred}^{i} = \psi(SE(F_{2d}^{i} \mid MLP(\xi(R_i) \oplus \xi(t_i) \oplus \xi(K_i))))<br>$$</p>
+<p>其中，$\xi$ 表示扁平化操作， $\oplus$ 表示拼接操作。</p>
+<h5 id="3-深度细化模块"><a href="#3-深度细化模块" class="headerlink" title="3. 深度细化模块"></a>3. 深度细化模块</h5><p>新设计的深度优化模块（Depth Refinement Module），为了进一步增强深度预测的质量。具体步骤如下：</p>
+<ul>
+<li><p><strong>特征重新调整</strong>：首先，将特征张量 $F_{3d}$ 从形状 $[C_F, C_D, H, W]$ 重新调整为 $[C_F \times H, C_D, W]$。这里，$C_F$ 是特征通道数，$C_D$ 是深度维度，$H$ 和 $W$ 是图像的高度和宽度。</p>
+</li>
+<li><p><strong>卷积处理</strong>：在调整后的特征平面 $C_D \times W$ 上堆叠多个 $3 \times 3$ 卷积层进行处理。</p>
+</li>
+<li><p><strong>输出重塑</strong>：卷积层的输出再次调整回原来的形状，然后输入到后续的体素/柱体池化（Voxel/Pillar Pooling）操作中。</p>
+</li>
+</ul>
 
                 
             </div>
@@ -552,8 +611,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../../../../tags/3D%E8%BD%AC2D/">
-                                    <span class="chip bg-color">3D转2D</span>
+                                <a href="../../../../../../../tags/BEV/">
+                                    <span class="chip bg-color">BEV</span>
+                                </a>
+                            
+                                <a href="../../../../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                                    <span class="chip bg-color">多模态融合</span>
                                 </a>
                             
                         </div>
@@ -632,29 +695,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../../../../29/object-detection/3d/bev/rong-he-bev-gan-zhi-suan-fa/">
+                <a href="">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../../medias/featureimages/14.jpg" class="responsive-img" alt="融合BEV感知算法">
+                        <img src="../../../../../../../medias/featureimages/40.jpg" class="responsive-img" alt="BEVDepth">
                         
-                        <span class="card-title">融合BEV感知算法</span>
+                        <span class="card-title">BEVDepth</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            单模态感知系统受环境敏感性、数据稀疏性和信息维度限制。多模态融合弥补了这些缺陷。
+                            BEVDepth通过深度监督、相机感知和深度细化模块提升多视图3D目标检测精度和泛化能力。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-05-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -667,6 +731,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -689,24 +754,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../2d-to-3d-module/">
+                <a href="../../../../../11/object-detection/3d/bev/bevdet4d/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../../medias/featureimages/44.jpg" class="responsive-img" alt="2D to 3D module">
+                        <img src="../../../../../../../medias/featureimages/1.jpg" class="responsive-img" alt="BEVDet4D">
                         
-                        <span class="card-title">2D to 3D module</span>
+                        <span class="card-title">BEVDet4D</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2D图像通过深度估计（离散深度分布，连续深度分布）转换为3D空间。
+                            BEVDet4D通过融合时间维度和空间对齐操作，简化速度预测并提高检测性能。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-11
                             </span>
                         <span class="publish-author">
                             
@@ -723,8 +788,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../../../tags/2D%E8%BD%AC3D/">
-                        <span class="chip bg-color">2D转3D</span>
+                    <a href="../../../../../../../tags/BEV/">
+                        <span class="chip bg-color">BEV</span>
+                    </a>
+                    
+                    <a href="../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">纯视觉</span>
                     </a>
                     
                 </div>
