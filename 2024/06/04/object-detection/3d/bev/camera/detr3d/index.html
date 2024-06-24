@@ -1,0 +1,1381 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DETR3D, Puzhiyuan&#39;Blog">
+    <meta name="description" content="DETR3D通过直接在3D空间中进行预测，简化了检测流程，提高了准确性和推理速度。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>DETR3D | Puzhiyuan&#39;Blog</title>
+    <link rel="icon" type="image/png" href="../../../../../../../../favicon.png">
+    <!-- 
+    <style>
+        body{
+            background-image: url();
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+ -->
+
+    <style>
+        body{
+            background-image: url('/medias/background/12.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../../../../../../../../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../css/my.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../../../../../../../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../../../../../../../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../../../../../../../../css/reward.css">
+    
+
+
+
+    <script src="../../../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../../../../../../../../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../../../../../../../../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Puzhiyuan&#39;Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../index.html" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../../../../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../../../../../../../../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Puzhiyuan&#39;Blog</div>
+        <div class="logo-desc">
+            
+            头发越少人越强，我还需努力...
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../../../../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/puzhiyuan" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/puzhiyuan" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../../medias/featureimages/47.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DETR3D</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../../../../../../../../tags/BEV/">
+                                <span class="chip bg-color">BEV</span>
+                            </a>
+                        
+                            <a href="../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
+                                <span class="chip bg-color">纯视觉</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                3D目标检测
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-06-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-06-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>现有的方法直接从单目图像中估计3D边界框，或者使用深度预测网络从2D信息中生成用于3D目标检测的输入，而DETR3D的方法直接在3D空间中进行预测。该框架从多个相机图像中提取2D特征，然后使用一组稀疏的3D对象查询来索引这些2D特征，使用相机变换矩阵将3D位置链接到多视图图像。最后，对每个对象查询进行边界框预测，使用集对集损失来衡量真实值与预测值之间的差异。</p>
+<h2 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h2><img src="/2024/06/04/object-detection/3d/bev/camera/detr3d/image-20240603173354477.png" alt="DETR3D架构" style="zoom:50%;">
+
+<h3 id="Image-Feature-Extraction"><a href="#Image-Feature-Extraction" class="headerlink" title="Image Feature Extraction"></a><strong>Image Feature Extraction</strong></h3><ul>
+<li><p><strong>输入</strong>：多视角图像，相机内外参</p>
+</li>
+<li><p><strong>处理</strong>：使用ResNet+FPN提取特征</p>
+</li>
+<li><p><strong>输出</strong>：Camera Feature</p>
+</li>
+</ul>
+<p>在DETR3D框架中，首先使用ResNet和FPN从多个相机视角图像中提取2D特征。</p>
+<h3 id="2D-to-3D-Feature-Transformation"><a href="#2D-to-3D-Feature-Transformation" class="headerlink" title="2D to 3D Feature Transformation"></a>2D to 3D Feature Transformation</h3><ul>
+<li><strong>输入</strong>：Camera Feature &amp; Object Queries</li>
+<li><strong>处理</strong>：<ul>
+<li>随机初始化的查询向量</li>
+<li>提取reference points</li>
+<li>将3D点投影到图像平面 </li>
+<li>从图像特征中提取相关信息</li>
+<li>使用2D特征优化3D物体表征</li>
+</ul>
+</li>
+<li><strong>输出</strong>：Object Feature</li>
+</ul>
+<p>DETR3D通过使用一组稀疏的3D对象查询来索引这些2D特征。每个对象查询与一个3D参考点相关联，该参考点被投影到所有相机图像上，通过双线性插值从图像特征中提取信息。这些特征随后通过多头自注意力机制相互交互，优化和细化对象查询，最终生成3D边界框预测。</p>
+<h4 id="1-Object-Queries-and-Reference-Points"><a href="#1-Object-Queries-and-Reference-Points" class="headerlink" title="1. Object Queries and Reference Points"></a>1. Object Queries and Reference Points</h4><p>对象查询（Object Query）在DETR和DETR3D中的角色类似于一个先验框或锚点，用于表示和定位目标物体。它们在初始化时是一些随机向量，随着模型的训练和特征提取过程，它们会逐步融合更多的视觉信息，变得更具代表性。</p>
+<p><strong>Object Queries (对象查询)</strong></p>
+<p>对于每一层，预测M个查询向量，这些向量经过神经网络生成M个三维坐标表示该预测边界框的中心位置。</p>
+<ul>
+<li><p>每层 $l$ 都有一组对象查询 $Q_l = {q_{l1}, q_{l2}, …, q_{lM}}$，其中$q_{li} \in \mathbb{R}^C$表示第 $i$ 个对象查询，是一个$c$维的向量。</p>
+</li>
+<li><p>这些对象查询通过神经网络 $\Phi ref$ 解码为参考点 $c_{li}$，公式如下：<br>$$<br>c_{li} = \Phi ref(q_{li})<br>$$<br>$c_{li}$ 是一个三维坐标，表示第$i$个边界框的中心位置的假设。</p>
+</li>
+</ul>
+<p><strong>Projection to Camera Images（参考点投影）</strong></p>
+<p>对于每一个预测边界框的中心点，先添加一个维度变成齐次坐标，然后通过相机变换矩阵投影到对应的相机上。</p>
+<ul>
+<li><p>将 $c_{li}$ 投影到各个相机图像上，需要使用相机变换矩阵。首先将 $c_{li}$转换为齐次坐标 $c^*_{li}$，公式如下：<br>$$<br>c^*_{li} = c_{li} ⊕ 1<br>$$<br>这里 $⊕$ 表示连接操作，即在 $c_{li}$ 后面添加一个维度，使其变成齐次坐标。</p>
+</li>
+<li><p>使用相机变换矩阵 $T_m$ 将 $c^*_{li}$ 投影到第 $m$ 个相机图像上，得到 $c_{lmi}$：<br>$$<br>c_{lmi} = T_m c^*_{li}<br>$$</p>
+</li>
+</ul>
+<h4 id="2-Feature-Extraction"><a href="#2-Feature-Extraction" class="headerlink" title="2. Feature Extraction"></a>2. Feature Extraction</h4><p><strong>Feature Map Normalization (特征图归一化)</strong></p>
+<ul>
+<li>将 $c_{lmi}$ 归一化到 [-1, 1] 的范围，以适应不同分辨率的特征图。</li>
+</ul>
+<p><strong>Feature Collection (特征收集)</strong></p>
+<ul>
+<li><p>使用双线性插值从特征图中提取特征 $f_{lkmi}$：</p>
+<p><strong>双线性插值</strong>： 双线性插值是一种从图像中提取像素特征的方法，它基于参考点在图像中的位置来插值得到特征值。</p>
+<p>具体公式为：<br>$$<br>f_{lkmi} = f_{\text{bilinear}}(F_{km}, c_{lmi})<br>$$<br>其中：</p>
+<ul>
+<li>$ f_{\text{bilinear}} $ 表示双线性插值操作。</li>
+<li>$ F_{km} $ 是第 $k$ 个特征层在第 $m$ 个相机的特征图。</li>
+<li>$c_{lmi}$ 是第 $l$ 层的第 $i$ 个参考点在第 $m$ 个相机图像中的位置。</li>
+</ul>
+<p>双线性插值的具体过程（使用临近的四个像素值来计算目标点的特征值）：</p>
+<ol>
+<li><p><strong>确定邻近的四个像素</strong>： 假设 $c_{lmi}$ 的坐标是 $(x, y)$，那么它的邻近四个像素的坐标可能是：</p>
+<ul>
+<li>左上角：$(x_0, y_0)$</li>
+<li>右上角：$(x_1, y_0)$</li>
+<li>左下角：$(x_0, y_1)$</li>
+<li>右下角：$(x_1, y_1)$</li>
+</ul>
+</li>
+<li><p><strong>计算水平和垂直方向的插值</strong>： 首先对水平和垂直方向分别进行线性插值：</p>
+<ul>
+<li><p>水平方向插值：<br>$$<br>f_{x0} = F_{km}(x_0, y_0) \cdot (1 - (x - x_0)) + F_{km}(x_1, y_0) \cdot (x - x_0)<br>$$</p>
+<p>$$<br>f_{x1} = F_{km}(x_0, y_1) \cdot (1 - (x - x_0)) + F_{km}(x_1, y_1) \cdot (x - x_0)<br>$$</p>
+</li>
+<li><p>垂直方向插值：<br>$$<br>f_{lkmi} = f_{x0} \cdot (1 - (y - y_0)) + f_{x1} \cdot (y - y_0)<br>$$</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>可以得到参考点 $c_{lmi}$ 在特征图 $F_{km}$ 上的特征值 $f_{lkmi}$。</p>
+</li>
+</ul>
+<h4 id="3-Feature-Aggregation-and-Query-Update"><a href="#3-Feature-Aggregation-and-Query-Update" class="headerlink" title="3. Feature Aggregation and Query Update"></a>3. Feature Aggregation and Query Update</h4><p><strong>Heuristics for Valid Points (有效点的启发式方法)</strong></p>
+<ul>
+<li>参考点不一定在所有相机图像中都可见，需要用启发式方法筛选无效点，定义二值变量 $\sigma_{lkmi}$，如果参考点投影到图像平面外，则 $\sigma_{lkmi} = 0$，否则 $\sigma_{lkmi} = 1$。</li>
+</ul>
+<p><strong>Feature Aggregation (特征聚合)</strong></p>
+<ul>
+<li>对于每个参考点 $c_{li}$，通过聚合来自不同相机和特征层的特征值来计算聚合特征 $f_{li}$，聚合特征$f_{li}$并更新对象查询 $q_{(l+1)i}$，公式如下：</li>
+</ul>
+<p>$$<br>f_{li} = \frac{1}{\sum_k \sum_m \sigma_{lkmi} + \epsilon} \sum_k \sum_m f_{lkmi} \sigma_{lkmi}<br>$$</p>
+<p>$$<br>q_{(l+1)i} = f_{li} + q_{li}<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$f_{li}$ 是聚合后的特征值。</li>
+<li>$\sigma_{lkmi}$ 是二值变量，表示参考点是否在图像平面内。</li>
+<li>$\epsilon$ 是一个小数，防止除以零。</li>
+</ul>
+<h4 id="4-Bounding-Box-and-Classification"><a href="#4-Bounding-Box-and-Classification" class="headerlink" title="4. Bounding Box and Classification"></a>4. Bounding Box and Classification</h4><ul>
+<li>对于每个对象查询 $q_{li}$，通过两个神经网络  $\Phi reg_l$ 和 $\Phi cls_l$ 分别预测边界框 $b_{li}$ 和类别标签 $c_{li}$，公式如下：</li>
+</ul>
+<p>$$<br>b_{li} = \Phi reg_l(q_{li})<br>$$</p>
+<p>$$<br>c_{li} = \Phi cls_l(q_{li})<br>$$</p>
+<h3 id="Loss-Calculation"><a href="#Loss-Calculation" class="headerlink" title="Loss Calculation"></a>Loss Calculation</h3><ul>
+<li>计算每层的预测结果 $B_l$ 和 $C_l$ ：</li>
+</ul>
+<p>$$<br>B_l = {b_{l1}, b_{l2}, \ldots, b_{lM*}} \subset \mathbb{R}^9<br>$$</p>
+<p>$$<br>C_l = {c_{l1}, c_{l2}, \ldots, c_{lM}} \subset \mathbb{Z}<br>$$</p>
+<p>​	其中 $ b_{li} $ 表示第 $ l $ 层第 $ i $ 个对象查询预测的边界框。<br>​	其中 $ c_{li} $ 表示第 $ l $ 层第 $ i $ 个对象查询预测的分类标签。</p>
+<ol>
+<li><strong>匹配预测和真实值</strong></li>
+</ol>
+<p>首先，我们需要将预测的边界框和分类标签与真实值进行匹配。设定M个真实值和M个预测值，其中M通常小于M，因此用空值$\emptyset$填充真实值集合以便计算。这一步通常使用匈牙利算法来找到最佳匹配。</p>
+<ol start="2">
+<li><strong>边界框回归损失</strong></li>
+</ol>
+<p>对于匹配后的边界框，我们计算L1损失和IoU损失。这些损失衡量预测边界框与真实边界框之间的位置、尺寸和形状的差异。</p>
+<ul>
+<li><p><strong>L1损失</strong>：<br>$$<br>L_{\text{bbox}} = \sum_{(i,j) \in M} | b_{li} - b^*_{j} |_1<br>$$</p>
+<p>其中 $M$ 是匹配对的集合，$b_{li}$ 是预测边界框，$b^*_{j}$ 是真实边界框。</p>
+</li>
+<li><p><strong>IoU损失</strong>：<br>$$<br>L_{\text{iou}} = \sum_{(i,j) \in M} \left( 1 - \text{IoU}(b_{li}, b^*_{j}) \right)<br>$$</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>分类损失</strong></li>
+</ol>
+<p>分类损失通常使用交叉熵损失来衡量预测的分类标签与真实标签之间的差异。</p>
+<ul>
+<li><strong>交叉熵损失</strong>：<br>$$<br>L_{\text{cls}} = \sum_{(i,j) \in M} \text{CE}(c_{li}, c^*_{j})<br>$$<br>其中 $ c_{li} $ 是预测分类标签，$ c^*_{j} $ 是真实分类标签，CE表示交叉熵损失函数。</li>
+</ul>
+<ol start="4">
+<li><strong>总损失</strong></li>
+</ol>
+<p>总损失是边界框回归损失和分类损失的加权和：<br>$$<br>L = \lambda_{\text{bbox}} L_{\text{bbox}} + \lambda_{\text{iou}} L_{\text{iou}} + \lambda_{\text{cls}} L_{\text{cls}}<br>$$<br>其中 $ \lambda_{\text{bbox}} $、$ \lambda_{\text{iou}} $ 和 $ \lambda_{\text{cls}} $ 是各个损失项的权重系数。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>DETR3D通过直接在3D空间中进行预测，避免了由于深度预测带来的累积误差问题，简化了检测管道，并提高了效率。核心贡献包括：</p>
+<ul>
+<li>引入了一种将2D特征提取与3D边界框预测连接的模块，通过几何回投将3D信息无缝地使用到多视角图像中。</li>
+<li>在不需要NMS的情况下，实现了与现有基于NMS的方法相媲美的性能，显著提高了推理速度。</li>
+<li>通过在nuScenes数据集上的实验验证，证明了方法的有效性和优越性。</li>
+</ul>
+<p>这使得DETR3D成为一种高效、鲁棒且性能优越的3D目标检测方法，为自动驾驶和其他需要高精度3D检测的应用提供了新的解决方案。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../../../../../../../../about" rel="external nofollow noreferrer">puzhiyuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://puzhiyuan.github.io">https://puzhiyuan.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../../../../../../../../about" target="_blank">puzhiyuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../../../../../../../../tags/BEV/">
+                                    <span class="chip bg-color">BEV</span>
+                                </a>
+                            
+                                <a href="../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
+                                    <span class="chip bg-color">纯视觉</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../../../../../../../../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../../../../../../../../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../../../../../../../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../../../../../../../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="../../../../../../07/object-detection/3d/bev/camera/bevdet/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../../../../../../../medias/featureimages/47.jpg" class="responsive-img" alt="BEVDet">
+                        
+                        <span class="card-title">BEVDet</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    3D目标检测
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../../../../../tags/BEV/">
+                        <span class="chip bg-color">BEV</span>
+                    </a>
+                    
+                    <a href="../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">纯视觉</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../../../../../../01/object-detection/3d/bev/fusion/bevfusion/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../../../../../../../medias/featureimages/18.jpg" class="responsive-img" alt="BEVFusion">
+                        
+                        <span class="card-title">BEVFusion</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            BEVFusion架构独立处理并融合LiDAR和相机数据，提升鲁棒性和3D目标检测精度
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    3D目标检测
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../../../../../tags/BEV/">
+                        <span class="chip bg-color">BEV</span>
+                    </a>
+                    
+                    <a href="../../../../../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
+                        <span class="chip bg-color">多模态融合</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../../../../../../../../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../../../../../../../../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../../../../../../../../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../../../../../../../../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../../../../../../../../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../../../../../../../../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../../../../../../../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../../../../../../../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024</span>
+            
+            <a href="../../../../../../../../about" target="_blank">puzhiyuan</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
+            <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">20.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2024";
+                        var startMonth = "5";
+                        var startDate = "26";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天' + diffHours + ' 小时 ';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/puzhiyuan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:185489643@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=185489643" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 185489643" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="../../../../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../../../../../../../../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../../../../../../../../libs/materialize/materialize.min.js"></script>
+    <script src="../../../../../../../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../../../../../../../libs/aos/aos.js"></script>
+    <script src="../../../../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../../../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../../../../../../../js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="../../../../../../../../js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://puzhiyuan.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../../../../../../../../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="../../../../../../../../libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="../../../../../../../../libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="../../../../../../../../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
