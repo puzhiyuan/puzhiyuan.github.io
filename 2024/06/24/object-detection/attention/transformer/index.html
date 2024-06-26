@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/9.jpg');
+            background-image: url('/medias/background/10.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -468,7 +468,7 @@
 <h5 id="2-1-Scaled-Dot-Product-Attention"><a href="#2-1-Scaled-Dot-Product-Attention" class="headerlink" title="2.1 Scaled Dot-Product Attention"></a>2.1 Scaled Dot-Product Attention</h5><p>下图中，$a^1$ 生成的的query( $W_qa^1$ )去查询 $a^1,\ldots,a^4$ 生成的key( $W_ka^1,\ldots,W_ka^4$ )，获得注意力分数 $\alpha’ _ {1,1},\ldots,\alpha’_{1,4}$ ，使用这些注意力分数与 $a^1,\ldots,a^4$ 生成的value( $W_va^1,\ldots,W_va^4$ ) 做内积，最后生成$a^1$对应的 $b^1$ 。</p>
 <img src="/2024/06/24/object-detection/attention/transformer/image-20240625215332291.png" alt="self-attention" style="zoom: 33%;">
 
-<p>对该过程使用矩阵化并行计算，计算所有query和所有key的点积，除以 $\sqrt{d_k}$ ，得到注意力分数矩阵，然后使用 softmax 函数得到注意力权重矩阵，将注意力权重矩阵与value矩阵 $V$ 相乘，得到最终的注意力输出：<br>$$<br>\text{Attention}(Q,K,V) = \text{softmax}\left( \frac{QK^T}{\sqrt{d_k}} \right)V<br>$$<br>两种最常用的注意力函数是<strong>加性注意力</strong>和<strong>点积注意力</strong>。虽然两种方法在理论复杂度上相似，但点积可以使用高度优化的矩阵乘法代码来实现，所以更快且更节省空间。对于较小的 $d_k$ 值，两种机制的表现相似；但对于较大的 $d_k$ 值，如果不进行缩放，加性注意力的表现优于点积注意力。可能是对于较大的 $d_k$ 值，点积的幅度会变得很大，使得softmax函数进入梯度极小的区域。所以通过 $\frac{1}{\sqrt{d_k}}$ 缩放点积抵消这种影响。</p>
+<p>对该过程使用矩阵化并行计算，计算所有query和所有key的点积，除以 $\sqrt{d_k}$ ，得到注意力分数矩阵，然后使用 softmax 函数得到注意力权重矩阵，将注意力权重矩阵与value矩阵 $V$ 相乘，得到最终的注意力输出：<br>$$<br>\text{Attention}(Q,K,V) = \text{softmax}\left( \frac{QK^T}{\sqrt{d_k}} \right)V<br>$$<br>9两种最常用的注意力函数是<strong>加性注意力</strong>和<strong>点积注意力</strong>。虽然两种方法在理论复杂度上相似，但点积可以使用高度优化的矩阵乘法代码来实现，所以更快且更节省空间。对于较小的 $d_k$ 值，两种机制的表现相似；但对于较大的 $d_k$ 值，如果不进行缩放，加性注意力的表现优于点积注意力。可能是对于较大的 $d_k$ 值，点积的幅度会变得很大，使得softmax函数进入梯度极小的区域。所以通过 $\frac{1}{\sqrt{d_k}}$ 缩放点积抵消这种影响。</p>
 <img src="/2024/06/24/object-detection/attention/transformer/image-20240626103530457.png" alt="Dot-product and Additive-product" style="zoom: 33%;">
 
 <h5 id="2-2-Multi-Head-Attention"><a href="#2-2-Multi-Head-Attention" class="headerlink" title="2.2 Multi-Head Attention"></a>2.2 Multi-Head Attention</h5><p>对$d_{\text{model}}$维度的keys、values和queries执行单一的注意力函数不如通过不同的线性投影将queries、keys和values投影到$d_k$、$d_k$和$d_v$维度，并进行$h$次这样的操作更有益。对投影后的queries、keys和values，并行执行注意力函数，产生$d_v$维的输出值。将这些输出值拼接起来，再次进行投影，得到最终的输出值。<br>$$<br>\text{MultiHead}\left( Q,K,V \right) = \text{Concat} \left( head_{1},\ldots, head_{h}\right)W^O<br>$$</p>
@@ -504,7 +504,7 @@
 </ul>
 <p>另一种描述方式是将其视为两个卷积核大小为1的卷积操作。输入和输出的维度是 $d_{\text{model}} = 512$，而内部层的维度是 $d_{ff} = 2048$。</p>
 <h4 id="4-Embeddings-and-Softmax"><a href="#4-Embeddings-and-Softmax" class="headerlink" title="4. Embeddings and Softmax"></a>4. Embeddings and Softmax</h4><ul>
-<li>Embeddings：输入和输出序列中的单词（或标记）会转换为称为嵌入（Embeddings）的数值表示。这些嵌入捕捉了单词的含义和它们之间的关系。</li>
+<li>Embedding：输入序列中的单词（或标记）会转换为称为嵌入（Embedding-长为$d_{model}$的向量）的数值表示。这些嵌入捕捉了单词的含义和它们之间的关系。</li>
 </ul>
 <p>解码器的输出经过线性变换，生成一个维度为词汇表大小的向量，然后通过softmax函数计算每个token的概率分布，最后让该结果辅助下一个token的生成。</p>
 <p>论文中，在两个嵌入层和 pre-softmax 线性变换之间共享相同的权重矩阵，并在嵌入层中将这些权重乘以 $\sqrt{d_{model}}$。</p>
