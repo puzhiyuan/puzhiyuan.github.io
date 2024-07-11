@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/15.jpg');
+            background-image: url('/medias/background/11.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -70,7 +70,9 @@
 
     <script src="../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -182,9 +184,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style>
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+</style><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -563,7 +563,7 @@ mjx-container[display="true"] + br {
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>在计算机视觉中，注意力要么与卷积神经网络结合应用，要么用于替换卷积神经网络的某些模块，同时保持其整体结构不变。本文认为对卷积神经网络的依赖不是必要的，直接在图像块序列上应用纯 Transformer 也可以在分类任务上有良好的表现。</p>
-<img src="/2024/06/26/object-detection/attention/visual-transformer/learn\BLOG\source\_posts\object_detection\attention\Visual-Transformer\Vit.gif" alt="Fig.1 ViT flow" style="zoom:50%;">
+<img src="/2024/06/26/object-detection/attention/visual-transformer/Vit.gif" alt="Fig.1 ViT flow" style="zoom:50%;">
 
 <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><p>受到 NLP 中 Transformer 成功的启发，本文尝试将标准 Transformer 直接应用于图像，并进行尽可能少的修改。即将图像分割成  patches，并提供这些 patches 的线性嵌入序列（linear embeddings）作为 Transformer 的输入。图像块的处理方式与 NLP  中的 token（单词）相同。</p>
 <p>在中等规模的数据集（如ImageNet）上进行训练时，如果没有强力的正则化，这些模型的准确率比同等大小的ResNet低几个百分点。这种看似令人沮丧的结果是可以预料的：Transformer缺乏CNN固有的一些归纳偏置，例如平移等变性和局部性，因此在数据量不足的情况下，Transformer的泛化能力较差。 </p>
