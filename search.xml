@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Neovim&amp;LazyVim</title>
+      <link href="/2024/07/11/tools/neovim/neovim-lazyvim/"/>
+      <url>/2024/07/11/tools/neovim/neovim-lazyvim/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><p> <a href="https://www.nerdfonts.com/font-downloads">Nerd Font字体下载</a>在网站中选择喜欢的字体，右击下载按钮，复制下载地址，在终端中下载</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip<span class="token function">sudo</span> unzip JetBrainsMono.zip -d /usr/share/fonts/JetBrainsMono<span class="token function">sudo</span> fc-cache -fv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p> <strong>安装完成后注意修改终端字体！！！</strong></p><h2 id="下载-NeoVim"><a href="#下载-NeoVim" class="headerlink" title="下载 NeoVim"></a>下载 NeoVim</h2><pre class="line-numbers language-bash"><code class="language-bash">curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz<span class="token function">sudo</span> <span class="token function">rm</span> -rf /opt/nvim<span class="token function">sudo</span> <span class="token function">tar</span> -C /opt -xzf nvim-linux64.tar.gz<span class="token comment" spellcheck="true"># 加入环境变量</span><span class="token function">export</span> PATH<span class="token operator">=</span><span class="token string">"<span class="token variable">$PATH</span>:/opt/nvim-linux64/bin"</span><span class="token comment" spellcheck="true"># 或者使用软连接连接到已经存在PATH变量中的/usr/local/bin下</span><span class="token function">sudo</span> <span class="token function">ln</span> -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安装LazyVim"><a href="#安装LazyVim" class="headerlink" title="安装LazyVim"></a>安装LazyVim</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/LazyVim/starter ~/.config/nvim<span class="token function">rm</span> -rf ~/.config/nvim/.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="自动安装配置插件"><a href="#自动安装配置插件" class="headerlink" title="自动安装配置插件"></a>自动安装配置插件</h2><p>启动neovim，会自动安装需要的插件</p><pre class="line-numbers language-bash"><code class="language-bash">nvim<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> tool </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Neovim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>transformer code</title>
       <link href="/2024/07/11/object-detection/attention/transformer-code/"/>
       <url>/2024/07/11/object-detection/attention/transformer-code/</url>
@@ -199,10 +224,16 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> tool </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
       
     </entry>
     
@@ -476,7 +507,7 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> tool </category>
           
       </categories>
       
