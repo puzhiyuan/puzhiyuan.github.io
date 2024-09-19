@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo小技巧, Puzhiyuan&#39;Blog">
-    <meta name="description" content="hexo的插入图片和引用已有文件的方法">
+    <meta name="keywords" content="python_package_install, Puzhiyuan&#39;Blog">
+    <meta name="description" content="总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,8 +17,8 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo小技巧 | Puzhiyuan&#39;Blog</title>
-    <link rel="icon" type="image/png" href="../../../../../favicon.png">
+    <title>python_package_install | Puzhiyuan&#39;Blog</title>
+    <link rel="icon" type="image/png" href="../../../../../../favicon.png">
     <!-- 
     <style>
         body{
@@ -32,7 +32,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/18.jpg');
+            background-image: url('/medias/background/13.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -44,31 +44,31 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="../../../../../libs/awesome/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../libs/materialize/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="../../../../../libs/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../libs/lightGallery/css/lightgallery.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../css/matery.css">
-<link rel="stylesheet" type="text/css" href="../../../../../css/my.css">
-<link rel="stylesheet" type="text/css" href="../../../../../css/dark.css" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet" type="text/css" href="../../../../../../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../css/my.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../css/dark.css" media="none" onload="if(media!='all')media='all'">
 
 
 
 
-    <link rel="stylesheet" href="../../../../../libs/tocbot/tocbot.css">
-    <link rel="stylesheet" href="../../../../../css/post.css">
+    <link rel="stylesheet" href="../../../../../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../../../../../css/post.css">
 
 
 
 
     
-        <link rel="stylesheet" type="text/css" href="../../../../../css/reward.css">
+        <link rel="stylesheet" type="text/css" href="../../../../../../css/reward.css">
     
 
 
 
-    <script src="../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 7.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
@@ -193,9 +193,9 @@ mjx-container[display="true"] + br {
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="../../../../../index.html" class="waves-effect waves-light">
+                <a href="../../../../../../index.html" class="waves-effect waves-light">
                     
-                    <img src="../../../../../medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="../../../../../../medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Puzhiyuan&#39;Blog</span>
                 </a>
@@ -207,7 +207,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../index.html" class="waves-effect waves-light">
+    <a href="../../../../../../index.html" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -218,7 +218,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../tags" class="waves-effect waves-light">
+    <a href="../../../../../../tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -229,7 +229,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../categories" class="waves-effect waves-light">
+    <a href="../../../../../../categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -240,7 +240,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../archives" class="waves-effect waves-light">
+    <a href="../../../../../../archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -251,7 +251,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../about" class="waves-effect waves-light">
+    <a href="../../../../../../about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -262,7 +262,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../contact" class="waves-effect waves-light">
+    <a href="../../../../../../contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
@@ -273,7 +273,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../friends" class="waves-effect waves-light">
+    <a href="../../../../../../friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
@@ -299,7 +299,7 @@ mjx-container[display="true"] + br {
 
     <div class="mobile-head bg-color">
         
-        <img src="../../../../../medias/logo.png" class="logo-img circle responsive-img">
+        <img src="../../../../../../medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Puzhiyuan&#39;Blog</div>
         <div class="logo-desc">
@@ -313,7 +313,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../index.html" class="waves-effect waves-light">
+		<a href="../../../../../../index.html" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -324,7 +324,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../tags" class="waves-effect waves-light">
+		<a href="../../../../../../tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -335,7 +335,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../categories" class="waves-effect waves-light">
+		<a href="../../../../../../categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -346,7 +346,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../archives" class="waves-effect waves-light">
+		<a href="../../../../../../archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -357,7 +357,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../about" class="waves-effect waves-light">
+		<a href="../../../../../../about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -368,7 +368,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../contact" class="waves-effect waves-light">
+		<a href="../../../../../../contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../friends" class="waves-effect waves-light">
+		<a href="../../../../../../friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
@@ -467,12 +467,12 @@ mjx-container[display="true"] + br {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../medias/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo小技巧</h1>
+                    <h1 class="description center-align post-title">python_package_install</h1>
                 </div>
             </div>
         </div>
@@ -494,9 +494,13 @@ mjx-container[display="true"] + br {
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="../../../../../../tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -504,8 +508,8 @@ mjx-container[display="true"] + br {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../../../../../categories/Hexo-tips/" class="post-category">
-                                Hexo tips
+                            <a href="../../../../../../categories/language/" class="post-category">
+                                language
                             </a>
                         
                     </div>
@@ -517,21 +521,21 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-23
+                    2024-09-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-23
+                    2024-09-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    885
+                    935
                 </div>
                 
 
@@ -558,101 +562,67 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Hexo文章中插入图片的记录"><a href="#Hexo文章中插入图片的记录" class="headerlink" title="Hexo文章中插入图片的记录"></a>Hexo文章中插入图片的记录</h3><h4 id="安装图片支持插件"><a href="#安装图片支持插件" class="headerlink" title="安装图片支持插件"></a>安装图片支持插件</h4><p>在使用Hexo搭建博客时，默认情况下可能不支持Markdown文件中直接插入图片的功能。为了解决这个问题，我们需要安装一个插件来增强Markdown的功能。</p>
+                <h1 id="Python-安装包方法总结"><a href="#Python-安装包方法总结" class="headerlink" title="Python 安装包方法总结"></a>Python 安装包方法总结</h1><h2 id="1-使用-pip-安装包"><a href="#1-使用-pip-安装包" class="headerlink" title="1. 使用 pip 安装包"></a>1. 使用 <code>pip</code> 安装包</h2><p><code>pip</code> 是 Python 官方推荐的包管理工具，主要用于从 Python 包索引（PyPI）中安装、管理和升级包。</p>
+<h3 id="1-1-安装基本命令"><a href="#1-1-安装基本命令" class="headerlink" title="1.1 安装基本命令"></a>1.1 安装基本命令</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># pip install 包名</span>
+pip <span class="token function">install</span> requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="1-2-安装指定版本的包"><a href="#1-2-安装指定版本的包" class="headerlink" title="1.2 安装指定版本的包"></a>1.2 安装指定版本的包</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># pip install 包名==版本号</span>
+pip <span class="token function">install</span> numpy<span class="token operator">==</span>1.21.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="1-3-从-requirements-txt-文件安装依赖"><a href="#1-3-从-requirements-txt-文件安装依赖" class="headerlink" title="1.3 从 requirements.txt 文件安装依赖"></a>1.3 从 <code>requirements.txt</code> 文件安装依赖</h3><p>当一个项目依赖多个包时，可以将依赖包记录在 <code>requirements.txt</code> 文件中，并使用以下命令一次性安装所有依赖：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> -r requirements.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>requirements.txt</code> 文件的格式通常如下：</p>
+<pre><code>requests==2.25.1
+numpy==1.21.0
+</code></pre>
+<h2 id="2-使用-python-setup-py-安装包"><a href="#2-使用-python-setup-py-安装包" class="headerlink" title="2. 使用 python setup.py 安装包"></a>2. 使用 <code>python setup.py</code> 安装包</h2><p>开发自己的 Python 包时，通常需要创建一个 <code>setup.py</code> 文件。这个文件包含包的配置信息，如包的名称、版本、依赖库等。通过 <code>setup.py</code>，可以将项目安装到当前的 Python 环境中。</p>
+<h3 id="2-1-标准安装"><a href="#2-1-标准安装" class="headerlink" title="2.1 标准安装"></a>2.1 标准安装</h3><p>要将项目安装到 Python 环境中，可以使用以下命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">python setup.py <span class="token function">install</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将项目的文件复制到 Python 环境中的 <code>site-packages</code> 目录，安装完成后，包就可以在任何地方通过 <code>import</code> 使用。</p>
+<h3 id="2-2-开发模式安装-python-setup-py-develop"><a href="#2-2-开发模式安装-python-setup-py-develop" class="headerlink" title="2.2 开发模式安装 (python setup.py develop)"></a>2.2 开发模式安装 (<code>python setup.py develop</code>)</h3><p>开发模式下，包不会被复制到 <code>site-packages</code> 目录中，而是以<strong>软链接</strong>的方式安装。这样，你可以在不重新安装包的情况下，对代码进行修改，并且修改会<strong>实时生效</strong>。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">python setup.py develop
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在进行频繁的代码修改和测试时，省去了每次修改后重新安装包的步骤。</p>
+<h2 id="3-使用-pip-install-e-进行开发模式安装"><a href="#3-使用-pip-install-e-进行开发模式安装" class="headerlink" title="3. 使用 pip install -e . 进行开发模式安装"></a>3. 使用 <code>pip install -e .</code> 进行开发模式安装</h2><p><code>pip install -e .</code> 是 Python 包开发过程中常用的一种开发模式安装方法。</p>
+<ul>
+<li><p><code>-e</code> 参数代表 <strong>editable</strong>，即<strong>可编辑模式</strong>。当你使用这个参数时，安装的包不会被复制到 Python 环境的 <code>site-packages</code> 目录中，而是创建一个指向源代码目录的软链接。这意味着，当你修改源代码时，Python 环境中的安装包会自动更新，无需重新安装。</p>
+</li>
+<li><p>在命令 <code>pip install -e .</code> 中，<code>.</code> 代表当前目录，意思是将当前目录下的 Python 项目安装到环境中。一般这个目录包含一个 <code>setup.py</code> 文件，它定义了该项目的元数据和安装步骤。</p>
+</li>
+</ul>
+<p>例如，如果你正在开发一个名为 <code>my_project</code> 的项目，并且你的项目文件结构如下：</p>
+<pre><code>my_project/
+├── setup.py
+├── my_module/
+│   └── __init__.py
+└── tests/
+    └── test_my_module.py
+</code></pre>
+<p>你可以在 <code>my_project</code> 目录下运行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> -e <span class="token keyword">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>运行 <code>pip install -e .</code> 后，以下几件事会发生：</p>
 <ol>
-<li><p><strong>安装<code>hexo-asset-image</code>插件</strong>：<br>打开终端，进入Hexo项目目录，执行以下命令来安装插件：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">npm install hexo-asset-image --save
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><p><strong>软链接创建</strong>：<code>pip</code> 不会将你的代码复制到 Python 环境的 <code>site-packages</code> 中，而是会在 <code>site-packages</code> 目录中创建一个指向你项目目录的软链接。</p>
 </li>
-<li><p><strong>配置Hexo</strong>：<br>在Hexo的配置文件<code>_config.yml</code>中，修改以下配置：</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><p><strong>实时生效</strong>：由于包被软链接到项目的源代码目录，任何对源代码的修改都<strong>实时生效</strong>，不需要重新执行安装命令。可以边修改代码边进行测试，不必每次修改后重新安装包。</p>
+</li>
+<li><p><strong>依赖安装</strong>：如果项目的 <code>setup.py</code> 文件中定义了依赖包，<code>pip</code> 会自动为你安装这些依赖，确保项目所需的所有包都已安装。</p>
 </li>
 </ol>
-<h4 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h4><ol>
-<li><p><strong>创建新文章</strong>：<br>在终端中，进入Hexo项目目录，使用以下命令创建新文章：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo new post "文章标题"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这将会在<code>source/_posts</code>目录下生成一个以文章标题命名的新Markdown文件。</p>
-</li>
-</ol>
-<h4 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h4><ol>
-<li><p><strong>放置图片</strong>：<br>在文章的Markdown文件所在的目录中，创建一个名为<code>images</code>的文件夹（如果尚未存在）：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">mkdir -p source/_posts/文章标题/images
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>将你想要插入文章中的图片上传到这个<code>images</code>文件夹中。</p>
-</li>
-</ol>
-<h4 id="在Markdown中插入图片"><a href="#在Markdown中插入图片" class="headerlink" title="在Markdown中插入图片"></a>在Markdown中插入图片</h4><ol>
-<li><p><strong>使用相对路径引用图片</strong>：<br>打开刚创建的Markdown文件，在文章中适当的位置，使用以下格式插入图片：</p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token url">![图片描述](/2024/06/23/hexo/hexo-tip1/.././文章标题/images/图片文件名)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<h4 id="生成并预览文章"><a href="#生成并预览文章" class="headerlink" title="生成并预览文章"></a>生成并预览文章</h4><ol>
-<li><p><strong>生成静态文件</strong>：<br>在终端中，执行以下命令来生成静态文件：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo generate
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>本地预览</strong>：<br>启动本地服务器预览你的文章：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo server
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>打开浏览器，访问<code>http://localhost:4000</code>（或相应的端口），查看你的文章和图片是否正确显示。</p>
-</li>
-</ol>
-<h4 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h4><ol>
-<li><p><strong>部署文章</strong>：<br>当你满意文章的显示效果后，可以执行以下命令来部署你的博客：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo deploy
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<p>通过以上步骤，你就可以在Hexo的文章中插入图片，并成功发布到你的博客上了。</p>
-<h3 id="Hexo文章中插入文章引用的记录"><a href="#Hexo文章中插入文章引用的记录" class="headerlink" title="Hexo文章中插入文章引用的记录"></a>Hexo文章中插入文章引用的记录</h3><h4 id="安装hexo-relative-link插件"><a href="#安装hexo-relative-link插件" class="headerlink" title="安装hexo-relative-link插件"></a>安装<code>hexo-relative-link</code>插件</h4><ol>
-<li><p><strong>安装插件</strong>：<br>在终端中，进入你的Hexo项目目录，执行以下命令来安装<code>hexo-relative-link</code>插件：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">npm install hexo-relative-link
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>启用插件</strong>：<br>在Hexo的配置文件<code>_config.yml</code>中，修改以下配置：</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">relative_link</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<h4 id="创建和引用文章"><a href="#创建和引用文章" class="headerlink" title="创建和引用文章"></a>创建和引用文章</h4><ol>
-<li><p><strong>创建新文章</strong>：<br>使用Hexo命令创建新文章：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo new post "文章标题"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这会在<code>source/_posts</code>目录下创建一个新的Markdown文件。</p>
-</li>
-<li><p><strong>编辑文章</strong>：<br>编辑Markdown文件，撰写你的文章内容。</p>
-</li>
-<li><p><strong>插入相对链接</strong>：<br>在Markdown文件中，使用标准的Markdown链接语法插入链接，例如：</p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token url">[这是一个链接](/2024/06/23/hexo/hexo-tip1/../../path/to/your/other-page)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这里的<code>../path/to/your/other-page</code>是相对路径，指向你博客中的另一个页面或资源。</p>
-</li>
-</ol>
-<h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><ol>
-<li><p><strong>生成静态文件</strong>：<br>在终端中，执行以下命令来生成静态文件：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo generate
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<h4 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h4><ol>
-<li><p><strong>启动本地服务器</strong>：<br>启动Hexo的本地服务器预览你的博客：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo server
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>打开浏览器，访问<code>http://localhost:4000</code>（或相应的端口）。</p>
-</li>
-<li><p><strong>检查链接</strong>：<br>浏览你的文章，检查相对链接是否正确工作。</p>
-</li>
-</ol>
-<h4 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h4><ol>
-<li><p><strong>部署到远程服务器</strong>：<br>当你满意本地预览的效果后，执行以下命令将你的博客部署到远程服务器：</p>
-<pre class="line-numbers language-sh"><code class="language-sh">hexo deploy
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<p>通过使用<code>hexo-relative-link</code>插件，你可以确保在不同环境中（如本地开发和生产环境）链接都能正确地解析，从而避免因绝对路径导致的链接错误。</p>
+<h2 id="4-使用-conda-安装包"><a href="#4-使用-conda-安装包" class="headerlink" title="4. 使用 conda 安装包"></a>4. 使用 <code>conda</code> 安装包</h2><p>使用 Anaconda 或 Miniconda 作为 Python 环境管理工具，可以使用 <code>conda</code> 安装包：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># conda install 包名</span>
+conda <span class="token function">install</span> numpy
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><code>pip install</code>：用于从 PyPI 安装包。</li>
+<li><code>python setup.py install</code>：适用于自定义包的标准安装。</li>
+<li><code>python setup.py develop</code>：开发模式安装，支持动态修改代码。</li>
+<li><code>pip install -e .</code>：适合在本地开发模式下使用，实时反映代码修改。</li>
+<li><code>conda install</code>：用于 Conda 环境下的包管理。</li>
+</ul>
 
                 
             </div>
@@ -669,7 +639,7 @@ mjx-container[display="true"] + br {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="../../../../../about" rel="external nofollow noreferrer">puzhiyuan</a>
+                    <a href="../../../../../../about" rel="external nofollow noreferrer">puzhiyuan</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -692,7 +662,7 @@ mjx-container[display="true"] + br {
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="../../../../../about" target="_blank">puzhiyuan</a>
+                    <a href="../../../../../../about" target="_blank">puzhiyuan</a>
                     !
                 </span>
             </div>
@@ -716,17 +686,21 @@ mjx-container[display="true"] + br {
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="../../../../../../tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="../../../../../libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="../../../../../../libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="../../../../../libs/share/js/social-share.min.js"></script>
+    <script src="../../../../../../libs/share/js/social-share.min.js"></script>
     
 
     
@@ -751,10 +725,10 @@ mjx-container[display="true"] + br {
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="../../../../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="../../../../../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="../../../../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="../../../../../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -793,46 +767,48 @@ mjx-container[display="true"] + br {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../tools/git/git/">
+                <a href="">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../medias/featureimages/49.jpg" class="responsive-img" alt="Git">
+                        <img src="../../../../../../medias/featureimages/26.jpg" class="responsive-img" alt="python_package_install">
                         
-                        <span class="card-title">Git</span>
+                        <span class="card-title">python_package_install</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            版本控制工具Git的安装及使用技巧。
+                            总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../../categories/tool/" class="post-category">
-                                    tool
+                            <a href="../../../../../../categories/language/" class="post-category">
+                                    language
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="../../../../../../tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -846,48 +822,32 @@ mjx-container[display="true"] + br {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../../object-detection/3d/bev/camera/bevdepth/">
+                <a href="../../../../07/leetcode/dynamicprogramming/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../medias/featureimages/40.jpg" class="responsive-img" alt="BEVDepth">
+                        <img src="../../../../../../medias/featureimages/49.jpg" class="responsive-img" alt="dynamicProgramming">
                         
-                        <span class="card-title">BEVDepth</span>
+                        <span class="card-title">dynamicProgramming</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            BEVDepth通过深度监督、相机感知和深度细化模块提升多视图3D目标检测精度和泛化能力。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-07
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
-                                    3D目标检测
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            puzhiyuan
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="../../../../../tags/BEV/">
-                        <span class="chip bg-color">BEV</span>
-                    </a>
-                    
-                    <a href="../../../../../tags/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88/">
-                        <span class="chip bg-color">多模态融合</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -901,23 +861,23 @@ mjx-container[display="true"] + br {
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="../../../../../libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="../../../../../../libs/codeBlock/codeBlockFuction.js"></script>
 
 
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="../../../../../libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="../../../../../../libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="../../../../../libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="../../../../../../libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="../../../../../libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="../../../../../../libs/codeBlock/codeShrink.js"></script>
 
 
 
@@ -939,7 +899,7 @@ mjx-container[display="true"] + br {
 </div>
 
 
-<script src="../../../../../libs/tocbot/tocbot.min.js"></script>
+<script src="../../../../../../libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1020,7 +980,7 @@ mjx-container[display="true"] + br {
 
 <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="../../../../../libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="../../../../../../libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1070,8 +1030,8 @@ mjx-container[display="true"] + br {
     </div>
 </div>
 
-<script src="../../../../../libs/aplayer/APlayer.min.js"></script>
-<script src="../../../../../libs/aplayer/Meting.min.js"></script>
+<script src="../../../../../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../../../../../libs/aplayer/Meting.min.js"></script>
 
     
 
@@ -1082,7 +1042,7 @@ mjx-container[display="true"] + br {
             
                 <span id="year">2024</span>
             
-            <a href="../../../../../about" target="_blank">puzhiyuan</a>
+            <a href="../../../../../../about" target="_blank">puzhiyuan</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
             <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             
@@ -1200,7 +1160,7 @@ mjx-container[display="true"] + br {
 
 
 
-    <a href="../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="../../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1311,7 +1271,7 @@ $(function () {
         });
     };
 
-    searchFunc('../../../../../search.xml', 'searchInput', 'searchResult');
+    searchFunc('../../../../../../search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1347,17 +1307,17 @@ $(function () {
 </div>
 
 
-    <script src="../../../../../libs/materialize/materialize.min.js"></script>
-    <script src="../../../../../libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="../../../../../libs/aos/aos.js"></script>
-    <script src="../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="../../../../../js/matery.js"></script>
+    <script src="../../../../../../libs/materialize/materialize.min.js"></script>
+    <script src="../../../../../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../../../../../libs/aos/aos.js"></script>
+    <script src="../../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../../../../../js/matery.js"></script>
 
     
 
     
-        <script type="text/javascript" src="../../../../../js/tw_cn.js"></script>
+        <script type="text/javascript" src="../../../../../../js/tw_cn.js"></script>
         <script type="text/javascript">
           var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
           var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
@@ -1379,7 +1339,7 @@ $(function () {
 
      
         <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="../../../../../libs/others/TencentCaptcha.js"></script>
+        <script src="../../../../../../libs/others/TencentCaptcha.js"></script>
         <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
@@ -1403,7 +1363,7 @@ $(function () {
 
     
     
-    <script async src="../../../../../libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="../../../../../../libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1417,11 +1377,11 @@ $(function () {
     
 
     
-    <script type="text/javascript" src="../../../../../libs/background/ribbon-dynamic.js" async="async"></script>
+    <script type="text/javascript" src="../../../../../../libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-    <script src="../../../../../libs/instantpage/instantpage.js" type="module"></script>
+    <script src="../../../../../../libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
