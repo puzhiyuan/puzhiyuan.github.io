@@ -70,9 +70,7 @@
 
     <script src="../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -184,7 +182,9 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+</style>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -528,7 +528,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-19
+                    2024-09-22
                 </div>
                 
 
@@ -562,30 +562,30 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Python-安装包方法总结"><a href="#Python-安装包方法总结" class="headerlink" title="Python 安装包方法总结"></a>Python 安装包方法总结</h1><h2 id="1-使用-pip-安装包"><a href="#1-使用-pip-安装包" class="headerlink" title="1. 使用 pip 安装包"></a>1. 使用 <code>pip</code> 安装包</h2><p><code>pip</code> 是 Python 官方推荐的包管理工具，主要用于从 Python 包索引（PyPI）中安装、管理和升级包。</p>
+                <h1 id="Python-安装包方法总结"><a href="#Python-安装包方法总结" class="headerlink" title="Python 安装包方法总结"></a>Python 安装包方法总结</h1><h2 id="1-使用-pip-安装包"><a href="#1-使用-pip-安装包" class="headerlink" title="1. 使用 pip 安装包"></a>1. 使用 pip 安装包</h2><p><code>pip</code> 是 Python 官方推荐的包管理工具，主要用于从 Python 包索引（PyPI）中安装、管理和升级包。</p>
 <h3 id="1-1-安装基本命令"><a href="#1-1-安装基本命令" class="headerlink" title="1.1 安装基本命令"></a>1.1 安装基本命令</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># pip install 包名</span>
 pip <span class="token function">install</span> requests
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="1-2-安装指定版本的包"><a href="#1-2-安装指定版本的包" class="headerlink" title="1.2 安装指定版本的包"></a>1.2 安装指定版本的包</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># pip install 包名==版本号</span>
 pip <span class="token function">install</span> numpy<span class="token operator">==</span>1.21.0
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="1-3-从-requirements-txt-文件安装依赖"><a href="#1-3-从-requirements-txt-文件安装依赖" class="headerlink" title="1.3 从 requirements.txt 文件安装依赖"></a>1.3 从 <code>requirements.txt</code> 文件安装依赖</h3><p>当一个项目依赖多个包时，可以将依赖包记录在 <code>requirements.txt</code> 文件中，并使用以下命令一次性安装所有依赖：</p>
+<h3 id="1-3-从-requirements-txt-文件安装依赖"><a href="#1-3-从-requirements-txt-文件安装依赖" class="headerlink" title="1.3 从 requirements.txt 文件安装依赖"></a>1.3 从 requirements.txt 文件安装依赖</h3><p>当一个项目依赖多个包时，可以将依赖包记录在 <code>requirements.txt</code> 文件中，并使用以下命令一次性安装所有依赖：</p>
 <pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> -r requirements.txt
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>requirements.txt</code> 文件的格式通常如下：</p>
-<pre><code>requests==2.25.1
-numpy==1.21.0
-</code></pre>
-<h2 id="2-使用-python-setup-py-安装包"><a href="#2-使用-python-setup-py-安装包" class="headerlink" title="2. 使用 python setup.py 安装包"></a>2. 使用 <code>python setup.py</code> 安装包</h2><p>开发自己的 Python 包时，通常需要创建一个 <code>setup.py</code> 文件。这个文件包含包的配置信息，如包的名称、版本、依赖库等。通过 <code>setup.py</code>，可以将项目安装到当前的 Python 环境中。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">requests<span class="token operator">==</span>2.25.1
+numpy<span class="token operator">==</span>1.21.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="2-使用-python-setup-py-安装包"><a href="#2-使用-python-setup-py-安装包" class="headerlink" title="2. 使用 python setup.py 安装包"></a>2. 使用 python setup.py 安装包</h2><p>开发自己的 Python 包时，通常需要创建一个 <code>setup.py</code> 文件。这个文件包含包的配置信息，如包的名称、版本、依赖库等。通过 <code>setup.py</code>，可以将项目安装到当前的 Python 环境中。</p>
 <h3 id="2-1-标准安装"><a href="#2-1-标准安装" class="headerlink" title="2.1 标准安装"></a>2.1 标准安装</h3><p>要将项目安装到 Python 环境中，可以使用以下命令：</p>
 <pre class="line-numbers language-bash"><code class="language-bash">python setup.py <span class="token function">install</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将项目的文件复制到 Python 环境中的 <code>site-packages</code> 目录，安装完成后，包就可以在任何地方通过 <code>import</code> 使用。</p>
-<h3 id="2-2-开发模式安装-python-setup-py-develop"><a href="#2-2-开发模式安装-python-setup-py-develop" class="headerlink" title="2.2 开发模式安装 (python setup.py develop)"></a>2.2 开发模式安装 (<code>python setup.py develop</code>)</h3><p>开发模式下，包不会被复制到 <code>site-packages</code> 目录中，而是以<strong>软链接</strong>的方式安装。这样，你可以在不重新安装包的情况下，对代码进行修改，并且修改会<strong>实时生效</strong>。</p>
+<h3 id="2-2-开发模式安装-python-setup-py-develop"><a href="#2-2-开发模式安装-python-setup-py-develop" class="headerlink" title="2.2 开发模式安装 (python setup.py develop)"></a>2.2 开发模式安装 (python setup.py develop)</h3><p>开发模式下，包不会被复制到 <code>site-packages</code> 目录中，而是以<strong>软链接</strong>的方式安装。这样，你可以在不重新安装包的情况下，对代码进行修改，并且修改会<strong>实时生效</strong>。</p>
 <pre class="line-numbers language-bash"><code class="language-bash">python setup.py develop
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在进行频繁的代码修改和测试时，省去了每次修改后重新安装包的步骤。</p>
-<h2 id="3-使用-pip-install-e-进行开发模式安装"><a href="#3-使用-pip-install-e-进行开发模式安装" class="headerlink" title="3. 使用 pip install -e . 进行开发模式安装"></a>3. 使用 <code>pip install -e .</code> 进行开发模式安装</h2><p><code>pip install -e .</code> 是 Python 包开发过程中常用的一种开发模式安装方法。</p>
+<h2 id="3-使用-pip-install-e-进行开发模式安装"><a href="#3-使用-pip-install-e-进行开发模式安装" class="headerlink" title="3. 使用 pip install -e . 进行开发模式安装"></a>3. 使用 pip install -e . 进行开发模式安装</h2><p><code>pip install -e .</code> 是 Python 包开发过程中常用的一种开发模式安装方法。</p>
 <ul>
 <li><p><code>-e</code> 参数代表 <strong>editable</strong>，即<strong>可编辑模式</strong>。当你使用这个参数时，安装的包不会被复制到 Python 环境的 <code>site-packages</code> 目录中，而是创建一个指向源代码目录的软链接。这意味着，当你修改源代码时，Python 环境中的安装包会自动更新，无需重新安装。</p>
 </li>
@@ -593,13 +593,13 @@ numpy==1.21.0
 </li>
 </ul>
 <p>例如，如果你正在开发一个名为 <code>my_project</code> 的项目，并且你的项目文件结构如下：</p>
-<pre><code>my_project/
+<pre class="line-numbers language-bash"><code class="language-bash">my_project/
 ├── setup.py
 ├── my_module/
 │   └── __init__.py
 └── tests/
     └── test_my_module.py
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>你可以在 <code>my_project</code> 目录下运行：</p>
 <pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> -e <span class="token keyword">.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -612,7 +612,7 @@ numpy==1.21.0
 <li><p><strong>依赖安装</strong>：如果项目的 <code>setup.py</code> 文件中定义了依赖包，<code>pip</code> 会自动为你安装这些依赖，确保项目所需的所有包都已安装。</p>
 </li>
 </ol>
-<h2 id="4-使用-conda-安装包"><a href="#4-使用-conda-安装包" class="headerlink" title="4. 使用 conda 安装包"></a>4. 使用 <code>conda</code> 安装包</h2><p>使用 Anaconda 或 Miniconda 作为 Python 环境管理工具，可以使用 <code>conda</code> 安装包：</p>
+<h2 id="4-使用-conda-安装包"><a href="#4-使用-conda-安装包" class="headerlink" title="4. 使用 conda 安装包"></a>4. 使用 conda 安装包</h2><p>使用 Anaconda 或 Miniconda 作为 Python 环境管理工具，可以使用 <code>conda</code> 安装包：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># conda install 包名</span>
 conda <span class="token function">install</span> numpy
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -767,48 +767,54 @@ conda <span class="token function">install</span> numpy
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="">
+                <a href="../../../../22/object-detection/3d/bev/camera/fast-bev-code/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../medias/featureimages/26.jpg" class="responsive-img" alt="python_package_install">
+                        <img src="../../../../../../medias/featureimages/5.jpg" class="responsive-img" alt="Fast-BEV_Code">
                         
-                        <span class="card-title">python_package_install</span>
+                        <span class="card-title">Fast-BEV_Code</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。
+                            如何在3D目标检测中使用Fast-BEV模型进行调试、训练、网络构建、数据集处理以及损失计算等步骤。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../../../categories/language/" class="post-category">
-                                    language
+                            <a href="../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    3D目标检测
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../../tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="../../../../../../tags/BEV/">
+                        <span class="chip bg-color">BEV</span>
+                    </a>
+                    
+                    <a href="../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">纯视觉</span>
+                    </a>
+                    
+                    <a href="../../../../../../tags/Code/">
+                        <span class="chip bg-color">Code</span>
                     </a>
                     
                 </div>
@@ -1063,7 +1069,7 @@ conda <span class="token function">install</span> numpy
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">39.6k</span>
+                        class="white-color">44.7k</span>
             
             
             
