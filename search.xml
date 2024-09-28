@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>End-to-end_Autonomous_Driving</title>
+      <link href="/2024/09/26/end-to-end-autonomous-driving/"/>
+      <url>/2024/09/26/end-to-end-autonomous-driving/</url>
+      
+        <content type="html"><![CDATA[<h3 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0 Abstract"></a>0 Abstract</h3><p>随着大规模数据集的可用性、闭环评估的实现以及对复杂场景下自动驾驶算法性能需求的增长，端到端方法得到了快速发展。</p><ul><li>对超过270篇关于端到端自动驾驶算法的文献进行了全面分析。</li><li>涵盖了该领域的动机、发展路线图、方法论、面临的挑战及未来趋势。</li></ul><p><strong>核心</strong></p><ul><li>强调了端到端系统相较于模块化流程的优势，即通过联合优化感知和规划的特征来提升性能。</li><li>探讨了多模态融合、可解释性、因果混淆、鲁棒性和世界模型等关键挑战。</li><li>分析了基础模型和视觉预训练技术的最新进展，并讨论了如何将这些技术融入端到端驾驶框架中。</li></ul><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 自动驾驶 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> end2end </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>M2BEV</title>
       <link href="/2024/09/22/object-detection/3d/bev/camera/m2bev/"/>
       <url>/2024/09/22/object-detection/3d/bev/camera/m2bev/</url>
