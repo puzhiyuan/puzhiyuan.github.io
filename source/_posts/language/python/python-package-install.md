@@ -7,14 +7,14 @@ mathjax: true
 date: 2024-09-19 20:27:09
 password:
 summary: 总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。
-tags: python
-categories: language
+tags: [Package management]
+categories: python
 ---
 
 
 # Python 安装包方法总结
 
-## 1. 使用 `pip` 安装包
+## 1. 使用 pip 安装包
 
 `pip` 是 Python 官方推荐的包管理工具，主要用于从 Python 包索引（PyPI）中安装、管理和升级包。
 
@@ -33,7 +33,7 @@ pip install numpy==1.21.0
 ```
 
 
-### 1.3 从 `requirements.txt` 文件安装依赖
+### 1.3 从 requirements.txt 文件安装依赖
 
 当一个项目依赖多个包时，可以将依赖包记录在 `requirements.txt` 文件中，并使用以下命令一次性安装所有依赖：
 
@@ -42,14 +42,14 @@ pip install -r requirements.txt
 ```
 
 `requirements.txt` 文件的格式通常如下：
-```
+```bash
 requests==2.25.1
 numpy==1.21.0
 ```
 
 
 
-## 2. 使用 `python setup.py` 安装包
+## 2. 使用 python setup.py 安装包
 
 开发自己的 Python 包时，通常需要创建一个 `setup.py` 文件。这个文件包含包的配置信息，如包的名称、版本、依赖库等。通过 `setup.py`，可以将项目安装到当前的 Python 环境中。
 
@@ -62,7 +62,7 @@ python setup.py install
 
 将项目的文件复制到 Python 环境中的 `site-packages` 目录，安装完成后，包就可以在任何地方通过 `import` 使用。
 
-### 2.2 开发模式安装 (`python setup.py develop`)
+### 2.2 开发模式安装 (python setup.py develop)
 
 开发模式下，包不会被复制到 `site-packages` 目录中，而是以**软链接**的方式安装。这样，你可以在不重新安装包的情况下，对代码进行修改，并且修改会**实时生效**。
 
@@ -74,7 +74,7 @@ python setup.py develop
 
 
 
-## 3. 使用 `pip install -e .` 进行开发模式安装
+## 3. 使用 pip install -e . 进行开发模式安装
 
 `pip install -e .` 是 Python 包开发过程中常用的一种开发模式安装方法。
 
@@ -84,7 +84,7 @@ python setup.py develop
 
 例如，如果你正在开发一个名为 `my_project` 的项目，并且你的项目文件结构如下：
 
-```
+```bash
 my_project/
 ├── setup.py
 ├── my_module/
@@ -108,7 +108,7 @@ pip install -e .
 
 
 
-## 4. 使用 `conda` 安装包
+## 4. 使用 conda 安装包
 
 使用 Anaconda 或 Miniconda 作为 Python 环境管理工具，可以使用 `conda` 安装包：
 
