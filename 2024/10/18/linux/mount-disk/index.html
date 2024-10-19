@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="BEVDet, Puzhiyuan&#39;Blog">
-    <meta name="description" content="模块化设计的3D目标检测框架，通过改进的数据增强和NMS策略，提升模型的准确性和鲁棒性。">
+    <meta name="keywords" content="mount_disk, Puzhiyuan&#39;Blog">
+    <meta name="description" content="Linux下外接磁盘的分区和挂载操作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,8 +28,8 @@
 </script>
 
 
-    <title>BEVDet | Puzhiyuan&#39;Blog</title>
-    <link rel="icon" type="image/png" href="../../../../../../../../../favicon.png">
+    <title>mount_disk | Puzhiyuan&#39;Blog</title>
+    <link rel="icon" type="image/png" href="../../../../../favicon.png">
     <!-- 
     <style>
         body{
@@ -43,7 +43,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/11.jpg');
+            background-image: url('/medias/background/4.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -55,31 +55,31 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/awesome/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/materialize/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/lightGallery/css/lightgallery.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../css/matery.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../css/my.css">
-<link rel="stylesheet" type="text/css" href="../../../../../../../../../css/dark.css" media="none" onload="if(media!='all')media='all'">
+<link rel="stylesheet" type="text/css" href="../../../../../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../../../../../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/my.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/dark.css" media="none" onload="if(media!='all')media='all'">
 
 
 
 
-    <link rel="stylesheet" href="../../../../../../../../../libs/tocbot/tocbot.css">
-    <link rel="stylesheet" href="../../../../../../../../../css/post.css">
+    <link rel="stylesheet" href="../../../../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../../../../css/post.css">
 
 
 
 
     
-        <link rel="stylesheet" type="text/css" href="../../../../../../../../../css/reward.css">
+        <link rel="stylesheet" type="text/css" href="../../../../../css/reward.css">
     
 
 
 
-    <script src="../../../../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 7.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
@@ -204,9 +204,9 @@ mjx-container[display="true"] + br {
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="../../../../../../../../../index.html" class="waves-effect waves-light">
+                <a href="../../../../../index.html" class="waves-effect waves-light">
                     
-                    <img src="../../../../../../../../../medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="../../../../../medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Puzhiyuan&#39;Blog</span>
                 </a>
@@ -218,7 +218,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../index.html" class="waves-effect waves-light">
+    <a href="../../../../../index.html" class="waves-effect waves-light">
       
       <i class="fa-solid fa-house-user" style="zoom: 0.6;"></i>
       
@@ -229,7 +229,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../categories" class="waves-effect waves-light">
+    <a href="../../../../../categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -240,7 +240,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../tags" class="waves-effect waves-light">
+    <a href="../../../../../tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -251,7 +251,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../archives" class="waves-effect waves-light">
+    <a href="../../../../../archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -262,7 +262,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../about" class="waves-effect waves-light">
+    <a href="../../../../../about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -273,7 +273,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../contact" class="waves-effect waves-light">
+    <a href="../../../../../contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
@@ -284,7 +284,7 @@ mjx-container[display="true"] + br {
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../../../../../../../friends" class="waves-effect waves-light">
+    <a href="../../../../../friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
@@ -306,7 +306,7 @@ mjx-container[display="true"] + br {
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="../../../../../../../../../musics">
+        <a href="../../../../../musics">
           
           <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -315,7 +315,7 @@ mjx-container[display="true"] + br {
       </li>
       
       <li>
-        <a href="../../../../../../../../../movies">
+        <a href="../../../../../movies">
           
           <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -324,7 +324,7 @@ mjx-container[display="true"] + br {
       </li>
       
       <li>
-        <a href="../../../../../../../../../books">
+        <a href="../../../../../books">
           
           <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -333,7 +333,7 @@ mjx-container[display="true"] + br {
       </li>
       
       <li>
-        <a href="../../../../../../../../../galleries">
+        <a href="../../../../../galleries">
           
           <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -362,7 +362,7 @@ mjx-container[display="true"] + br {
 
     <div class="mobile-head bg-color">
         
-        <img src="../../../../../../../../../medias/logo.png" class="logo-img circle responsive-img">
+        <img src="../../../../../medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Puzhiyuan&#39;Blog</div>
         <div class="logo-desc">
@@ -376,7 +376,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../index.html" class="waves-effect waves-light">
+		<a href="../../../../../index.html" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fa-solid fa-house-user"></i>
 			
@@ -387,7 +387,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../categories" class="waves-effect waves-light">
+		<a href="../../../../../categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -398,7 +398,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../tags" class="waves-effect waves-light">
+		<a href="../../../../../tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -409,7 +409,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../archives" class="waves-effect waves-light">
+		<a href="../../../../../archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -420,7 +420,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../about" class="waves-effect waves-light">
+		<a href="../../../../../about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -431,7 +431,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../contact" class="waves-effect waves-light">
+		<a href="../../../../../contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
@@ -442,7 +442,7 @@ mjx-container[display="true"] + br {
         
         <li class="m-nav-item">
 	  
-		<a href="../../../../../../../../../friends" class="waves-effect waves-light">
+		<a href="../../../../../friends" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
@@ -464,7 +464,7 @@ mjx-container[display="true"] + br {
               
                 <li>
 
-                  <a href="../../../../../../../../../musics " style="margin-left:75px">
+                  <a href="../../../../../musics " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
 			      
@@ -474,7 +474,7 @@ mjx-container[display="true"] + br {
               
                 <li>
 
-                  <a href="../../../../../../../../../movies " style="margin-left:75px">
+                  <a href="../../../../../movies " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
 			      
@@ -484,7 +484,7 @@ mjx-container[display="true"] + br {
               
                 <li>
 
-                  <a href="../../../../../../../../../books " style="margin-left:75px">
+                  <a href="../../../../../books " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
 			      
@@ -494,7 +494,7 @@ mjx-container[display="true"] + br {
               
                 <li>
 
-                  <a href="../../../../../../../../../galleries " style="margin-left:75px">
+                  <a href="../../../../../galleries " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
 			      
@@ -585,12 +585,12 @@ mjx-container[display="true"] + br {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../../../../../medias/featureimages/47.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BEVDet</h1>
+                    <h1 class="description center-align post-title">mount_disk</h1>
                 </div>
             </div>
         </div>
@@ -612,17 +612,9 @@ mjx-container[display="true"] + br {
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="../../../../../../../../../tags/BEV/">
-                                <span class="chip bg-color">BEV</span>
-                            </a>
-                        
-                            <a href="../../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
-                                <span class="chip bg-color">纯视觉</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -630,8 +622,8 @@ mjx-container[display="true"] + br {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
-                                3D目标检测
+                            <a href="../../../../../categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -643,28 +635,28 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-06-07
+                    2024-10-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-08
+                    2024-10-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    767
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -675,7 +667,7 @@ mjx-container[display="true"] + br {
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../../../../libs/prism/prism.min.css">
+        <link rel="stylesheet" href="../../../../../libs/prism/prism.min.css">
         
 
         
@@ -687,54 +679,149 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="BEVDet"><a href="#BEVDet" class="headerlink" title="BEVDet"></a>BEVDet</h3><p>偏向于工程性的论文，在LSS的基础上提出的一些改进和优化。</p>
-<img src="/2024/06/07/autonomousdriving/object-detection/3d/bev/camera/bevdet/image-20240607212353323.png" alt="BEVDet结构" style="zoom:50%;">
+                <h2 id="1-插入设备"><a href="#1-插入设备" class="headerlink" title="1. 插入设备"></a>1. 插入设备</h2><p>将U盘或外部磁盘通过接口连接到计算机。</p>
+<h2 id="2-确认设备连接"><a href="#2-确认设备连接" class="headerlink" title="2. 确认设备连接"></a>2. 确认设备连接</h2><p>使用以下命令查看当前连接的所有块设备：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsblk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>BEVDet采用模块化设计，由四个模块组成：</p>
-<ul>
-<li>使用 Image-view encoder用于图像特征提取，包括主干和颈部</li>
-<li>View transformer将特征从图像视图转换为BEV空间</li>
-<li>BEV Encoder进一步对BEV特征进行编码</li>
-<li>在BVE特征的基础上构建特定任务的Head，并预测3D对象的目标值</li>
-</ul>
-<h3 id="方法分析"><a href="#方法分析" class="headerlink" title="方法分析"></a>方法分析</h3><h4 id="Image-view-Encoder"><a href="#Image-view-Encoder" class="headerlink" title="Image-view Encoder"></a>Image-view Encoder</h4><ul>
-<li><p>特征提取的Backbone</p>
-<ul>
-<li>ResNet</li>
-<li>SwinTransformer</li>
-</ul>
-</li>
-<li><p>多尺度特征融合的Neck</p>
-<ul>
-<li>FPN-LSS（FPN和Lift-Splat-Shoot中提出的颈部结构）</li>
-</ul>
-</li>
-</ul>
-<h4 id="View-Transformer"><a href="#View-Transformer" class="headerlink" title="View Transformer"></a>View Transformer</h4><p>利用Lift-Splat-Shoot中提出的View Transformer构建，通过分类方式对深度进行密集预测。然后，利用分类分数和得到的图像视图特征绘制预定义点云。最后，通过沿垂直方向(即Z坐标轴)进行池化操作，可以生成BEV特征。</p>
-<h4 id="BEV-Encoder"><a href="#BEV-Encoder" class="headerlink" title="BEV Encoder"></a>BEV Encoder</h4><p>结构类似于具有主干和颈部的Image-view Encoder。</p>
-<h4 id="Head"><a href="#Head" class="headerlink" title="Head"></a>Head</h4><p>自动驾驶仪中的3D物体检测主要针对行人、车辆、障碍物等可移动物体的位置、尺度、方向、速度等进行检测。所以这里直接采用CenterPoint第一阶段的3D目标检测头。</p>
-<h3 id="创新"><a href="#创新" class="headerlink" title="创新"></a>创新</h3><h4 id="数据增强策略"><a href="#数据增强策略" class="headerlink" title="数据增强策略"></a>数据增强策略</h4><p><strong>问题</strong>：BEVDet在BEV空间中的过度拟合能力。</p>
-<p><strong>处理</strong>：在Image-view encoder中使用更复杂的数据增强技术。</p>
-<p><strong>问题</strong>：</p>
-<ul>
-<li><p>如果存在BEV Encoder模块，仅在Image-view encoder中使用数据增强可能不会有积极效果，甚至可能会降低模型的性能。</p>
-</li>
-<li><p>BEV Encoder的学习任务可用的训练样本相对于Image-view encoder较少（6：1）。</p>
-</li>
-<li><p>Image-view encoder以逐像素的方式将图像的特征转换到BEV空间，在数据增强的视角下将图像空间和BEV空间解耦，意味着对图像进行的数据增强不会直接影响到BEV空间的特征。</p>
-</li>
-</ul>
-<p><strong>处理</strong>：</p>
-<ul>
-<li><p>对输入图像应用数据增强<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.697ex" height="1.62ex" role="img" focusable="false" viewBox="0 -716 750 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g></g></svg></mjx-container>，这个变换会改变图像中每个像素的位置。但是，我们希望在BEV空间中保持这些像素点的空间关系不变。所以需要在视图变换过程中应用逆变换<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="3.929ex" height="1.887ex" role="img" focusable="false" viewBox="0 -833.9 1736.7 833.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="TeXAtom" transform="translate(783,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></g></g></svg></mjx-container>，确保变换后的图像在BEV空间中的表示与原始图像相同。</p>
-</li>
-<li><p>为BEV空间构建了专门的数据增强策略，包括翻转、缩放和旋转等操作。</p>
-</li>
-</ul>
-<h4 id="改进的NMS"><a href="#改进的NMS" class="headerlink" title="改进的NMS"></a>改进的NMS</h4><p><strong>问题</strong>：在BEV空间中，不同类别的对象占据的地面面积是不同的,传统的NMS算法通常使用固定的IOU阈值来决定是否抑制预测框，可能导致对于小面积对象的预测框无法正确地与真实框匹配。</p>
-<img src="/2024/06/07/autonomousdriving/object-detection/3d/bev/camera/bevdet/image-20240607221540969.png" alt="Scale-NMS处理" style="zoom:50%;">
+<p>示例输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      <span class="token number">8</span>:0    <span class="token number">0</span> <span class="token number">465</span>.8G  <span class="token number">0</span> disk 
+├─sda1   <span class="token number">8</span>:1    <span class="token number">0</span>     1M  <span class="token number">0</span> part 
+├─sda2   <span class="token number">8</span>:2    <span class="token number">0</span>   513M  <span class="token number">0</span> part /boot/efi
+└─sda3   <span class="token number">8</span>:3    <span class="token number">0</span> <span class="token number">465</span>.3G  <span class="token number">0</span> part /var/snap/firefox/common/host-hunspell
+                                 /
+sdb      <span class="token number">8</span>:16   <span class="token number">0</span>   <span class="token number">1</span>.8T  <span class="token number">0</span> disk 
+├─sdb1   <span class="token number">8</span>:17   <span class="token number">0</span>     1K  <span class="token number">0</span> part 
+├─sdb5   <span class="token number">8</span>:21   <span class="token number">0</span>   500G  <span class="token number">0</span> part 
+└─sdb6   <span class="token number">8</span>:22   <span class="token number">0</span>   <span class="token number">1</span>.3T  <span class="token number">0</span> part <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>处理</strong>：Scale-NMS为每个类别定义了一个特定的缩放因子（验证集上进行超参数搜索得到的），根据对象的类别对预测框的大小进行缩放，缩放后通过传统的NMS算法进行处理，最后再将预测框的大小还原。</p>
+<p>在此示例中，<code>sdb</code> 是新插入的磁盘，包含三个分区 <code>sdb1</code>、<code>sdb5</code>、<code>sdb6</code>。</p>
+<h2 id="3-查看分区和文件系统信息"><a href="#3-查看分区和文件系统信息" class="headerlink" title="3. 查看分区和文件系统信息"></a>3. 查看分区和文件系统信息</h2><h3 id="3-1-检查磁盘是否已分区"><a href="#3-1-检查磁盘是否已分区" class="headerlink" title="3.1 检查磁盘是否已分区"></a>3.1 检查磁盘是否已分区</h3><p>在查看分区和文件系统信息之前，你可以使用 <code>fdisk</code> 命令来检查磁盘是否已经分区。运行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">fdisk</span> <span class="token parameter variable">-l</span> /dev/sdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这将列出所有已检测到的磁盘及其分区。如果 <code>/dev/sdb</code> 没有分区，你将看到类似以下的输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Disk /dev/sdb: <span class="token number">1.8</span> TiB, <span class="token number">2000398934016</span> bytes, <span class="token number">3907029168</span> sectors
+Units: sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disklabel type: gpt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果磁盘没有分区，你将需要创建新的分区。</p>
+<h3 id="3-2-创建新分区"><a href="#3-2-创建新分区" class="headerlink" title="3.2 创建新分区"></a>3.2 创建新分区</h3><p>记得在进行分区操作之前备份任何重要数据，因为分区操作会清除磁盘上的所有数据。</p>
+<p>使用 <code>fdisk</code> 或 <code>parted</code> 来创建新的分区。以下是使用 <code>fdisk</code> 创建新分区的步骤：</p>
+<ol>
+<li>运行 <code>fdisk</code> 命令并指定磁盘设备：</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">fdisk</span> /dev/sdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li><p>按 <code>m</code> 键进入帮助模式，查看可用的命令列表。</p>
+</li>
+<li><p>按 <code>n</code> 键创建新分区。根据提示选择分区类型（例如，<code>p</code> 为 primary partition）。</p>
+</li>
+<li><p>输入分区的起始和结束位置，或者接受默认值。</p>
+</li>
+<li><p>重复步骤 3 和 4 来创建更多分区。</p>
+</li>
+<li><p>按 <code>w</code> 键写入分区表并退出 <code>fdisk</code>。</p>
+</li>
+</ol>
+<h3 id="3-3-格式化新分区"><a href="#3-3-格式化新分区" class="headerlink" title="3.3 格式化新分区"></a>3.3 格式化新分区</h3><p>创建分区后，你需要格式化分区以创建文件系统。例如，要创建一个 <code>ext4</code> 文件系统，可以使用以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将 /dev/sdb6 替换为你创建的分区设备名</span>
+<span class="token function">sudo</span> mkfs.ext4 /dev/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-4-验证分区和文件系统信息"><a href="#3-4-验证分区和文件系统信息" class="headerlink" title="3.4 验证分区和文件系统信息"></a>3.4 验证分区和文件系统信息</h3><p>分区和格式化完成后，你可以再次使用 <code>blkid</code> 命令来查看分区的文件系统类型：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将 /dev/sdb6 替换为你创建的分区设备名</span>
+<span class="token function">sudo</span> blkid /dev/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>示例输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/dev/sdb6: <span class="token assign-left variable">LABEL</span><span class="token operator">=</span><span class="token string">"datasets"</span> <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">"8f17cfd9-4f90-45e6-a36b-2e1bfcb452a0"</span> <span class="token assign-left variable">BLOCK_SIZE</span><span class="token operator">=</span><span class="token string">"4096"</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">"ext4"</span> <span class="token assign-left variable">PARTUUID</span><span class="token operator">=</span><span class="token string">"7f277d52-06"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="4-创建挂载点"><a href="#4-创建挂载点" class="headerlink" title="4. 创建挂载点"></a>4. 创建挂载点</h2><p>选择一个目录作为挂载点，通常位于 <code>/mnt</code> 或 <code>/media</code> 下。例如，创建 <code>/mnt/sdb6</code> 目录：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /mnt/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="5-挂载分区"><a href="#5-挂载分区" class="headerlink" title="5. 挂载分区"></a>5. 挂载分区</h2><p>使用 <code>mount</code> 命令将设备挂载到挂载点：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mount</span> /dev/sdb6 /mnt/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>注意</strong>：根据文件系统类型，可能需要指定 <code>-t</code> 参数。例如，对于NTFS文件系统：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mount</span> <span class="token parameter variable">-t</span> ntfs /dev/sdb6 /mnt/sdb6
+<span class="token comment"># 或者，对于FAT32</span>
+<span class="token function">sudo</span> <span class="token function">mount</span> <span class="token parameter variable">-t</span> vfat /dev/sdb6 /mnt/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="6-验证挂载"><a href="#6-验证挂载" class="headerlink" title="6. 验证挂载"></a>6. 验证挂载</h2><p>确保设备已成功挂载，可以使用以下命令查看挂载情况：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">df</span> <span class="token parameter variable">-h</span> <span class="token operator">|</span> <span class="token function">grep</span> /mnt/sdb6
+<span class="token comment"># 或使用 `lsblk` </span>
+lsblk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>示例输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sda      <span class="token number">8</span>:0    <span class="token number">0</span> <span class="token number">465</span>.8G  <span class="token number">0</span> disk 
+├─sda1   <span class="token number">8</span>:1    <span class="token number">0</span>     1M  <span class="token number">0</span> part 
+├─sda2   <span class="token number">8</span>:2    <span class="token number">0</span>   513M  <span class="token number">0</span> part /boot/efi
+└─sda3   <span class="token number">8</span>:3    <span class="token number">0</span> <span class="token number">465</span>.3G  <span class="token number">0</span> part /var/snap/firefox/common/host-hunspell
+                                 /
+sdb      <span class="token number">8</span>:16   <span class="token number">0</span>   <span class="token number">1</span>.8T  <span class="token number">0</span> disk 
+├─sdb1   <span class="token number">8</span>:17   <span class="token number">0</span>     1K  <span class="token number">0</span> part 
+├─sdb5   <span class="token number">8</span>:21   <span class="token number">0</span>   500G  <span class="token number">0</span> part 
+└─sdb6   <span class="token number">8</span>:22   <span class="token number">0</span>   <span class="token number">1</span>.3T  <span class="token number">0</span> part /mnt/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="7-设置开机自动挂载（可选）"><a href="#7-设置开机自动挂载（可选）" class="headerlink" title="7. 设置开机自动挂载（可选）"></a>7. 设置开机自动挂载（可选）</h2><p>如果希望设备在系统启动时自动挂载，可以编辑 <code>/etc/fstab</code> 文件。</p>
+<h3 id="7-1-获取设备UUID"><a href="#7-1-获取设备UUID" class="headerlink" title="7.1 获取设备UUID"></a>7.1 获取设备UUID</h3><p>使用 <code>blkid</code> 命令获取设备的UUID：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> blkid /dev/sdb1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>示例输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/dev/sdb6: <span class="token assign-left variable">LABEL</span><span class="token operator">=</span><span class="token string">"datasets"</span> <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">"8f17cfd9-4f90-45e6-a36b-2e1bfcb452a0"</span> <span class="token assign-left variable">BLOCK_SIZE</span><span class="token operator">=</span><span class="token string">"4096"</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">"ext4"</span> <span class="token assign-left variable">PARTUUID</span><span class="token operator">=</span><span class="token string">"7f277d52-06"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>记下 <code>UUID</code> 值，例如 <code>8f17cfd9-4f90-45e6-a36b-2e1bfcb452a0</code>。</p>
+<h3 id="7-2-备份当前-fstab-文件"><a href="#7-2-备份当前-fstab-文件" class="headerlink" title="7.2 备份当前 fstab 文件"></a>7.2 备份当前 <code>fstab</code> 文件</h3><p>在修改之前，建议备份现有的 <code>fstab</code> 文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/fstab /etc/fstab.backup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="7-3-编辑-fstab-文件"><a href="#7-3-编辑-fstab-文件" class="headerlink" title="7.3 编辑 fstab 文件"></a>7.3 编辑 <code>fstab</code> 文件</h3><p>使用文本编辑器打开 <code>fstab</code> 文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/fstab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在文件末尾添加一行，格式如下（根据实际情况替换 <code>UUID</code> 和 <code>vfat</code>（文件系统类型））：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">UUID</span><span class="token operator">=</span>8f17cfd9-4f90-45e6-a36b-2e1bfcb452a0  /mnt/sdb6  ext4  defaults  <span class="token number">0</span>  <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><strong>UUID=8f17cfd9-4f90-45e6-a36b-2e1bfcb452a0</strong>：指定要挂载的分区的唯一标识符（UUID）。使用UUID可以避免设备名称变化带来的问题。</li>
+<li><strong>/mnt/sdb6</strong>：挂载点，即分区将被挂载到的目录。</li>
+<li><strong>ext4</strong>：文件系统类型。这里表示该分区使用的是 <code>ext4</code> 文件系统。</li>
+<li><strong>defaults</strong>：挂载选项。<code>defaults</code> 表示使用默认的挂载选项，包括读写权限、自动挂载等。</li>
+<li><strong>0</strong>：用于 <code>dump</code> 命令的备份标志。<code>0</code> 表示不需要备份此分区。</li>
+<li><strong>2</strong>：文件系统检查顺序（<code>fsck</code>）。根文件系统通常为 <code>1</code>，其他分区为 <code>2</code>，表示启动时 <code>fsck</code> 检查的顺序。</li>
+</ul>
+<h3 id="7-4-测试-fstab-配置"><a href="#7-4-测试-fstab-配置" class="headerlink" title="7.4 测试 fstab 配置"></a>7.4 测试 <code>fstab</code> 配置</h3><p>使用以下命令测试 <code>fstab</code> 是否配置正确：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mount</span> <span class="token parameter variable">-a</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果没有错误提示，说明配置正确。</p>
+<h2 id="8-调整挂载点权限（可选）"><a href="#8-调整挂载点权限（可选）" class="headerlink" title="8. 调整挂载点权限（可选）"></a><strong>8. 调整挂载点权限（可选）</strong></h2><p>根据需要，可以更改挂载点的所有者和权限，以便普通用户访问：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> your_username:your_group /mnt/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将 <code>your_username</code> 和 <code>your_group</code> 替换为实际的用户名和用户组。</p>
+<h2 id="9-卸载设备"><a href="#9-卸载设备" class="headerlink" title="9. 卸载设备"></a>9. 卸载设备</h2><p>在拔出设备之前，务必先卸载以防数据丢失：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">umount</span> /mnt/sdb6
+<span class="token comment"># 或使用设备名称</span>
+<span class="token function">sudo</span> <span class="token function">umount</span> /dev/sdb6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="常见问题与注意事项"><a href="#常见问题与注意事项" class="headerlink" title="常见问题与注意事项"></a>常见问题与注意事项</h2><ul>
+<li><strong>权限问题</strong>：确保挂载点目录的权限设置正确，允许需要的用户访问。</li>
+<li><strong>文件系统兼容性</strong>：不同的文件系统类型（如 NTFS、FAT32、ext4）在Linux中的支持程度不同，挂载时需指定正确的类型。</li>
+<li><strong>数据备份</strong>：在格式化分区或进行重要操作前，务必备份重要数据。</li>
+<li><strong>设备名称变化</strong>：有时设备名称（如 <code>sdb</code>）可能会变化，特别是在插入多个USB设备时。可以使用UUID来避免。</li>
+</ul>
 
                 
             </div>
@@ -751,7 +838,7 @@ mjx-container[display="true"] + br {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="../../../../../../../../../about" rel="external nofollow noreferrer">puzhiyuan</a>
+                    <a href="../../../../../about" rel="external nofollow noreferrer">puzhiyuan</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -774,7 +861,7 @@ mjx-container[display="true"] + br {
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="../../../../../../../../../about" target="_blank">puzhiyuan</a>
+                    <a href="../../../../../about" target="_blank">puzhiyuan</a>
                     !
                 </span>
             </div>
@@ -798,25 +885,17 @@ mjx-container[display="true"] + br {
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="../../../../../../../../../tags/BEV/">
-                                    <span class="chip bg-color">BEV</span>
-                                </a>
-                            
-                                <a href="../../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
-                                    <span class="chip bg-color">纯视觉</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="../../../../../../../../../libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="../../../../../libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="../../../../../../../../../libs/share/js/social-share.min.js"></script>
+    <script src="../../../../../libs/share/js/social-share.min.js"></script>
     
 
     
@@ -841,10 +920,10 @@ mjx-container[display="true"] + br {
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="../../../../../../../../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="../../../../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="../../../../../../../../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="../../../../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -899,53 +978,43 @@ mjx-container[display="true"] + br {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../../../../../../11/autonomousdriving/object-detection/3d/bev/camera/bevdet4d/">
+                <a href="">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../../../../medias/featureimages/1.jpg" class="responsive-img" alt="BEVDet4D">
+                        <img src="../../../../../medias/featureimages/13.jpg" class="responsive-img" alt="mount_disk">
                         
-                        <span class="card-title">BEVDet4D</span>
+                        <span class="card-title">mount_disk</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            BEVDet4D通过融合时间维度和空间对齐操作，简化速度预测并提高检测性能。
+                            Linux下外接磁盘的分区和挂载操作
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
-                                    3D目标检测
+                            <a href="../../../../../categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="../../../../../../../../../tags/BEV/">
-                        <span class="chip bg-color">BEV</span>
-                    </a>
-                    
-                    <a href="../../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
-                        <span class="chip bg-color">纯视觉</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -956,31 +1025,31 @@ mjx-container[display="true"] + br {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../../../../../../../04/autonomousdriving/object-detection/3d/bev/camera/detr3d/">
+                <a href="../../../13/autonomousdriving/object-detection/2d/deformable-detr/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../../../../../../medias/featureimages/47.jpg" class="responsive-img" alt="DETR3D">
+                        <img src="../../../../../medias/featureimages/7.jpg" class="responsive-img" alt="Deformable_DETR">
                         
-                        <span class="card-title">DETR3D</span>
+                        <span class="card-title">Deformable_DETR</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DETR3D通过直接在3D空间中进行预测，简化了检测流程，提高了准确性和推理速度。
+                            通过引入可变形注意力模块，提升了端到端目标检测性能，尤其在小目标检测方面，且训练收敛速度显著提高。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../../../../../../categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
-                                    3D目标检测
+                            <a href="../../../../../categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    2D目标检测
                                 </a>
                             
                             
@@ -990,12 +1059,8 @@ mjx-container[display="true"] + br {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../../../../../tags/BEV/">
-                        <span class="chip bg-color">BEV</span>
-                    </a>
-                    
-                    <a href="../../../../../../../../../tags/%E7%BA%AF%E8%A7%86%E8%A7%89/">
-                        <span class="chip bg-color">纯视觉</span>
+                    <a href="../../../../../tags/Transformer/">
+                        <span class="chip bg-color">Transformer</span>
                     </a>
                     
                 </div>
@@ -1011,26 +1076,26 @@ mjx-container[display="true"] + br {
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="../../../../../../../../../libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeBlockFuction.js"></script>
 
 
   <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="../../../../../../../../../libs/prism/prism.min.js"></script>
+  <script type="text/javascript" src="../../../../../libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="../../../../../../../../../libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="../../../../../../../../../libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="../../../../../../../../../libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeShrink.js"></script>
 
 
 
@@ -1052,7 +1117,7 @@ mjx-container[display="true"] + br {
 </div>
 
 
-<script src="../../../../../../../../../libs/tocbot/tocbot.min.js"></script>
+<script src="../../../../../libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1133,7 +1198,7 @@ mjx-container[display="true"] + br {
 
 <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="../../../../../../../../../libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="../../../../../libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1183,8 +1248,8 @@ mjx-container[display="true"] + br {
     </div>
 </div>
 
-<script src="../../../../../../../../../libs/aplayer/APlayer.min.js"></script>
-<script src="../../../../../../../../../libs/aplayer/Meting.min.js"></script>
+<script src="../../../../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../../../../libs/aplayer/Meting.min.js"></script>
 
     
 
@@ -1195,7 +1260,7 @@ mjx-container[display="true"] + br {
             
                 <span id="year">2024</span>
             
-            <a href="../../../../../../../../../about" target="_blank">puzhiyuan</a>
+            <a href="../../../../../about" target="_blank">puzhiyuan</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
             <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             
@@ -1311,7 +1376,7 @@ mjx-container[display="true"] + br {
 
 
 
-    <a href="../../../../../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
 
@@ -1422,7 +1487,7 @@ $(function () {
         });
     };
 
-    searchFunc('../../../../../../../../../search.xml', 'searchInput', 'searchResult');
+    searchFunc('../../../../../search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1458,17 +1523,17 @@ $(function () {
 </div>
 
 
-    <script src="../../../../../../../../../libs/materialize/materialize.min.js"></script>
-    <script src="../../../../../../../../../libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="../../../../../../../../../libs/aos/aos.js"></script>
-    <script src="../../../../../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="../../../../../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="../../../../../../../../../js/matery.js"></script>
+    <script src="../../../../../libs/materialize/materialize.min.js"></script>
+    <script src="../../../../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../../../../libs/aos/aos.js"></script>
+    <script src="../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../../../../js/matery.js"></script>
 
     
 
     
-        <script type="text/javascript" src="../../../../../../../../../js/tw_cn.js"></script>
+        <script type="text/javascript" src="../../../../../js/tw_cn.js"></script>
         <script type="text/javascript">
           var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
           var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
@@ -1490,7 +1555,7 @@ $(function () {
 
      
         <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="../../../../../../../../../libs/others/TencentCaptcha.js"></script>
+        <script src="../../../../../libs/others/TencentCaptcha.js"></script>
         <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
@@ -1526,11 +1591,11 @@ $(function () {
     
 
     
-    <script type="text/javascript" src="../../../../../../../../../libs/background/ribbon-dynamic.js" async="async"></script>
+    <script type="text/javascript" src="../../../../../libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
-    <script src="../../../../../../../../../libs/instantpage/instantpage.js" type="module"></script>
+    <script src="../../../../../libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>

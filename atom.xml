@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Puzhiyuan&#39;Blog</title>
+  
+  <subtitle>人生苦短，学不完啊</subtitle>
+  <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://puzhiyuan.github.io/"/>
+  <updated>2024-10-19T05:23:51.891Z</updated>
+  <id>https://puzhiyuan.github.io/</id>
+  
+  <author>
+    <name>puzhiyuan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mount_disk</title>
+    <link href="https://puzhiyuan.github.io/2024/10/18/linux/mount-disk/"/>
+    <id>https://puzhiyuan.github.io/2024/10/18/linux/mount-disk/</id>
+    <published>2024-10-18T14:31:25.000Z</published>
+    <updated>2024-10-19T05:23:51.891Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-插入设备&quot;&gt;&lt;a href=&quot;#1-插入设备&quot; class=&quot;headerlink&quot; title=&quot;1. 插入设备&quot;&gt;&lt;/a&gt;1. 插入设备&lt;/h2&gt;&lt;p&gt;将U盘或外部磁盘通过接口连接到计算机。&lt;/p&gt;
+&lt;h2 id=&quot;2-确认设备连接&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://puzhiyuan.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Deformable_DETR</title>
+    <link href="https://puzhiyuan.github.io/2024/10/13/autonomousdriving/object-detection/2d/deformable-detr/"/>
+    <id>https://puzhiyuan.github.io/2024/10/13/autonomousdriving/object-detection/2d/deformable-detr/</id>
+    <published>2024-10-13T05:21:42.000Z</published>
+    <updated>2024-10-13T14:01:00.101Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0.</summary>
+        
+      
+    
+    
+    
+    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="Transformer" scheme="https://puzhiyuan.github.io/tags/Transformer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DETR</title>
+    <link href="https://puzhiyuan.github.io/2024/10/08/autonomousdriving/object-detection/2d/detr/"/>
+    <id>https://puzhiyuan.github.io/2024/10/08/autonomousdriving/object-detection/2d/detr/</id>
+    <published>2024-10-08T11:34:18.000Z</published>
+    <updated>2024-10-13T14:01:10.824Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0.</summary>
+        
+      
+    
+    
+    
+    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="transformer" scheme="https://puzhiyuan.github.io/tags/transformer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Concurrent &amp; Parallel</title>
+    <link href="https://puzhiyuan.github.io/2024/09/29/language/python/multithreading-multiprocess/"/>
+    <id>https://puzhiyuan.github.io/2024/09/29/language/python/multithreading-multiprocess/</id>
+    <published>2024-09-29T14:12:38.000Z</published>
+    <updated>2024-10-12T14:38:35.579Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Python-多线程与多进程&quot;&gt;&lt;a href=&quot;#Python-多线程与多进程&quot; class=&quot;headerlink&quot; title=&quot;Python 多线程与多进程&quot;&gt;&lt;/a&gt;Python 多线程与多进程&lt;/h3&gt;&lt;h4 id=&quot;背景&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://puzhiyuan.github.io/categories/python/"/>
+    
+    
+    <category term="并发编程" scheme="https://puzhiyuan.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>End2End_review</title>
+    <link href="https://puzhiyuan.github.io/2024/09/26/autonomousdriving/end2end/end-to-end-autonomous-driving/"/>
+    <id>https://puzhiyuan.github.io/2024/09/26/autonomousdriving/end2end/end-to-end-autonomous-driving/</id>
+    <published>2024-09-26T12:33:33.000Z</published>
+    <updated>2024-10-12T15:01:32.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0 Abstract&quot;&gt;&lt;/a&gt;0</summary>
+        
+      
+    
+    
+    
+    <category term="端到端自动驾驶" scheme="https://puzhiyuan.github.io/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
+    
+    
+    <category term="end2end" scheme="https://puzhiyuan.github.io/tags/end2end/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>M2BEV</title>
+    <link href="https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/bev/camera/m2bev/"/>
+    <id>https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/bev/camera/m2bev/</id>
+    <published>2024-09-22T11:38:31.000Z</published>
+    <updated>2024-09-22T14:27:07.510Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0. Abstract&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;统一框架：&lt;/strong&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="BEV" scheme="https://puzhiyuan.github.io/tags/BEV/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fast-BEV_Code</title>
+    <link href="https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/bev/camera/fast-bev-code/"/>
+    <id>https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/bev/camera/fast-bev-code/</id>
+    <published>2024-09-22T07:51:57.000Z</published>
+    <updated>2024-09-22T09:20:55.266Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Debug&quot;&gt;&lt;a href=&quot;#Debug&quot; class=&quot;headerlink&quot; title=&quot;Debug&quot;&gt;&lt;/a&gt;Debug&lt;/h2&gt;&lt;h3 id=&quot;1-打断点&quot;&gt;&lt;a href=&quot;#1-打断点&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="BEV" scheme="https://puzhiyuan.github.io/tags/BEV/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+    <category term="Code" scheme="https://puzhiyuan.github.io/tags/Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python_package_install</title>
+    <link href="https://puzhiyuan.github.io/2024/09/19/language/python/python-package-install/"/>
+    <id>https://puzhiyuan.github.io/2024/09/19/language/python/python-package-install/</id>
+    <published>2024-09-19T12:27:09.000Z</published>
+    <updated>2024-10-12T14:39:36.208Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Python-安装包方法总结&quot;&gt;&lt;a href=&quot;#Python-安装包方法总结&quot; class=&quot;headerlink&quot; title=&quot;Python 安装包方法总结&quot;&gt;&lt;/a&gt;Python 安装包方法总结&lt;/h1&gt;&lt;h2 id=&quot;1-使用-pip-安装包&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://puzhiyuan.github.io/categories/python/"/>
+    
+    
+    <category term="Package management" scheme="https://puzhiyuan.github.io/tags/Package-management/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dynamicProgramming</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/dynamicprogramming/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/dynamicprogramming/</id>
+    <published>2024-09-07T14:07:06.000Z</published>
+    <updated>2024-09-19T13:21:43.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-斐波那契数&quot;&gt;&lt;a href=&quot;#1-斐波那契数&quot; class=&quot;headerlink&quot; title=&quot;1. 斐波那契数&quot;&gt;&lt;/a&gt;1. &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>binaryTree</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/binarytree/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/binarytree/</id>
+    <published>2024-09-07T14:06:30.000Z</published>
+    <updated>2024-09-19T13:18:33.547Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;二叉树结构定义&quot;&gt;&lt;a href=&quot;#二叉树结构定义&quot; class=&quot;headerlink&quot; title=&quot;二叉树结构定义&quot;&gt;&lt;/a&gt;二叉树结构定义&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-python&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>string</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/string/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/string/</id>
+    <published>2024-09-07T14:05:25.000Z</published>
+    <updated>2024-09-19T13:29:01.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-反转字符串&quot;&gt;&lt;a href=&quot;#1-反转字符串&quot; class=&quot;headerlink&quot; title=&quot;1. 反转字符串&quot;&gt;&lt;/a&gt;1. &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hashTable</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/hashtable/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/hashtable/</id>
+    <published>2024-09-07T14:05:13.000Z</published>
+    <updated>2024-09-19T13:24:19.955Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-有效的字母异位词&quot;&gt;&lt;a href=&quot;#1-有效的字母异位词&quot; class=&quot;headerlink&quot; title=&quot;1. 有效的字母异位词&quot;&gt;&lt;/a&gt;1. &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linkList</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/linklist/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/linklist/</id>
+    <published>2024-09-07T14:04:57.000Z</published>
+    <updated>2024-09-19T13:27:04.310Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;链表元素结构体&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>array</title>
+    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/array/"/>
+    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/array/</id>
+    <published>2024-09-07T14:04:13.000Z</published>
+    <updated>2024-09-19T13:16:23.522Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-二分查找&quot;&gt;&lt;a href=&quot;#1-二分查找&quot; class=&quot;headerlink&quot; title=&quot;1. 二分查找&quot;&gt;&lt;/a&gt;1. 二分查找&lt;/h3&gt;&lt;h4 id=&quot;1-左闭右闭&quot;&gt;&lt;a href=&quot;#1-左闭右闭&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://puzhiyuan.github.io/categories/algorithm/"/>
+    
+    
+    <category term="代码随想录" scheme="https://puzhiyuan.github.io/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UniAD</title>
+    <link href="https://puzhiyuan.github.io/2024/07/26/autonomousdriving/end2end/uniad/"/>
+    <id>https://puzhiyuan.github.io/2024/07/26/autonomousdriving/end2end/uniad/</id>
+    <published>2024-07-26T06:00:33.000Z</published>
+    <updated>2024-10-12T15:03:48.251Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-Abstract&quot;&gt;&lt;a href=&quot;#1-Abstract&quot; class=&quot;headerlink&quot; title=&quot;1 Abstract&quot;&gt;&lt;/a&gt;1</summary>
+        
+      
+    
+    
+    
+    <category term="端到端自动驾驶" scheme="https://puzhiyuan.github.io/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
+    
+    
+    <category term="end2end" scheme="https://puzhiyuan.github.io/tags/end2end/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fast_BEV</title>
+    <link href="https://puzhiyuan.github.io/2024/07/24/autonomousdriving/object-detection/3d/bev/camera/fast-bev/"/>
+    <id>https://puzhiyuan.github.io/2024/07/24/autonomousdriving/object-detection/3d/bev/camera/fast-bev/</id>
+    <published>2024-07-24T13:56:40.000Z</published>
+    <updated>2024-07-28T07:35:59.254Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-摘要&quot;&gt;&lt;a href=&quot;#1-摘要&quot; class=&quot;headerlink&quot; title=&quot;1 摘要&quot;&gt;&lt;/a&gt;1 摘要&lt;/h3&gt;&lt;p&gt;Fast -BEV 由五个部分组成，创新地提出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;轻量级部署友好的视图转换，可快速将 2D</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="BEV" scheme="https://puzhiyuan.github.io/tags/BEV/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Neovim&amp;LazyVim</title>
+    <link href="https://puzhiyuan.github.io/2024/07/11/tools/neovim/neovim-lazyvim/"/>
+    <id>https://puzhiyuan.github.io/2024/07/11/tools/neovim/neovim-lazyvim/</id>
+    <published>2024-07-11T11:53:59.000Z</published>
+    <updated>2024-07-11T11:55:54.610Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安装字体&quot;&gt;&lt;a href=&quot;#安装字体&quot; class=&quot;headerlink&quot; title=&quot;安装字体&quot;&gt;&lt;/a&gt;安装字体&lt;/h2&gt;&lt;p&gt; &lt;a href=&quot;https://www.nerdfonts.com/font-downloads&quot;&gt;Nerd</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="Neovim" scheme="https://puzhiyuan.github.io/tags/Neovim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>transformer code</title>
+    <link href="https://puzhiyuan.github.io/2024/07/11/autonomousdriving/object-detection/attention/transformer-code/"/>
+    <id>https://puzhiyuan.github.io/2024/07/11/autonomousdriving/object-detection/attention/transformer-code/</id>
+    <published>2024-07-11T03:34:56.000Z</published>
+    <updated>2024-07-11T07:52:46.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Utils-py&quot;&gt;&lt;a href=&quot;#Utils-py&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="transformer" scheme="https://puzhiyuan.github.io/categories/transformer/"/>
+    
+    
+    <category term="transformer" scheme="https://puzhiyuan.github.io/tags/transformer/"/>
+    
+    <category term="code" scheme="https://puzhiyuan.github.io/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>StreamPETR</title>
+    <link href="https://puzhiyuan.github.io/2024/07/09/autonomousdriving/object-detection/3d/bev/camera/streampetr/"/>
+    <id>https://puzhiyuan.github.io/2024/07/09/autonomousdriving/object-detection/3d/bev/camera/streampetr/</id>
+    <published>2024-07-09T08:00:15.000Z</published>
+    <updated>2024-07-09T11:06:37.030Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-Introduction&quot;&gt;&lt;a href=&quot;#1-Introduction&quot; class=&quot;headerlink&quot; title=&quot;1. Introduction&quot;&gt;&lt;/a&gt;1.</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Visual Transformer</title>
+    <link href="https://puzhiyuan.github.io/2024/06/26/autonomousdriving/object-detection/attention/visual-transformer/"/>
+    <id>https://puzhiyuan.github.io/2024/06/26/autonomousdriving/object-detection/attention/visual-transformer/</id>
+    <published>2024-06-26T06:03:31.000Z</published>
+    <updated>2024-07-11T03:32:42.268Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在计算机视觉中，注意力要么与卷积神经网络结合应用，要么用于替换卷积神经网络的某些模块，同时保持其整体结构不变。本文认为对卷积神经网络的依赖不是必要的，直接在图像块序列上应用纯 Transformer 也可以在分类任务上有良好的表现。&lt;/p&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="transformer" scheme="https://puzhiyuan.github.io/tags/transformer/"/>
+    
+  </entry>
+  
+</feed>
