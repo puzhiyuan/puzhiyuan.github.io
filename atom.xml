@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2024-10-20T14:12:05.801Z</updated>
+  <updated>2024-10-23T15:02:53.400Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssh_key</title>
+    <link href="https://puzhiyuan.github.io/2024/10/23/tools/ssh/ssh-key/"/>
+    <id>https://puzhiyuan.github.io/2024/10/23/tools/ssh/ssh-key/</id>
+    <published>2024-10-23T13:37:16.000Z</published>
+    <updated>2024-10-23T15:02:53.400Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在实习的时候用的 vscode</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="SSH" scheme="https://puzhiyuan.github.io/tags/SSH/"/>
+    
+  </entry>
   
   <entry>
     <title>File_Flex</title>
@@ -503,33 +528,6 @@
     
     
     <category term="Neovim" scheme="https://puzhiyuan.github.io/tags/Neovim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>transformer code</title>
-    <link href="https://puzhiyuan.github.io/2024/07/11/autonomousdriving/object-detection/attention/transformer/transformer-code/"/>
-    <id>https://puzhiyuan.github.io/2024/07/11/autonomousdriving/object-detection/attention/transformer/transformer-code/</id>
-    <published>2024-07-11T03:34:56.000Z</published>
-    <updated>2024-10-20T11:09:34.496Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;Utils-py&quot;&gt;&lt;a href=&quot;#Utils-py&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="注意力" scheme="https://puzhiyuan.github.io/categories/%E6%B3%A8%E6%84%8F%E5%8A%9B/"/>
-    
-    
-    <category term="transformer" scheme="https://puzhiyuan.github.io/tags/transformer/"/>
-    
-    <category term="code" scheme="https://puzhiyuan.github.io/tags/code/"/>
     
   </entry>
   
