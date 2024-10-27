@@ -43,7 +43,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/0.jpg');
+            background-image: url('/medias/background/18.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -81,8 +81,7 @@
 
     <script src="../../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
-<style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -196,6 +195,7 @@ mjx-container[display="true"] + br {
 }
 </style>
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
 </head>
 
 
@@ -539,14 +539,14 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-11
+                    2024-10-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    978
+                    1k
                 </div>
                 
 
@@ -639,46 +639,39 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h4 id="2-安装-Docker-软件包。"><a href="#2-安装-Docker-软件包。" class="headerlink" title="2. 安装 Docker 软件包。"></a>2. 安装 Docker 软件包。</h4><p>要安装最新版本，请运行：</p>
-<ul>
-<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></li>
-</ul>
-<h4 id="3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。"><a href="#3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。" class="headerlink" title="3. 通过运行镜像来验证Docker Engine安装是否成功 hello-world。"></a>3. 通过运行镜像来验证Docker Engine安装是否成功 <code>hello-world</code>。</h4><ul>
-<li><code>sudo docker run hello-world</code></li>
-</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。"><a href="#3-通过运行镜像来验证Docker-Engine安装是否成功-hello-world。" class="headerlink" title="3. 通过运行镜像来验证Docker Engine安装是否成功 hello-world。"></a>3. 通过运行镜像来验证Docker Engine安装是否成功 <code>hello-world</code>。</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">docker</span> run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2024/05/27/tools/docker/docker-install/image-20241027132155875.png" alt="Fig.1 docker run test" style="zoom:50%;">
+
+<p>docker run 的时候，hello-world 这个镜像是不存在本地的，所以他去远程仓库拉取镜像并运行（docker 镜像源最近有一些问题，如果访问不到建议上网找一些可以访问的镜像源）。</p>
 <h4 id="4-以非-root-用户身份管理-Docker"><a href="#4-以非-root-用户身份管理-Docker" class="headerlink" title="4. 以非 root 用户身份管理 Docker"></a>4. 以非 root 用户身份管理 Docker</h4><p>  Docker 守护进程绑定到 Unix 套接字，而不是 TCP 端口。默认情况下，该 <code>root</code>用户拥有      Unix 套接字，其他用户只能使用 <code>sudo</code>. Docker 守护进程始终以<code>root</code>用户身份运行。</p>
 <p>  如果您不想<code>docker</code>在命令前面加上<code>sudo</code>，请创建一个名为 的 Unix 组<code>docker</code>并向其中添加用户。当 Docker 守护进程启动时，它会创建一个可由组成员访问的 Unix 套接字<code>docker</code>。在某些 Linux 发行版上，系统在使用包管理器安装 Docker Engine 时会自动创建该组。在这种情况下，您无需手动创建组。</p>
 <p>  创建<code>docker</code>组并添加您的用户：</p>
 <ul>
 <li><p>创建<code>docker</code>群组。</p>
-<ul>
-<li><code>sudo groupadd docker</code></li>
-</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>将您的用户添加到<code>docker</code>组中。</p>
-<ul>
-<li><code>sudo usermod -aG docker $USER</code></li>
-</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">docker</span> <span class="token environment constant">$USER</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>激活对组的更改：</p>
-<ul>
-<li><code>newgrp docker</code></li>
-</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">newgrp <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>验证是否可以不用<code>sudo</code>执行<code>docker</code></p>
-<ul>
-<li><code>docker run hello-world</code></li>
-</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>此命令下载测试镜像并在容器中运行它。当容器运行时，它会打印一条消息并退出。</p>
 <p>如果您在将用户添加到组之前运行 Docker CLI 命令<code>docker</code>，可能会看到以下错误：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">WARNING: Error loading config file: /home/user/.docker/config.json <span class="token parameter variable">-stat</span>
 /home/user/.docker/config.json: permission denied<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>此错误表明由于之前使用过该命令，该目录的权限设置不正确。<br>要解决此问题，删除<code>~/.docker/</code>目录（它会自动重新创建，但所有自定义设置都会丢失），或者使用以下命令更改其所有权和权限：</p>
-<ul>
-<li><code>sudo chown "$USER":"$USER" /home/"$USER"/.docker -R</code></li>
-<li><code>sudo chmod g+rwx "$HOME/.docker" -R</code></li>
-</ul>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">chown</span> <span class="token string">"<span class="token environment constant">$USER</span>"</span><span class="token builtin class-name">:</span><span class="token string">"<span class="token environment constant">$USER</span>"</span> /home/<span class="token string">"<span class="token environment constant">$USER</span>"</span>/.docker <span class="token parameter variable">-R</span>
+<span class="token function">sudo</span> <span class="token function">chmod</span> g+rwx <span class="token string">"<span class="token environment constant">$HOME</span>/.docker"</span> <span class="token parameter variable">-R</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
 
                 
@@ -1137,7 +1130,7 @@ mjx-container[display="true"] + br {
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">68.3k</span>
+                        class="white-color">72.2k</span>
             
             
             
