@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2024-10-27T14:08:17.472Z</updated>
+  <updated>2024-10-29T13:58:52.663Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>docker_use</title>
-    <link href="https://puzhiyuan.github.io/2024/10/26/tools/docker/docker-use/"/>
-    <id>https://puzhiyuan.github.io/2024/10/26/tools/docker/docker-use/</id>
+    <link href="https://puzhiyuan.github.io/tools/docker/docker_use/"/>
+    <id>https://puzhiyuan.github.io/tools/docker/docker_use/</id>
     <published>2024-10-26T13:32:04.000Z</published>
-    <updated>2024-10-27T14:08:17.472Z</updated>
+    <updated>2024-10-29T13:58:52.663Z</updated>
     
     
       
@@ -43,10 +43,10 @@
   
   <entry>
     <title>Sparse4Dv3</title>
-    <link href="https://puzhiyuan.github.io/2024/10/24/autonomousdriving/object-detection/3d/camera/sparse4dv3/"/>
-    <id>https://puzhiyuan.github.io/2024/10/24/autonomousdriving/object-detection/3d/camera/sparse4dv3/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv3/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv3/</id>
     <published>2024-10-24T13:34:25.000Z</published>
-    <updated>2024-10-26T13:39:16.706Z</updated>
+    <updated>2024-10-29T13:56:54.136Z</updated>
     
     
       
@@ -72,10 +72,10 @@
   
   <entry>
     <title>ssh_key</title>
-    <link href="https://puzhiyuan.github.io/2024/10/23/tools/ssh/ssh-key/"/>
-    <id>https://puzhiyuan.github.io/2024/10/23/tools/ssh/ssh-key/</id>
+    <link href="https://puzhiyuan.github.io/tools/ssh/ssh_key/"/>
+    <id>https://puzhiyuan.github.io/tools/ssh/ssh_key/</id>
     <published>2024-10-23T13:37:16.000Z</published>
-    <updated>2024-10-24T03:06:28.267Z</updated>
+    <updated>2024-10-29T13:56:54.109Z</updated>
     
     
       
@@ -97,10 +97,10 @@
   
   <entry>
     <title>File_Flex</title>
-    <link href="https://puzhiyuan.github.io/2024/10/20/linux/file-flex/"/>
-    <id>https://puzhiyuan.github.io/2024/10/20/linux/file-flex/</id>
+    <link href="https://puzhiyuan.github.io/linux/file_flex/"/>
+    <id>https://puzhiyuan.github.io/linux/file_flex/</id>
     <published>2024-10-20T14:10:00.000Z</published>
-    <updated>2024-10-20T14:12:05.801Z</updated>
+    <updated>2024-10-29T13:56:54.082Z</updated>
     
     
       
@@ -122,10 +122,10 @@
   
   <entry>
     <title>Sparse4D</title>
-    <link href="https://puzhiyuan.github.io/2024/10/19/autonomousdriving/object-detection/3d/camera/sparse4d/"/>
-    <id>https://puzhiyuan.github.io/2024/10/19/autonomousdriving/object-detection/3d/camera/sparse4d/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/</id>
     <published>2024-10-19T11:50:41.000Z</published>
-    <updated>2024-10-20T14:19:03.114Z</updated>
+    <updated>2024-10-29T13:56:54.145Z</updated>
     
     
       
@@ -149,10 +149,10 @@
   
   <entry>
     <title>mount_disk</title>
-    <link href="https://puzhiyuan.github.io/2024/10/18/linux/mount-disk/"/>
-    <id>https://puzhiyuan.github.io/2024/10/18/linux/mount-disk/</id>
+    <link href="https://puzhiyuan.github.io/linux/mount_disk/"/>
+    <id>https://puzhiyuan.github.io/linux/mount_disk/</id>
     <published>2024-10-18T14:31:25.000Z</published>
-    <updated>2024-10-20T14:13:03.967Z</updated>
+    <updated>2024-10-29T13:56:54.093Z</updated>
     
     
       
@@ -175,10 +175,10 @@
   
   <entry>
     <title>Deformable_DETR</title>
-    <link href="https://puzhiyuan.github.io/2024/10/13/autonomousdriving/object-detection/2d/transformer-based/deformable-detr/"/>
-    <id>https://puzhiyuan.github.io/2024/10/13/autonomousdriving/object-detection/2d/transformer-based/deformable-detr/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/deformable_detr/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/deformable_detr/</id>
     <published>2024-10-13T05:21:42.000Z</published>
-    <updated>2024-10-20T11:10:26.260Z</updated>
+    <updated>2024-10-29T13:56:54.168Z</updated>
     
     
       
@@ -200,10 +200,10 @@
   
   <entry>
     <title>DETR</title>
-    <link href="https://puzhiyuan.github.io/2024/10/08/autonomousdriving/object-detection/2d/transformer-based/detr/"/>
-    <id>https://puzhiyuan.github.io/2024/10/08/autonomousdriving/object-detection/2d/transformer-based/detr/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/</id>
     <published>2024-10-08T11:34:18.000Z</published>
-    <updated>2024-10-20T11:10:41.640Z</updated>
+    <updated>2024-10-29T13:56:54.165Z</updated>
     
     
       
@@ -225,10 +225,10 @@
   
   <entry>
     <title>Concurrent &amp; Parallel</title>
-    <link href="https://puzhiyuan.github.io/2024/09/29/language/python/multithreading-multiprocess/"/>
-    <id>https://puzhiyuan.github.io/2024/09/29/language/python/multithreading-multiprocess/</id>
+    <link href="https://puzhiyuan.github.io/language/python/multithreading_multiprocess/"/>
+    <id>https://puzhiyuan.github.io/language/python/multithreading_multiprocess/</id>
     <published>2024-09-29T14:12:38.000Z</published>
-    <updated>2024-10-12T14:38:35.579Z</updated>
+    <updated>2024-10-29T13:56:54.101Z</updated>
     
     
       
@@ -250,10 +250,10 @@
   
   <entry>
     <title>End2End_review</title>
-    <link href="https://puzhiyuan.github.io/2024/09/26/autonomousdriving/end2end/end-to-end-autonomous-driving/"/>
-    <id>https://puzhiyuan.github.io/2024/09/26/autonomousdriving/end2end/end-to-end-autonomous-driving/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/</id>
     <published>2024-09-26T12:33:33.000Z</published>
-    <updated>2024-10-12T15:01:32.617Z</updated>
+    <updated>2024-10-29T13:56:54.096Z</updated>
     
     
       
@@ -275,10 +275,10 @@
   
   <entry>
     <title>M2BEV</title>
-    <link href="https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/camera/m2bev/"/>
-    <id>https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/camera/m2bev/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/m2bev/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/m2bev/</id>
     <published>2024-09-22T11:38:31.000Z</published>
-    <updated>2024-09-22T14:27:07.510Z</updated>
+    <updated>2024-10-29T13:56:54.133Z</updated>
     
     
       
@@ -303,10 +303,10 @@
   
   <entry>
     <title>Fast-BEV_Code</title>
-    <link href="https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/camera/fast-bev-code/"/>
-    <id>https://puzhiyuan.github.io/2024/09/22/autonomousdriving/object-detection/3d/camera/fast-bev-code/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/fast_bev_code/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/fast_bev_code/</id>
     <published>2024-09-22T07:51:57.000Z</published>
-    <updated>2024-09-22T09:20:55.266Z</updated>
+    <updated>2024-10-29T13:56:54.128Z</updated>
     
     
       
@@ -332,10 +332,10 @@
   
   <entry>
     <title>python_package_install</title>
-    <link href="https://puzhiyuan.github.io/2024/09/19/language/python/python-package-install/"/>
-    <id>https://puzhiyuan.github.io/2024/09/19/language/python/python-package-install/</id>
+    <link href="https://puzhiyuan.github.io/language/python/python_package_install/"/>
+    <id>https://puzhiyuan.github.io/language/python/python_package_install/</id>
     <published>2024-09-19T12:27:09.000Z</published>
-    <updated>2024-10-12T14:39:36.208Z</updated>
+    <updated>2024-10-29T13:56:54.104Z</updated>
     
     
       
@@ -357,10 +357,10 @@
   
   <entry>
     <title>dynamicProgramming</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/dynamicprogramming/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/dynamicprogramming/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/dynamicprogramming/"/>
+    <id>https://puzhiyuan.github.io/leetcode/dynamicprogramming/</id>
     <published>2024-09-07T14:07:06.000Z</published>
-    <updated>2024-09-19T13:21:43.050Z</updated>
+    <updated>2024-10-29T13:56:54.073Z</updated>
     
     
       
@@ -382,10 +382,10 @@
   
   <entry>
     <title>binaryTree</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/binarytree/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/binarytree/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/binarytree/"/>
+    <id>https://puzhiyuan.github.io/leetcode/binarytree/</id>
     <published>2024-09-07T14:06:30.000Z</published>
-    <updated>2024-09-19T13:18:33.547Z</updated>
+    <updated>2024-10-29T13:56:54.070Z</updated>
     
     
       
@@ -407,10 +407,10 @@
   
   <entry>
     <title>string</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/string/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/string/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/string/"/>
+    <id>https://puzhiyuan.github.io/leetcode/string/</id>
     <published>2024-09-07T14:05:25.000Z</published>
-    <updated>2024-09-19T13:29:01.621Z</updated>
+    <updated>2024-10-29T13:56:54.077Z</updated>
     
     
       
@@ -432,10 +432,10 @@
   
   <entry>
     <title>hashTable</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/hashtable/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/hashtable/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/hashtable/"/>
+    <id>https://puzhiyuan.github.io/leetcode/hashtable/</id>
     <published>2024-09-07T14:05:13.000Z</published>
-    <updated>2024-09-19T13:24:19.955Z</updated>
+    <updated>2024-10-29T13:56:54.075Z</updated>
     
     
       
@@ -457,10 +457,10 @@
   
   <entry>
     <title>linkList</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/linklist/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/linklist/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/linklist/"/>
+    <id>https://puzhiyuan.github.io/leetcode/linklist/</id>
     <published>2024-09-07T14:04:57.000Z</published>
-    <updated>2024-09-19T13:27:04.310Z</updated>
+    <updated>2024-10-29T13:56:54.079Z</updated>
     
     
       
@@ -483,10 +483,10 @@
   
   <entry>
     <title>array</title>
-    <link href="https://puzhiyuan.github.io/2024/09/07/leetcode/array/"/>
-    <id>https://puzhiyuan.github.io/2024/09/07/leetcode/array/</id>
+    <link href="https://puzhiyuan.github.io/leetcode/array/"/>
+    <id>https://puzhiyuan.github.io/leetcode/array/</id>
     <published>2024-09-07T14:04:13.000Z</published>
-    <updated>2024-09-19T13:16:23.522Z</updated>
+    <updated>2024-10-29T13:56:54.068Z</updated>
     
     
       
@@ -508,10 +508,10 @@
   
   <entry>
     <title>UniAD</title>
-    <link href="https://puzhiyuan.github.io/2024/07/26/autonomousdriving/end2end/uniad/"/>
-    <id>https://puzhiyuan.github.io/2024/07/26/autonomousdriving/end2end/uniad/</id>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/end2end/uniad/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/end2end/uniad/</id>
     <published>2024-07-26T06:00:33.000Z</published>
-    <updated>2024-10-12T15:03:48.251Z</updated>
+    <updated>2024-10-29T13:56:54.099Z</updated>
     
     
       
