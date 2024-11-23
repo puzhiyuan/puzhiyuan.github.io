@@ -4,11 +4,12 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-09-07 22:06:30
-password:
 summary: 总结了《代码随想录》中关于二叉树的常见遍历方法，包括递归与非递归的前序、中序、后序和层序遍历等经典实现。
 tags: 代码随想录
 categories: algorithm
+abbrlink: aa987e96
+date: 2024-09-07 22:06:30
+password:
 ---
 
 ### 二叉树结构定义

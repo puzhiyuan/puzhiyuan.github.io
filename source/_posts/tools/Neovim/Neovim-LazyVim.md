@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-07-11 19:53:59
-password:
-summary: 终端编辑器Neovim,以及LazyVim插件安装使用
-tags: [Neovim]
+summary: '终端编辑器Neovim,以及LazyVim插件安装使用'
+tags:
+  - Neovim
 categories:
   - tool
+abbrlink: b188b029
+date: 2024-07-11 19:53:59
+password:
 ---
 
 ## 安装字体

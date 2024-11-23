@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-06-23 19:18:48
-password:
 summary: 版本控制工具Git的安装及使用技巧。
-tags: [git]
+tags:
+  - git
 categories:
   - tool
+abbrlink: 69c3279c
+date: 2024-06-23 19:18:48
+password:
 ---
 
 ## 1. 环境配置

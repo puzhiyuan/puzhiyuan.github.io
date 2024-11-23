@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-06-23 20:05:27
-password:
 summary: Linux下NVIDIA驱动程序和CUDA Toolkit安装
 tags:
+  - Drive
 categories:
   - Linux
+abbrlink: b6b09198
+date: 2024-06-23 20:05:27
+password:
 ---
 
 ### NVIDIA驱动程序（NVIDIA Driver）和CUDA Toolkit

@@ -4,11 +4,13 @@ top: false
 cover: false
 toc: true
 mathjax: true
+summary: 总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。
+tags:
+  - Package management
+categories: python
+abbrlink: 206c3abc
 date: 2024-09-19 20:27:09
 password:
-summary: 总结 Python 包的多种安装方法，包括 pip、setup.py 和 conda，适用于不同开发和环境管理场景。
-tags: [Package management]
-categories: python
 ---
 
 

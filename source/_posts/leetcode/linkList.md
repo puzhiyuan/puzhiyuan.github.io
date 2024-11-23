@@ -4,11 +4,12 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-09-07 22:04:57
-password:
 summary: 总结了《代码随想录》中关于链表的常见算法与实现，包括移除链表元素、设计链表、反转链表、两两交换节点、删除倒数第N个节点、链表相交、以及环形链表的检测与求解。
 tags: 代码随想录
 categories: algorithm
+abbrlink: e5eac3e7
+date: 2024-09-07 22:04:57
+password:
 ---
 
 **链表元素结构体**

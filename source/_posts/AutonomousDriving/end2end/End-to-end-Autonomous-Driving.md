@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-09-26 20:33:33
-password:
 summary: 本文综述了端到端自动驾驶，探讨了模仿学习和强化学习方法，分析了评估基准，指出了挑战和未来趋势。
-tags: [end2end]
+tags:
+  - end2end
 categories:
   - 端到端自动驾驶
+abbrlink: 1e6912b7
+date: 2024-09-26 20:33:33
+password:
 ---
 
 ### 0 Abstract

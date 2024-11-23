@@ -166,6 +166,10 @@
         <%- partial('_partial/gitalk') %>
     <% } %>
 
+    <% if (theme.utteranc && theme.utteranc.enable) { %>
+        <%- partial('_partial/utteranc') %>
+    <% } %>
+
     <% if (theme.gitment.enable) { %>
         <%- partial('_partial/gitment') %>
     <% } %>

@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-06-23 19:57:58
-password:
 summary: linux 系统的环境变量相关内容
 tags:
+  - env
 categories:
   - Linux
+abbrlink: 57af82ca
+date: 2024-06-23 19:57:58
+password:
 ---
 
 ## 环境变量

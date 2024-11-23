@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
+summary: Docker安装指南：设置存储库、安装软件包、验证安装并配置非root用户权限。
+tags:
+  - docker
+categories:
+  - tool
+abbrlink: e33bfd2c
 date: 2024-05-27 12:01:56
 password:
-summary: Docker安装指南：设置存储库、安装软件包、验证安装并配置非root用户权限。
-tags: docker
-categories: 
-  - tool
 ---
 
 ## 安装
@@ -65,15 +67,29 @@ sudo apt-get update
 - `sudo apt-get update`:
   - 更新系统的软件包列表，以确保添加的 Docker 源生效。
 
+
+
 #### 2. 安装 Docker 软件包。
 
 要安装最新版本，请运行：
 
-- `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+
 
 #### 3. 通过运行镜像来验证Docker Engine安装是否成功 `hello-world`。
 
-- `sudo docker run hello-world`
+```bash
+sudo docker run hello-world
+```
+
+<img src="./docker_install/image-20241027132155875.png" alt="Fig.1 docker run test" style="zoom:50%;" />
+
+docker run 的时候，hello-world 这个镜像是不存在本地的，所以他去远程仓库拉取镜像并运行（docker 镜像源最近有一些问题，如果访问不到建议上网找一些可以访问的镜像源）。
+
+
 
 #### 4. 以非 root 用户身份管理 Docker
 
@@ -85,24 +101,32 @@ sudo apt-get update
 
   - 创建`docker`群组。
 
-    - `sudo groupadd docker`
+    ```bash
+    sudo groupadd docker
+    ```
 
   - 将您的用户添加到`docker`组中。
 
-    - `sudo usermod -aG docker $USER`
+    ```bash
+    sudo usermod -aG docker $USER
+    ```
 
   - 激活对组的更改：
 
-    - `newgrp docker`
+    ```bash
+    newgrp docker
+    ```
 
   - 验证是否可以不用`sudo`执行`docker`
 
-    - `docker run hello-world`
+    ```bash
+    docker run hello-world
+    ```
 
     此命令下载测试镜像并在容器中运行它。当容器运行时，它会打印一条消息并退出。
 
     如果您在将用户添加到组之前运行 Docker CLI 命令`docker`，可能会看到以下错误：
-
+    
     ```bash
     WARNING: Error loading config file: /home/user/.docker/config.json -stat
     /home/user/.docker/config.json: permission denied
@@ -111,5 +135,9 @@ sudo apt-get update
     此错误表明由于之前使用过该命令，该目录的权限设置不正确。
     要解决此问题，删除`~/.docker/`目录（它会自动重新创建，但所有自定义设置都会丢失），或者使用以下命令更改其所有权和权限：
     
-    - `sudo chown "$USER":"$USER" /home/"$USER"/.docker -R`
-    - `sudo chmod g+rwx "$HOME/.docker" -R`
+    ```bash
+    sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+    sudo chmod g+rwx "$HOME/.docker" -R
+    ```
+    
+    

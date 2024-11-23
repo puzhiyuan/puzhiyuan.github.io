@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-06-24 18:14:36
-password:
 summary: Linux下软连接的使用
 tags:
+  - SymbolicLink
 categories:
   - Linux
+abbrlink: cbbfdedd
+date: 2024-06-24 18:14:36
+password:
 ---
 
 软链接（Symbolic Link），在类 Unix 系统中通常被称为符号链接，允许为文件或目录创建一个指向另一个文件或目录的引用。软链接类似于 Windows 系统中的快捷方式。软链接非常有用，特别是需要在不同位置引用同一个文件或目录，或者当你需要重命名或移动文件系统的一部分而不影响指向它们的链接时。

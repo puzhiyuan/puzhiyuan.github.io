@@ -4,12 +4,14 @@ top: false
 cover: false
 toc: true
 mathjax: true
+summary: 端到端自动驾驶框架，通过统一的查询设计整合感知、预测和规划任务，强调任务间的协调和互补。
+tags:
+  - end2end
+categories:
+  - 端到端自动驾驶
+abbrlink: 32fd3cf4
 date: 2024-07-26 14:00:33
 password:
-summary: 端到端自动驾驶框架，通过统一的查询设计整合感知、预测和规划任务，强调任务间的协调和互补。
-tags: [end2end]
-categories: 
-  - 端到端自动驾驶
 ---
 
 ### 1 Abstract

@@ -4,12 +4,13 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-09-29 22:12:38
-password:
 summary: Python中多线程适合I/O密集型任务，线程共享内存空间；多进程适合CPU密集型任务，进程拥有独立内存空间，不受GIL限制。
 tags: 并发编程
 categories:
   - python
+abbrlink: 623fb189
+date: 2024-09-29 22:12:38
+password:
 ---
 
 ### Python 多线程与多进程

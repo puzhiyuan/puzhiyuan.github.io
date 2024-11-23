@@ -4,12 +4,13 @@ top: false
 cover: false
 toc: true
 mathjax: true
-date: 2024-06-23 18:41:49
-password:
 summary: hexo的插入图片和引用已有文件的方法
-tags:
 categories:
   - Hexo tips
+abbrlink: cd7cca12
+date: 2024-06-23 18:41:49
+password:
+tags:
 ---
 
 ### Hexo文章中插入图片的记录
