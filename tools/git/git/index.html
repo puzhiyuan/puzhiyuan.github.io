@@ -43,7 +43,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/15.jpg');
+            background-image: url('/medias/background/5.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -81,7 +81,9 @@
 
     <script src="../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -193,9 +195,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style>
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
+</style><link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
 </head>
 
 
@@ -539,21 +539,21 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-29
+                    2024-12-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    676
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    14 分
                 </div>
                 
 
@@ -590,7 +590,7 @@ ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="tok
 
 
 
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="1-初始化git仓库"><a href="#1-初始化git仓库" class="headerlink" title="1. 初始化git仓库"></a>1. 初始化git仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h2><h3 id="2-1-初始化git仓库"><a href="#2-1-初始化git仓库" class="headerlink" title="2.1 初始化git仓库"></a>2.1 初始化git仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>该命令将执行以下操作：</strong></p>
 <ul>
@@ -604,89 +604,427 @@ ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="tok
 </li>
 <li>初始化 HEAD 指针以指向初始提交，该提交是一个空提交，消息为“Initial commit”。</li>
 </ul>
-<h3 id="2-工作区、暂存区、版本库"><a href="#2-工作区、暂存区、版本库" class="headerlink" title="2. 工作区、暂存区、版本库"></a>2. 工作区、暂存区、版本库</h3><p><strong>1. 工作区（Working Directory）:</strong></p>
-<ul>
-<li>这是在本地计算机上编辑、修改和创建文件的地方。</li>
-<li>包含所有受版本控制管理的文件和目录。</li>
-<li>可以在此区域使用 git 命令来跟踪更改、查看历史记录并提交更改。</li>
-</ul>
-<p><strong>2. 暂存区（Staging Area）:</strong></p>
-<ul>
-<li>这是一个临时区域，用于存储要提交到版本库的更改。</li>
-<li>使用 <code>git add</code> 命令将文件从工作区添加到暂存区。</li>
-<li>暂存区允许您选择要包含在下次提交中的特定更改。</li>
-</ul>
-<p><strong>3. 版本库（Repository）:</strong></p>
-<ul>
-<li>这是存储所有版本历史记录的安全区域。</li>
-<li>包含提交的所有更改的快照。</li>
-<li>版本库可以位于本地计算机上或远程服务器上（例如 GitHub）。</li>
-</ul>
-<p><strong>每个区域的作用如下：</strong></p>
+<h3 id="2-2-工作区、暂存区、版本库"><a href="#2-2-工作区、暂存区、版本库" class="headerlink" title="2.2 工作区、暂存区、版本库"></a>2.2 工作区、暂存区、版本库</h3><p><strong>每个区域的作用如下：</strong></p>
 <ul>
 <li><strong>工作区:</strong> 用于日常开发和文件编辑。</li>
 <li><strong>暂存区:</strong> 用于选择要提交到版本库的特定更改。</li>
 <li><strong>版本库:</strong> 用于存储所有版本历史记录并提供安全可靠的备份。</li>
 </ul>
-<h4 id="1-从暂存区撤退到工作区"><a href="#1-从暂存区撤退到工作区" class="headerlink" title="1. 从暂存区撤退到工作区"></a>1. 从暂存区撤退到工作区</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> restore <span class="token parameter variable">--staged</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="2-2-1-工作区"><a href="#2-2-1-工作区" class="headerlink" title="2.2.1. 工作区"></a>2.2.1. 工作区</h4><ul>
+<li>这是在本地计算机上编辑、修改和创建文件的地方。</li>
+<li>包含所有受版本控制管理的文件和目录。</li>
+<li>可以在此区域使用 git 命令来跟踪更改、查看历史记录并提交更改。</li>
+</ul>
+<h4 id="2-2-2-暂存区"><a href="#2-2-2-暂存区" class="headerlink" title="2.2.2. 暂存区"></a>2.2.2. 暂存区</h4><ul>
+<li>这是一个临时区域，用于存储要提交到版本库的更改。</li>
+<li>使用 <code>git add</code> 命令将文件从工作区添加到暂存区。</li>
+<li>暂存区允许您选择要包含在下次提交中的特定更改。</li>
+</ul>
+<h4 id="2-2-3-版本库"><a href="#2-2-3-版本库" class="headerlink" title="2.2.3. 版本库"></a>2.2.3. 版本库</h4><ul>
+<li>这是存储所有版本历史记录的安全区域。</li>
+<li>包含提交的所有更改的快照。</li>
+<li>版本库可以位于本地计算机上或远程服务器上（例如 GitHub）。</li>
+</ul>
+<h3 id="2-3-工作区-暂存区"><a href="#2-3-工作区-暂存区" class="headerlink" title="2.3 工作区 - 暂存区"></a>2.3 工作区 - 暂存区</h3><h4 id="2-3-1-工作区到暂存区"><a href="#2-3-1-工作区到暂存区" class="headerlink" title="2.3.1. 工作区到暂存区"></a>2.3.1. 工作区到暂存区</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将工作区中的文件或目录添加到暂存区</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
 
-<h4 id="2-版本回退"><a href="#2-版本回退" class="headerlink" title="2. 版本回退"></a>2. 版本回退</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 回退到上一个commit的版本，commit内容会退回到暂存区</span>
+<span class="token comment"># 如果要添加所有更改过的文件</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> 
+<span class="token comment"># 或</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-A</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git add &lt;file&gt;</code>：将工作区中的文件或目录添加到暂存区，准备进行下一步的提交。</li>
+<li><code>git add .</code>：添加当前目录及其子目录中所有修改过的文件。</li>
+<li><code>git add -A</code>：添加所有变化的文件，包括删除的文件。</li>
+</ul>
+<h4 id="2-3-2-查看暂存区状态"><a href="#2-3-2-查看暂存区状态" class="headerlink" title="2.3.2. 查看暂存区状态"></a>2.3.2. 查看暂存区状态</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示工作区和暂存区的状态</span>
+<span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git status</code>：显示工作区和暂存区的状态，帮助查看哪些文件被修改、哪些文件已经被添加到暂存区、哪些文件还没有添加到暂存区等。</li>
+</ul>
+<h4 id="2-3-3-暂存区撤退到工作区"><a href="#2-3-3-暂存区撤退到工作区" class="headerlink" title="2.3.3. 暂存区撤退到工作区"></a>2.3.3. 暂存区撤退到工作区</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将指定文件从暂存区撤回到工作区</span>
+<span class="token function">git</span> restore <span class="token parameter variable">--staged</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git restore --staged &lt;file&gt;</code>：将指定文件从暂存区撤回到工作区，即取消暂存操作，但不会删除工作区中的修改。</li>
+</ul>
+<h4 id="2-3-4-查看文件差异"><a href="#2-3-4-查看文件差异" class="headerlink" title="2.3.4. 查看文件差异"></a>2.3.4. 查看文件差异</h4><p>在将更改添加到暂存区之前，你可能想查看文件的修改内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>git diff</code>：查看工作区和暂存区之间的差异，显示当前工作区文件的更改内容。</li>
+<li><code>git diff --staged</code>：查看暂存区和版本库之间的差异，即查看已经暂存的更改内容。</li>
+</ul>
+<p><strong>注</strong>：git diff 可以用于显示两个提交（commits）、提交和工作树（working tree）、分支之间或任何其他版本控制操作之间的差异。</p>
+<blockquote>
+<ol>
+<li><strong>比较两个提交之间的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>commit<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> <span class="token operator">&lt;</span>commit<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li><strong>比较工作树和最近一次提交的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  不带任何参数时，默认比较工作树（当前工作目录）和最近一次提交（HEAD）之间的差异。</p>
+<ol start="3">
+<li><strong>比较当前分支和另一分支的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这里 <code>&lt;branch_name&gt;</code> 是你想要比较的分支名称。</p>
+<ol start="4">
+<li><strong>比较两个分支之间的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>branch<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token punctuation">..</span><span class="token operator">&lt;</span>branch<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这里 <code>&lt;branch1&gt;</code> 和 <code>&lt;branch2&gt;</code> 是两个分支名称。</p>
+<ol start="5">
+<li><strong>比较工作树和索引（暂存区）的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span>
+<span class="token comment"># 或者</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--staged</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>  这两个命令显示已暂存（staged）但尚未提交（committed）的更改。</p>
+<ol start="6">
+<li><strong>比较特定文件在两个提交之间的差异</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>commit<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> <span class="token operator">&lt;</span>commit<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> -- <span class="token operator">&lt;</span>file_path<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  这里 <code>&lt;file_path&gt;</code> 是你想要比较差异的文件路径。</p>
+<ol start="7">
+<li><strong>比较当前分支和HEAD的差异，只显示自上次提交以来新添加的行</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> HEAD<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="8">
+<li><strong>比较两个分支之间的差异，只显示差异的统计信息</strong>：</li>
+</ol>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--stat</span> <span class="token operator">&lt;</span>branch<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token punctuation">..</span><span class="token operator">&lt;</span>branch<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h3 id="2-4-暂存区-版本库"><a href="#2-4-暂存区-版本库" class="headerlink" title="2.4 暂存区 - 版本库"></a>2.4 暂存区 - 版本库</h3><h4 id="2-4-1-提交更改"><a href="#2-4-1-提交更改" class="headerlink" title="2.4.1. 提交更改"></a>2.4.1. 提交更改</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 提交更改到本地仓库</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"commit message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git commit -m "commit message"</code>：将暂存区中的更改提交到本地版本库。提交信息（<code>commit message</code>）用于描述本次提交的目的或内容，通常遵循简洁明了的规则。</li>
+</ul>
+<h4 id="2-4-2-添加文件到提交"><a href="#2-4-2-添加文件到提交" class="headerlink" title="2.4.2. 添加文件到提交"></a>2.4.2. 添加文件到提交</h4><p>也可以在提交之前，选择哪些文件或更改被包含在提交中。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit <span class="token parameter variable">-am</span> <span class="token string">"commit message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>git commit -am "commit message"</code>：相当于先执行了 <code>git add</code> 再执行 <code>git commit</code>，它只会自动暂存那些已经被 Git 跟踪的文件，新增的文件需要手动执行 <code>git add</code>。</li>
+</ul>
+<h4 id="2-4-3-提交并跳过暂存区（直接提交工作区的更改）"><a href="#2-4-3-提交并跳过暂存区（直接提交工作区的更改）" class="headerlink" title="2.4.3. 提交并跳过暂存区（直接提交工作区的更改）"></a>2.4.3. 提交并跳过暂存区（直接提交工作区的更改）</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit <span class="token parameter variable">-a</span> <span class="token parameter variable">-m</span> <span class="token string">"commit message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>git commit -a</code>：直接将所有修改过的文件（已跟踪的文件）提交到版本库，而不需要先使用 <code>git add</code> 添加到暂存区。</li>
+</ul>
+<h4 id="2-4-4-版本回退"><a href="#2-4-4-版本回退" class="headerlink" title="2.4.4. 版本回退"></a>2.4.4. 版本回退</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 回退到上一个commit的版本，commit内容会退回到暂存区</span>
 <span class="token function">git</span> reset <span class="token parameter variable">--soft</span> HEAD^<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
-<li>HEAD 说明：<ul>
-<li>HEAD 表示当前版本</li>
-<li>HEAD^ 上一个版本</li>
-<li>HEAD^^ 上上一个版本</li>
-<li>HEAD^^^ 上上上一个版本</li>
-<li>…</li>
+<li><code>git reset --soft HEAD^</code>：回退到上一个版本，<code>HEAD^</code> 表示上一个提交，<code>--soft</code> 选项保留暂存区的内容，即将撤销的提交变为暂存状态。</li>
+<li><code>git reset --mixed HEAD^</code>：类似 <code>--soft</code>，但还会将暂存区的内容移回工作区。</li>
+<li><code>git reset --hard HEAD^</code>：完全回退，包括将工作区的修改也撤销（慎用，因为此操作会丢失工作区中的未保存内容）。</li>
 </ul>
+<p><strong>注</strong>：HEAD 说明：</p>
+<blockquote>
+<ul>
+<li><code>HEAD</code>：当前提交的指针，表示当前版本。</li>
+<li><code>HEAD^</code>：上一个提交版本。</li>
+<li><code>HEAD^^</code>：上上个提交版本。</li>
+<li><code>HEAD~n</code>：表示当前提交之前的第 <code>n</code> 个提交。</li>
+</ul>
+</blockquote>
+<h4 id="2-4-5-查看提交历史"><a href="#2-4-5-查看提交历史" class="headerlink" title="2.4.5. 查看提交历史"></a>2.4.5. 查看提交历史</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看提交历史</span>
+<span class="token function">git</span> log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git log</code>：显示提交历史记录，包括每个提交的哈希、作者、时间和提交信息。</li>
+<li><code>git log --oneline</code>：以简洁的方式查看提交记录，每个提交以一行显示，仅包含提交的哈希和提交信息。</li>
+</ul>
+<h4 id="2-4-6-修改最后一次提交"><a href="#2-4-6-修改最后一次提交" class="headerlink" title="2.4.6. 修改最后一次提交"></a>2.4.6. 修改最后一次提交</h4><p>如果你提交后发现提交信息有问题，或者需要修改已提交的内容，你可以使用以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改最后一次提交的信息</span>
+<span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token string">"new commit message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git commit --amend</code>：修改最后一次提交的提交信息。如果你已经在暂存区添加了新更改，它们会被一并包括在这个修改中。</li>
+</ul>
+<h3 id="2-5-Git-分支"><a href="#2-5-Git-分支" class="headerlink" title="2.5 Git 分支"></a>2.5 Git 分支</h3><h4 id="2-5-1-查看分支"><a href="#2-5-1-查看分支" class="headerlink" title="2.5.1. 查看分支"></a>2.5.1. 查看分支</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出所有分支，并标记（前面有 * 号）出当前分支。</span>
+<span class="token function">git</span> branch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-5-2-创建和切换分支"><a href="#2-5-2-创建和切换分支" class="headerlink" title="2.5.2. 创建和切换分支"></a>2.5.2. 创建和切换分支</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建新分支并切换到该分支</span>
+<span class="token function">git</span> checkout <span class="token parameter variable">-b</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+<span class="token comment"># 仅创建分支，但不切换</span>
+<span class="token function">git</span> branch <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+<span class="token comment"># 切换到指定的分支</span>
+<span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出当前分支</span>
+$ <span class="token function">git</span> branch
+* <span class="token builtin class-name">source</span>
+
+<span class="token comment"># 创建 test 分支但不切换</span>
+$ <span class="token function">git</span> branch <span class="token builtin class-name">test</span>
+
+<span class="token comment"># 查看分支信息（创建了 test 分支但未切换分支）</span>
+$ <span class="token function">git</span> branch
+* <span class="token builtin class-name">source</span>
+  <span class="token builtin class-name">test</span>
+
+<span class="token comment"># 创建 switch_test 分支并跳转 </span>
+$ <span class="token function">git</span> checkout <span class="token parameter variable">-b</span> switch_test
+Switched to a new branch <span class="token string">'switch_test'</span>
+
+<span class="token comment"># 查看分支信息（创建了 switch_test 分支并切换到 switch_test 分支）</span>
+$ <span class="token function">git</span> branch
+  <span class="token builtin class-name">source</span>
+* switch_test
+  <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-5-3-合并分支"><a href="#2-5-3-合并分支" class="headerlink" title="2.5.3. 合并分支"></a>2.5.3. 合并分支</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 切换到目标分支</span>
+<span class="token function">git</span> checkout <span class="token operator">&lt;</span>target_branch<span class="token operator">&gt;</span>
+
+<span class="token comment"># 合并源分支到目标分支</span>
+<span class="token function">git</span> merge <span class="token operator">&lt;</span>source_branch<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>git merge &lt;source_branch&gt;</code>：将指定的源分支合并到当前分支。合并时，Git 会自动尝试合并代码，若存在冲突，则需要手动解决。</li>
+</ul>
+<h4 id="2-5-4-删除分支"><a href="#2-5-4-删除分支" class="headerlink" title="2.5.4. 删除分支"></a>2.5.4. 删除分支</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除本地分支,若分支未合并到当前分支，则会提示警告。</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 强制删除未合并的本地分支,无论分支是否合并</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-D</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> branch 
+* <span class="token builtin class-name">source</span>
+  switch_test
+  <span class="token builtin class-name">test</span>
+
+$ <span class="token function">git</span> branch <span class="token parameter variable">-d</span> switch_test 
+Deleted branch switch_test <span class="token punctuation">(</span>was c2c4985<span class="token punctuation">)</span>.
+
+$ <span class="token function">git</span> branch <span class="token parameter variable">-d</span> <span class="token builtin class-name">test</span>
+Deleted branch <span class="token builtin class-name">test</span> <span class="token punctuation">(</span>was c2c4985<span class="token punctuation">)</span>.
+
+$ <span class="token function">git</span> branch
+* <span class="token builtin class-name">source</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="2-6-Git-标签"><a href="#2-6-Git-标签" class="headerlink" title="2.6 Git 标签"></a>2.6 Git 标签</h3><h4 id="2-6-1-查看标签"><a href="#2-6-1-查看标签" class="headerlink" title="2.6.1. 查看标签"></a>2.6.1. 查看标签</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出当前仓库的所有标签</span>
+<span class="token function">git</span> tag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-6-2-创建标签"><a href="#2-6-2-创建标签" class="headerlink" title="2.6.2. 创建标签"></a>2.6.2. 创建标签</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建轻量标签（不包含额外信息）</span>
+<span class="token function">git</span> tag <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
+
+<span class="token comment"># 创建附注标签（包含详细信息）</span>
+<span class="token function">git</span> tag <span class="token parameter variable">-a</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span> <span class="token parameter variable">-m</span> <span class="token string">"tag message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag <span class="token parameter variable">-a</span> <span class="token string">"v0.0.0"</span> <span class="token parameter variable">-m</span> <span class="token string">"info"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="2-6-3-查看标签信息"><a href="#2-6-3-查看标签信息" class="headerlink" title="2.6.3. 查看标签信息"></a>2.6.3. 查看标签信息</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看特定标签的详细信息，包括标签作者、创建时间和标签注释</span>
+<span class="token function">git</span> show <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-6-4-删除标签"><a href="#2-6-4-删除标签" class="headerlink" title="2.6.4. 删除标签"></a>2.6.4. 删除标签</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除本地标签</span>
+<span class="token function">git</span> tag <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2-7-远程仓库"><a href="#2-7-远程仓库" class="headerlink" title="2.7 远程仓库"></a>2.7 远程仓库</h3><h4 id="2-7-1-查看远程仓库信息"><a href="#2-7-1-查看远程仓库信息" class="headerlink" title="2.7.1. 查看远程仓库信息"></a>2.7.1. 查看远程仓库信息</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出远程仓库中所有的引用（refs），包括分支和标签</span>
+<span class="token function">git</span> ls-remote <span class="token parameter variable">--refs</span> git@github.com:puzhiyuan/puzhiyuan.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-2-设置远程仓库"><a href="#2-7-2-设置远程仓库" class="headerlink" title="2.7.2. 设置远程仓库"></a>2.7.2. 设置远程仓库</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加一个新的远程仓库</span>
+<span class="token function">git</span> remote <span class="token function">add</span> <span class="token operator">&lt;</span>remote_name<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>repository_url<span class="token operator">&gt;</span>
+
+<span class="token comment"># 查看远程仓库信息</span>
+<span class="token function">git</span> remote <span class="token parameter variable">-v</span>
+
+<span class="token comment"># 重命名远程仓库</span>
+<span class="token function">git</span> remote <span class="token function">rename</span> <span class="token operator">&lt;</span>old_name<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>new_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 删除远程仓库</span>
+<span class="token function">git</span> remote remove <span class="token operator">&lt;</span>remote_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-3-拉取远程仓库的更新"><a href="#2-7-3-拉取远程仓库的更新" class="headerlink" title="2.7.3. 拉取远程仓库的更新"></a>2.7.3. 拉取远程仓库的更新</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 拉取远程仓库指定分支的更新并自动合并。</span>
+<span class="token function">git</span> pull <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 拉取远程仓库指定分支的更新并进行 rebase 而不是合并。</span>
+<span class="token function">git</span> pull <span class="token parameter variable">--rebase</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-4-推送分支到远程"><a href="#2-7-4-推送分支到远程" class="headerlink" title="2.7.4. 推送分支到远程"></a>2.7.4. 推送分支到远程</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将本地分支推送到远程仓库</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 将本地分支推送到远程并设置跟踪关系</span>
+<span class="token function">git</span> push <span class="token parameter variable">-u</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 强制推送到远程仓库（慎用，会覆盖远程分支）</span>
+<span class="token function">git</span> push <span class="token parameter variable">-f</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 推送所有本地分支到远程仓库</span>
+<span class="token function">git</span> push <span class="token parameter variable">--all</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span>
+
+<span class="token comment"># 推送特定提交到远程仓库</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>commit_id<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span>
+
+<span class="token comment"># 推送本地和远程不同名的分支</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>local_branch<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>remote_branch<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-5-远程仓库分支比较"><a href="#2-7-5-远程仓库分支比较" class="headerlink" title="2.7.5. 远程仓库分支比较"></a>2.7.5. 远程仓库分支比较</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 比较本地分支与远程分支的差异</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-6-删除远程分支"><a href="#2-7-6-删除远程分支" class="headerlink" title="2.7.6. 删除远程分支"></a>2.7.6. 删除远程分支</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除远程分支</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token parameter variable">--delete</span> <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-7-7-共享标签"><a href="#2-7-7-共享标签" class="headerlink" title="2.7.7. 共享标签"></a>2.7.7. 共享标签</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 推送单个标签到远程仓库</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
+
+<span class="token comment"># 推送本地所有标签到远程仓库</span>
+<span class="token function">git</span> push <span class="token parameter variable">--tags</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例：</p>
+<img src="/tools/git/git/image-20241205201204755.png" alt="共享标签" style="zoom: 50%;">
+
+
+
+<h4 id="2-7-8-删除远程标签"><a href="#2-7-8-删除远程标签" class="headerlink" title="2.7.8. 删除远程标签"></a>2.7.8. 删除远程标签</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除远程标签</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token parameter variable">--delete</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205201406043.png" alt="删除远程标签" style="zoom:50%;">
+
+
+
+<h4 id="2-7-9-获取特定标签的远程仓库"><a href="#2-7-9-获取特定标签的远程仓库" class="headerlink" title="2.7.9. 获取特定标签的远程仓库"></a>2.7.9. 获取特定标签的远程仓库</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看所有远程标签</span>
+<span class="token function">git</span> ls-remote <span class="token parameter variable">--tags</span> https://github.com/username/repository.git
+
+<span class="token comment"># 克隆远程仓库并只检出特定标签</span>
+<span class="token function">git</span> clone <span class="token parameter variable">-b</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span> https://github.com/puzhiyuan/ultralytics.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例：</p>
+<img src="/tools/git/git/image-20241205202152493.png" alt="获取特定标签的远程仓库" style="zoom:50%;">
+
+<p>成功克隆了一个名为 <code>puzhiyuan.github.io</code> 的仓库，并且检出了名为 <code>v1.0</code> 的标签。</p>
+<ol>
+<li><p><strong>状态</strong>：当前处于“detached HEAD”状态，当前 HEAD 不关联任何分支。这是一个临时的状态，用于查看代码或做实验性更改。在这个状态下所做的任何提交都不会影响任何分支。</p>
+</li>
+<li><p><strong>创建新分支</strong>：如果希望保留在这个状态下所做的更改，可以创建一个新的分支。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> switch <span class="token parameter variable">-c</span> new-branch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这样，就可以在新分支上继续工作，并且这些更改会被保留。</p>
+</li>
+</ol>
+<h3 id="2-8-冲突"><a href="#2-8-冲突" class="headerlink" title="2.8 冲突"></a>2.8 冲突</h3><h4 id="2-8-1-冲突发生的场景"><a href="#2-8-1-冲突发生的场景" class="headerlink" title="2.8.1. 冲突发生的场景"></a>2.8.1. 冲突发生的场景</h4><ul>
+<li><strong>合并冲突（Merge Conflict）</strong>：在执行 <code>git merge</code> 时，如果两个分支同时修改了相同的代码行，Git 就无法自动合并这些更改。</li>
+<li><strong>拉取冲突（Pull Conflict）</strong>：在执行 <code>git pull</code> 拉取远程更改时，如果本地仓库与远程仓库的更改发生冲突，会出现冲突。</li>
+<li><strong>重基冲突（Rebase Conflict）</strong>：在执行 <code>git rebase</code> 时，若重基过程中某个提交与目标分支的更改发生冲突，也会出现冲突。</li>
+</ul>
+<h4 id="2-8-2-merge-冲突"><a href="#2-8-2-merge-冲突" class="headerlink" title="2.8.2. merge 冲突"></a>2.8.2. merge 冲突</h4><ul>
+<li>dev 分支和 master 分支都对 cmake.md 做了修改,所以在 master 分支合并 dev 分支出现冲突,同时，Git 会将冲突的文件标记为“未合并”（unmerged），并将冲突的部分用标记表示，通常是：</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;</span> HEAD
+当前分支中的内容
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+另一个分支中的内容
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>other_branch_name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205214444408.png" alt="merge 冲突" style="zoom:50%;">
+
+<ul>
+<li><p>打开冲突文件，手动修改冲突部分(如果想放弃本次合并操作，可以使用 <code>git merge --abort</code> 取消合并，恢复到合并前的状态)</p>
+</li>
+<li><p>修改完冲突文件后，需要告诉 Git 该文件已解决冲突。使用 <code>git add</code> 命令将修改后的文件标记为已解决</p>
+</li>
+<li><p>使用 <code>git commit</code> 完成合并，Git 会自动生成一个合并提交信息</p>
 </li>
 </ul>
-<h3 id="3-冲突（本地仓库并不是最新的远程仓库）"><a href="#3-冲突（本地仓库并不是最新的远程仓库）" class="headerlink" title="3. 冲突（本地仓库并不是最新的远程仓库）"></a>3. 冲突（本地仓库并不是最新的远程仓库）</h3><p>- </p>
-<img src="/tools/git/git/image-20240414205641484.png" alt="本地和远程冲突" style="zoom:44%;">
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205214936538.png" alt="解决 merge 冲突" style="zoom:50%;">
+
+
+
+<h4 id="2-8-3-pull-冲突"><a href="#2-8-3-pull-冲突" class="headerlink" title="2.8.3. pull 冲突"></a>2.8.3. pull 冲突</h4><ul>
+<li><p>远程仓库的修改领先于本地分支,并且本地分支和远程仓库同时对同一个文件进行了不同的修改,此时 <code>git push</code> 出错</p>
+</li>
+<li><p><code>git pull</code> 拉取远程仓库</p>
+</li>
+</ul>
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205220613009.png" alt="pull 冲突" style="zoom:50%;">
 
 <ul>
-<li><code>git pull</code> 拉取远程仓库，更新本地仓库到最新的远程仓库</li>
+<li>查看冲突文件,并修改冲突(如果想放弃本次合并操作，可以使用 <code>git merge --abort</code> 取消合并，恢复到合并前的状态)</li>
 </ul>
-<img src="/tools/git/git/image-20240414205724268.png" alt="image-20240414205724268" style="zoom:44%;">
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205220758694.png" alt="冲突文件" style="zoom:50%;">
 
 <ul>
-<li>合并之后的效果</li>
+<li>修改完冲突之后, <code>git add .</code> 添加到暂存区, <code>git commit</code> 提交到版本库</li>
 </ul>
-<img src="/tools/git/git/image-20240414210616642.png" alt="合并效果" style="zoom:44%;">
+<p>示例:</p>
+<img src="/tools/git/git/image-20241205221305311.png" alt="合并结果" style="zoom:50%;">
 
 <ul>
-<li>再次push到远程仓库</li>
+<li>最后<code>git push</code>到远程仓库</li>
 </ul>
-<img src="/tools/git/git/image-20240414210410314.png" alt="合并之后重新push" style="zoom:44%;">
+<h4 id="2-8-4-rebase-冲突"><a href="#2-8-4-rebase-冲突" class="headerlink" title="2.8.4. rebase 冲突"></a>2.8.4. rebase 冲突</h4><blockquote>
+<p>虽然 <code>git rebase</code> 和 <code>git merge</code> 都可以用于合并不同分支的修改，它们之间有一些关键的区别：</p>
+<ul>
+<li><code>git merge</code>：将两个分支的历史合并为一个新的提交，产生一个新的合并提交（merge commit）。合并后的历史可能是分叉的（non-linear）。</li>
+<li><code>git rebase</code>：将当前分支的修改“搬到”目标分支上，这样就不会产生合并提交，历史将变得线性。</li>
+</ul>
+</blockquote>
+<ul>
+<li>在 master 分支执行 <code>git rebase dev</code> 时遇到了合并冲突。Git 在尝试将 <code>master</code> 分支上的提交移到 <code>dev</code> 分支的顶部时，发现了 <code>cmake.md</code> 文件中的冲突，并暂停了 rebase 操作。</li>
+</ul>
+<img src="/tools/git/git/image-20241205223600360.png" alt="rebase 冲突" style="zoom:50%;">
 
-<h3 id="4-tag"><a href="#4-tag" class="headerlink" title="4. tag"></a>4. tag</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成tag</span>
-<span class="token function">git</span> tag <span class="token parameter variable">-a</span> <span class="token string">"v0.0.0"</span> <span class="token parameter variable">-m</span> <span class="token string">"info"</span>
+<ul>
+<li><p>如果在解决冲突时想放弃 rebase，可以使用 <code>git rebase --abort</code></p>
+</li>
+<li><p>手动解决了冲突并保存了文件后，使用 <code>git add</code> 命令将解决冲突后的文件标记为已解决</p>
+</li>
+<li><p>可以执行 <code>git rebase --continue</code> 继续 rebase 过程,Git 会继续剩余的提交。如果没有其他冲突，rebase 操作会继续，直到所有提交都被应用完。</p>
+</li>
+</ul>
+<img src="/tools/git/git/image-20241205224018311.png" alt="继续 rebase" style="zoom:50%;">
 
-<span class="token comment"># 查看tag信息</span>
-<span class="token function">git</span> show <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
-
-<span class="token comment"># 共享tag（推送远程仓库）</span>
-<span class="token function">git</span> push <span class="token parameter variable">--tag</span>
-<span class="token function">git</span> push <span class="token parameter variable">--tags</span>
-
-<span class="token comment"># 删除tag</span>
-<span class="token function">git</span> tag <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
-
-<span class="token comment"># 删除远程tag信息</span>
-<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> :refs/tags/<span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
-<span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>
-
-<span class="token comment"># 获取对应tag的远程仓库</span>
-<span class="token function">git</span> clone https://github.com/puzhiyuan/ultralytics.git  <span class="token parameter variable">--branch</span> v0.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<img src="/tools/git/git/image-20240416122028236.png" alt="共享tag" style="zoom: 44%;">
-
-<img src="/tools/git/git/image-20240416135132003.png" alt="获取指定tag" style="zoom: 44%;">
-
-
-
+<ul>
+<li>如果需要跳过当前提交，可以使用 <code>git rebase --skip</code>.</li>
+</ul>
 
                 
             </div>
@@ -1136,7 +1474,7 @@ ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="tok
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">78.4k</span>
+                        class="white-color">81.5k</span>
             
             
             
