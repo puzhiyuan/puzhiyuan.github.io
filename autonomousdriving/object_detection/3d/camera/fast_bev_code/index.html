@@ -43,7 +43,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/8.jpg');
+            background-image: url('/medias/background/13.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -81,9 +81,7 @@
 
     <script src="../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<style>mjx-container[jax="SVG"] {
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
 
@@ -195,7 +193,9 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style><link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
+</style>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
 </head>
 
 
@@ -587,7 +587,7 @@ mjx-container[display="true"] + br {
                 <h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><h3 id="1-打断点"><a href="#1-打断点" class="headerlink" title="1. 打断点"></a>1. 打断点</h3><ul>
 <li>找到 <code>tools/train.py</code> ，在入口函数 <code>main</code> 中找到自己想要打断点的地方随便打…</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728162500092.png" alt style="zoom: 20%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728162500092.png" alt="" style="zoom: 20%;">
 
 
 
@@ -602,12 +602,12 @@ mjx-container[display="true"] + br {
     <span class="token string">"0"</span>
 <span class="token punctuation">]</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728163642660.png" alt style="zoom:20%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728163642660.png" alt="" style="zoom:20%;">
 
 <h3 id="3-启动调试"><a href="#3-启动调试" class="headerlink" title="3. 启动调试"></a>3. 启动调试</h3><ul>
 <li>切换回 <code>train.py</code> ，选择 <code>Python Debugger: Current File</code> ，点击开始按钮启动调试，稍作等待，代码即可跳到断点处。</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728164109592.png" alt style="zoom:20%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240728164109592.png" alt="" style="zoom:20%;">
 
 <h2 id="模型训练概述"><a href="#模型训练概述" class="headerlink" title="模型训练概述"></a>模型训练概述</h2><h3 id="1-读取配置参数"><a href="#1-读取配置参数" class="headerlink" title="1. 读取配置参数"></a>1. 读取配置参数</h3><table>
 <thead>
@@ -710,7 +710,7 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <h2 id="模型训练详解"><a href="#模型训练详解" class="headerlink" title="模型训练详解"></a>模型训练详解</h2><h3 id="1-构建网络模型"><a href="#1-构建网络模型" class="headerlink" title="1. 构建网络模型"></a>1. 构建网络模型</h3><h4 id="1-1-模型配置"><a href="#1-1-模型配置" class="headerlink" title="1.1 模型配置"></a>1.1 模型配置</h4><ul>
 <li><code>class FreeAnchor3DHead(Anchor3DHead):</code></li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729162211354.png" alt style="zoom: 50%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729162211354.png" alt="" style="zoom: 50%;">
 
 <h3 id="2-构建数据集"><a href="#2-构建数据集" class="headerlink" title="2. 构建数据集"></a>2. 构建数据集</h3><ul>
 <li><p><strong>ConcatDataset</strong>：连接多个数据集，形成一个大的联合数据集。</p>
@@ -731,31 +731,31 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <ol>
 <li>平衡数据集中各个类别的样本数量，以便在训练模型时每个类别都有相对均匀的样本分布</li>
 </ol>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729211258787.png" alt style="zoom: 50%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729211258787.png" alt="" style="zoom: 50%;">
 
 <h3 id="3-训练模型"><a href="#3-训练模型" class="headerlink" title="3. 训练模型"></a>3. 训练模型</h3><ul>
 <li>图像特征提取</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729215356747.png" alt style="zoom: 50%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729215356747.png" alt="" style="zoom: 50%;">
 
 <ul>
 <li>neck特征融合</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729215707186.png" alt style="zoom:50%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240729215707186.png" alt="" style="zoom:50%;">
 
 
 
 <ul>
 <li>多尺度融合</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240730102731798.png" alt style="zoom:50%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240730102731798.png" alt="" style="zoom:50%;">
 
 
 
 
 
 <p>1.原始的内参矩阵为什么是4x4单位矩阵，为什么取前 3 行和前 3 列<br>2.为什么只调整前两维，第三维为什么不缩放</p>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240730162318070.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240730162318070.png" alt="" style="zoom:33%;">
 
 
 
@@ -764,7 +764,7 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <ul>
 <li>M2BevNeck</li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240801132415607.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240801132415607.png" alt="" style="zoom:33%;">
 
 
 
@@ -774,7 +774,7 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <ol>
 <li>单尺度处理，数据输入网络，得到 <code>cls_score</code>、<code>bbox_pred</code>、<code>dir_cls_preds</code>。</li>
 </ol>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240801162935749.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240801162935749.png" alt="" style="zoom:33%;">
 
 <ol start="2">
 <li><p>通过 <code>AlignedAnchor3DRangeGenerator</code> （下一节）类生成 anchors 。</p>
@@ -806,17 +806,17 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <li><p>旋转角度增量：直接做差。</p>
 </li>
 <li><p>自定义参数增量：直接做差。</p>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803131510013.png" alt style="zoom:33%;"></li>
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803131510013.png" alt="" style="zoom:33%;"></li>
 </ul>
 </li>
 <li><p><strong>计算方向分类损失</strong></p>
 <ul>
 <li>将方向转换为离散区间<ul>
-<li>将 0-360° 映射到 [0, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.29ex" height="1ex" role="img" focusable="false" viewbox="0 -431 570 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"/></g></g></g></svg></mjx-container>) 和 [<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.29ex" height="1ex" role="img" focusable="false" viewbox="0 -431 570 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"/></g></g></g></svg></mjx-container>, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.421ex" height="1.532ex" role="img" focusable="false" viewbox="0 -666 1070 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"/></g></g></g></svg></mjx-container>)区间，形成二分类</li>
+<li>将 0-360° 映射到 [0, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.29ex" height="1ex" role="img" focusable="false" viewBox="0 -431 570 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"></path></g></g></g></svg></mjx-container>) 和 [<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.29ex" height="1ex" role="img" focusable="false" viewBox="0 -431 570 442"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"></path></g></g></g></svg></mjx-container>, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="2.421ex" height="1.532ex" role="img" focusable="false" viewBox="0 -666 1070 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"></path></g></g></g></svg></mjx-container>)区间，形成二分类</li>
 </ul>
 </li>
 </ul>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803140158274.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803140158274.png" alt="" style="zoom:33%;">
 
 <ul>
 <li>使用 <code>CrossEntropyLoss</code> 计算方向分类损失</li>
@@ -825,7 +825,7 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <li><p><strong>计算 bbox 回归损失</strong></p>
 <ul>
 <li><p>方向属性特殊处理，使用正弦和余弦的差异来捕捉角度差异</p>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803143809444.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240803143809444.png" alt="" style="zoom:33%;">
 </li>
 <li><p>生成 bbox weights 调整不同预测框的贡献度</p>
 <ul>
@@ -853,7 +853,7 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 </li>
 </ol>
 <ul>
-<li>AlignedAnchor3DRangeGenerator<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802113113025.png" alt style="zoom:33%;"></li>
+<li>AlignedAnchor3DRangeGenerator<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802113113025.png" alt="" style="zoom:33%;"></li>
 </ul>
 <p>最终生成的张量 <code>[1, 100, 100, 1, 2, 9]</code> 的每个维度分别代表：</p>
 <ol>
@@ -864,11 +864,11 @@ model<span class="token punctuation">.</span>init_weights<span class="token punc
 <li><strong>第 5 维 (2)</strong>: 不同的旋转角度数量，这里是两个旋转角度（0 和 90 度）。</li>
 <li><strong>第 6 维 (9)</strong>: 每个锚框的属性，包括中心点的 x、y、z 坐标，长、宽、高，旋转角度，以及两个自定义值。</li>
 </ol>
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802124453751.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802124453751.png" alt="" style="zoom:33%;">
 
 
 
-<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802124409155.png" alt style="zoom:33%;">
+<img src="/autonomousdriving/object_detection/3d/camera/fast_bev_code/image-20240802124409155.png" alt="" style="zoom:33%;">
 
 <p>生成 anchor 维度<code>[[[80000, 9] * num_feature_scales] * num_imgs]</code></p>
 <h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">FastBEV<span class="token punctuation">(</span>
