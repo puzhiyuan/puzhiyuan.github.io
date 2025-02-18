@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Puzhiyuan&#39;Blog</title>
+  
+  <subtitle>人生苦短，学不完啊</subtitle>
+  <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://puzhiyuan.github.io/"/>
+  <updated>2025-02-17T15:35:45.518Z</updated>
+  <id>https://puzhiyuan.github.io/</id>
+  
+  <author>
+    <name>puzhiyuan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ModelParallel</title>
+    <link href="https://puzhiyuan.github.io/deeplearning/distribute/modelparallel/"/>
+    <id>https://puzhiyuan.github.io/deeplearning/distribute/modelparallel/</id>
+    <published>2025-02-15T14:08:19.000Z</published>
+    <updated>2025-02-17T15:35:45.518Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;模型并行&quot;&gt;&lt;a href=&quot;#模型并行&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Distributed" scheme="https://puzhiyuan.github.io/categories/Distributed/"/>
+    
+    
+    <category term="ModelParallel" scheme="https://puzhiyuan.github.io/tags/ModelParallel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DataParallel</title>
+    <link href="https://puzhiyuan.github.io/deeplearning/distribute/dataparallel/"/>
+    <id>https://puzhiyuan.github.io/deeplearning/distribute/dataparallel/</id>
+    <published>2025-02-15T09:04:17.000Z</published>
+    <updated>2025-02-17T14:58:53.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;深度学习模型通常包含大量的参数，随着模型规模和数据量的增长，单一设备往往无法承载训练过程中的计算与存储需求。为了解决这个问题，&lt;strong&gt;分布式训练&lt;/strong&gt;技术应运而生，它能够有效地利用多台设备（如 GPU/TPU</summary>
+        
+      
+    
+    
+    
+    <category term="Distributed" scheme="https://puzhiyuan.github.io/categories/Distributed/"/>
+    
+    
+    <category term="DataParallel" scheme="https://puzhiyuan.github.io/tags/DataParallel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LoRA</title>
+    <link href="https://puzhiyuan.github.io/llm/sft/lora/"/>
+    <id>https://puzhiyuan.github.io/llm/sft/lora/</id>
+    <published>2025-01-06T13:01:39.000Z</published>
+    <updated>2025-01-13T10:53:21.876Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;LoRA&quot;&gt;&lt;a href=&quot;#LoRA&quot; class=&quot;headerlink&quot; title=&quot;LoRA&quot;&gt;&lt;/a&gt;LoRA&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2106.09685&quot;&gt;原文链接：LoRA:</summary>
+        
+      
+    
+    
+    
+    <category term="LLM" scheme="https://puzhiyuan.github.io/categories/LLM/"/>
+    
+    
+    <category term="Lora" scheme="https://puzhiyuan.github.io/tags/Lora/"/>
+    
+    <category term="SFT" scheme="https://puzhiyuan.github.io/tags/SFT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorRT_install</title>
+    <link href="https://puzhiyuan.github.io/deploy/tensorrt_install/"/>
+    <id>https://puzhiyuan.github.io/deploy/tensorrt_install/</id>
+    <published>2024-12-28T09:19:49.000Z</published>
+    <updated>2025-01-08T13:06:07.863Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;TensorRT&quot;&gt;&lt;a href=&quot;#TensorRT&quot; class=&quot;headerlink&quot; title=&quot;TensorRT&quot;&gt;&lt;/a&gt;TensorRT&lt;/h2&gt;&lt;p&gt;NVIDIA TensorRT 的&lt;strong&gt;核心是一个</summary>
+        
+      
+    
+    
+    
+    <category term="Deploy" scheme="https://puzhiyuan.github.io/categories/Deploy/"/>
+    
+    
+    <category term="TensorRT" scheme="https://puzhiyuan.github.io/tags/TensorRT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lidar2camera</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/sensorscalibration/lidar2camera/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/sensorscalibration/lidar2camera/</id>
+    <published>2024-12-08T14:44:07.000Z</published>
+    <updated>2024-12-10T10:55:59.576Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;相机和激光雷达联合标定&quot;&gt;&lt;a href=&quot;#相机和激光雷达联合标定&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="SensorsCalibration" scheme="https://puzhiyuan.github.io/categories/SensorsCalibration/"/>
+    
+    
+    <category term="SensorsCalibration" scheme="https://puzhiyuan.github.io/tags/SensorsCalibration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fundamentals of Deep Learning</title>
+    <link href="https://puzhiyuan.github.io/deeplearning/fundamentals/fundamentals_of_deep_learning/"/>
+    <id>https://puzhiyuan.github.io/deeplearning/fundamentals/fundamentals_of_deep_learning/</id>
+    <published>2024-12-07T15:12:01.000Z</published>
+    <updated>2024-12-10T10:58:10.162Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;LOSS&quot;&gt;&lt;a href=&quot;#LOSS&quot; class=&quot;headerlink&quot; title=&quot;LOSS&quot;&gt;&lt;/a&gt;LOSS&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python_tips</title>
+    <link href="https://puzhiyuan.github.io/python/python_tips/"/>
+    <id>https://puzhiyuan.github.io/python/python_tips/</id>
+    <published>2024-12-07T05:38:22.000Z</published>
+    <updated>2025-01-08T13:13:36.091Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Q：python-函数调用是值传递还是引用传递&quot;&gt;&lt;a href=&quot;#Q：python-函数调用是值传递还是引用传递&quot; class=&quot;headerlink&quot; title=&quot;Q：python 函数调用是值传递还是引用传递&quot;&gt;&lt;/a&gt;Q：python</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://puzhiyuan.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>tmux&amp;screen</title>
+    <link href="https://puzhiyuan.github.io/tools/terminal/tmux_screen/"/>
+    <id>https://puzhiyuan.github.io/tools/terminal/tmux_screen/</id>
+    <published>2024-11-22T14:18:35.000Z</published>
+    <updated>2024-11-22T15:15:26.219Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-背景与简介&quot;&gt;&lt;a href=&quot;#1-背景与简介&quot; class=&quot;headerlink&quot; title=&quot;1. 背景与简介&quot;&gt;&lt;/a&gt;1. 背景与简介&lt;/h2&gt;&lt;h3 id=&quot;1-1-tmux&quot;&gt;&lt;a href=&quot;#1-1-tmux&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="tmux" scheme="https://puzhiyuan.github.io/tags/tmux/"/>
+    
+    <category term="screen" scheme="https://puzhiyuan.github.io/tags/screen/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH_Port_Forwarding</title>
+    <link href="https://puzhiyuan.github.io/tools/ssh/ssh_port_forwarding/"/>
+    <id>https://puzhiyuan.github.io/tools/ssh/ssh_port_forwarding/</id>
+    <published>2024-11-21T12:27:31.000Z</published>
+    <updated>2024-11-22T15:08:59.946Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;SSH实现端口映射&quot;&gt;&lt;a href=&quot;#SSH实现端口映射&quot; class=&quot;headerlink&quot; title=&quot;SSH实现端口映射&quot;&gt;&lt;/a&gt;SSH实现端口映射&lt;/h3&gt;&lt;p&gt;SSH 端口映射（Port Forwarding）是一种通过 SSH</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="ssh" scheme="https://puzhiyuan.github.io/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sparse4Dv2</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv2/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv2/</id>
+    <published>2024-11-20T13:29:33.000Z</published>
+    <updated>2024-11-23T06:00:54.271Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2305.14018&quot;&gt;原文链接：Sparse4D v2: Recurrent Temporal Fusion with Sparse Model&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="目标跟踪" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E7%9B%AE%E6%A0%87%E8%B7%9F%E8%B8%AA/"/>
+    
+    
+    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker_use</title>
+    <link href="https://puzhiyuan.github.io/tools/docker/docker_use/"/>
+    <id>https://puzhiyuan.github.io/tools/docker/docker_use/</id>
+    <published>2024-10-26T13:32:04.000Z</published>
+    <updated>2024-10-29T13:58:52.663Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Docker-使用教程&quot;&gt;&lt;a href=&quot;#Docker-使用教程&quot; class=&quot;headerlink&quot; title=&quot;Docker 使用教程&quot;&gt;&lt;/a&gt;Docker 使用教程&lt;/h2&gt;&lt;h3 id=&quot;1-什么是-Docker？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="docker" scheme="https://puzhiyuan.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sparse4Dv3</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv3/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4dv3/</id>
+    <published>2024-10-24T13:34:25.000Z</published>
+    <updated>2024-11-20T13:43:31.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/linxuewu/Sparse4D&quot;&gt;Github：Sparse4Dv3&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="目标跟踪" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E7%9B%AE%E6%A0%87%E8%B7%9F%E8%B8%AA/"/>
+    
+    
+    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ssh_key</title>
+    <link href="https://puzhiyuan.github.io/tools/ssh/ssh_key/"/>
+    <id>https://puzhiyuan.github.io/tools/ssh/ssh_key/</id>
+    <published>2024-10-23T13:37:16.000Z</published>
+    <updated>2024-10-29T13:56:54.109Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在实习的时候用的 vscode</summary>
+        
+      
+    
+    
+    
+    <category term="tool" scheme="https://puzhiyuan.github.io/categories/tool/"/>
+    
+    
+    <category term="SSH" scheme="https://puzhiyuan.github.io/tags/SSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>File_Flex</title>
+    <link href="https://puzhiyuan.github.io/linux/file_flex/"/>
+    <id>https://puzhiyuan.github.io/linux/file_flex/</id>
+    <published>2024-10-20T14:10:00.000Z</published>
+    <updated>2024-10-29T13:56:54.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Linux下压缩-解压文件&quot;&gt;&lt;a href=&quot;#Linux下压缩-解压文件&quot; class=&quot;headerlink&quot; title=&quot;Linux下压缩/解压文件&quot;&gt;&lt;/a&gt;Linux下压缩/解压文件&lt;/h2&gt;&lt;h3 id=&quot;1-tar文件&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://puzhiyuan.github.io/categories/Linux/"/>
+    
+    
+    <category term="File" scheme="https://puzhiyuan.github.io/tags/File/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sparse4D</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/</id>
+    <published>2024-10-19T11:50:41.000Z</published>
+    <updated>2024-11-20T13:24:13.220Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2211.10581&quot;&gt;原文链接：Sparse4D: Multi-view 3D Object Detection with Sparse Spatial-Temporal</summary>
+        
+      
+    
+    
+    
+    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
+    
+    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mount_disk</title>
+    <link href="https://puzhiyuan.github.io/linux/mount_disk/"/>
+    <id>https://puzhiyuan.github.io/linux/mount_disk/</id>
+    <published>2024-10-18T14:31:25.000Z</published>
+    <updated>2024-10-29T13:56:54.093Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-插入设备&quot;&gt;&lt;a href=&quot;#1-插入设备&quot; class=&quot;headerlink&quot; title=&quot;1. 插入设备&quot;&gt;&lt;/a&gt;1. 插入设备&lt;/h2&gt;&lt;p&gt;将U盘或外部磁盘通过接口连接到计算机。&lt;/p&gt;
+&lt;h2 id=&quot;2-确认设备连接&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://puzhiyuan.github.io/categories/Linux/"/>
+    
+    
+    <category term="disk" scheme="https://puzhiyuan.github.io/tags/disk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Deformable_DETR</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/deformable_detr/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/deformable_detr/</id>
+    <published>2024-10-13T05:21:42.000Z</published>
+    <updated>2024-10-29T13:56:54.168Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0.</summary>
+        
+      
+    
+    
+    
+    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DETR</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/</id>
+    <published>2024-10-08T11:34:18.000Z</published>
+    <updated>2024-10-29T13:56:54.165Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0.</summary>
+        
+      
+    
+    
+    
+    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Concurrent &amp; Parallel</title>
+    <link href="https://puzhiyuan.github.io/language/python/multithreading_multiprocess/"/>
+    <id>https://puzhiyuan.github.io/language/python/multithreading_multiprocess/</id>
+    <published>2024-09-29T14:12:38.000Z</published>
+    <updated>2024-12-02T15:36:25.192Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Python-多线程与多进程&quot;&gt;&lt;a href=&quot;#Python-多线程与多进程&quot; class=&quot;headerlink&quot; title=&quot;Python 多线程与多进程&quot;&gt;&lt;/a&gt;Python 多线程与多进程&lt;/h3&gt;&lt;h4 id=&quot;背景&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://puzhiyuan.github.io/categories/python/"/>
+    
+    
+    <category term="并发编程" scheme="https://puzhiyuan.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>End2End_review</title>
+    <link href="https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/"/>
+    <id>https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/</id>
+    <published>2024-09-26T12:33:33.000Z</published>
+    <updated>2024-12-02T15:36:25.188Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0 Abstract&quot;&gt;&lt;/a&gt;0</summary>
+        
+      
+    
+    
+    
+    <category term="端到端自动驾驶" scheme="https://puzhiyuan.github.io/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
+    
+    
+    <category term="end2end" scheme="https://puzhiyuan.github.io/tags/end2end/"/>
+    
+  </entry>
+  
+</feed>
