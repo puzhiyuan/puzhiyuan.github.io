@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2025-02-17T15:35:45.518Z</updated>
+  <updated>2025-03-23T05:04:23.484Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ZeRO</title>
+    <link href="https://puzhiyuan.github.io/deeplearning/distribute/zero/"/>
+    <id>https://puzhiyuan.github.io/deeplearning/distribute/zero/</id>
+    <published>2025-02-17T11:28:28.000Z</published>
+    <updated>2025-03-23T05:04:23.484Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;ZeRO&quot;&gt;&lt;a href=&quot;#ZeRO&quot; class=&quot;headerlink&quot; title=&quot;ZeRO:&quot;&gt;&lt;/a&gt;ZeRO:&lt;/h1&gt;&lt;h2 id=&quot;0x00-Abstract&quot;&gt;&lt;a href=&quot;#0x00-Abstract&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Distributed" scheme="https://puzhiyuan.github.io/categories/Distributed/"/>
+    
+    
+    <category term="ZeRO" scheme="https://puzhiyuan.github.io/tags/ZeRO/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ModelParallel</title>
     <link href="https://puzhiyuan.github.io/deeplearning/distribute/modelparallel/"/>
     <id>https://puzhiyuan.github.io/deeplearning/distribute/modelparallel/</id>
     <published>2025-02-15T14:08:19.000Z</published>
-    <updated>2025-02-17T15:35:45.518Z</updated>
+    <updated>2025-02-27T13:39:19.124Z</updated>
     
     
       
@@ -499,31 +524,6 @@
     
     
     <category term="并发编程" scheme="https://puzhiyuan.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>End2End_review</title>
-    <link href="https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/"/>
-    <id>https://puzhiyuan.github.io/autonomousdriving/end2end/end_to_end_autonomous_driving/</id>
-    <published>2024-09-26T12:33:33.000Z</published>
-    <updated>2024-12-02T15:36:25.188Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0 Abstract&quot;&gt;&lt;/a&gt;0</summary>
-        
-      
-    
-    
-    
-    <category term="端到端自动驾驶" scheme="https://puzhiyuan.github.io/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
-    
-    
-    <category term="end2end" scheme="https://puzhiyuan.github.io/tags/end2end/"/>
     
   </entry>
   
