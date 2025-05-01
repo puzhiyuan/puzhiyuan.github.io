@@ -1,0 +1,1816 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CLIP, Puzhiyuan&#39;Blog">
+    <meta name="description" content="CLIP通过对比学习在4亿图文对上预训练，实现视觉与语言的对齐，支持强大的零样本识别能力。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQ0ZDXY56D"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-LQ0ZDXY56D');
+</script>
+
+
+    <title>CLIP | Puzhiyuan&#39;Blog</title>
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <!-- 
+    <style>
+        body{
+            background-image: url();
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+ -->
+
+    <style>
+        body{
+            background-image: url('/medias/background/17.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../../css/my.css">
+<link rel="stylesheet" type="text/css" href="../../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../../css/reward.css">
+    
+
+
+
+    <script src="../../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Puzhiyuan&#39;Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../index.html" class="waves-effect waves-light">
+      
+      <i class="fa-solid fa-house-user" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Puzhiyuan&#39;Blog</div>
+        <div class="logo-desc">
+            
+            头发越少人越强，我还需努力...
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa-solid fa-house-user"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/puzhiyuan" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/puzhiyuan" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CLIP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../../tags/CLIP/">
+                                <span class="chip bg-color">CLIP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../../categories/VLM/" class="post-category">
+                                VLM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-04-27
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-05-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    34 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="../../libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CLIP"><a href="#CLIP" class="headerlink" title="CLIP"></a>CLIP</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>传统的计算机视觉系统通常只能识别一组<strong>固定的类别</strong>，比如猫、狗、汽车等等。这些类别是在训练时提前规定好的，因此如果想让模型识别新的东西，比如“手拿咖啡杯的人”，那就必须重新收集数据、打标签、重新训练，非常麻烦。</p>
+<p>为了打破这种局限，CLIP 提出了一个新的思路：<br> ➡️ <strong>直接从文本中学习视觉概念</strong>。<br> 也就是说，不是用“这是猫”“这是狗”的标签去训练，而是用自然语言描述，比如“一个黑色的猫咪蹲在沙发上”，配合图片一起学习。<br> 这种方法能利用互联网上海量的（图片，文字）数据，而不需要人工逐个标注。</p>
+<p>CLIP 做了一个很简单但有效的预训练任务：<br> ➡️ <strong>给定一张图片和很多描述，让模型学会配对</strong>：哪句描述是对应这张图片的？<br> 虽然任务看起来很简单，但因为数据量巨大（4亿对图片和文字！），模型学到了非常强的视觉理解能力。</p>
+<p>预训练完成后，CLIP 可以直接用<strong>自然语言</strong>来完成各种新任务，比如：</p>
+<ul>
+<li>给出描述”一只穿着红衣服的狗”，让模型去找到匹配的图片</li>
+<li>给出类别名称，让模型在新数据集上进行分类<br> 而且做到这一切<strong>不用再进行任何额外的训练</strong>，这就是所谓的 <strong>zero-shot transfer</strong>（零样本迁移）。</li>
+</ul>
+<p>为了验证这种方法的效果，CLIP 团队在 30 多个不同的视觉任务上进行了测试，包括：</p>
+<ul>
+<li>OCR（文字识别）</li>
+<li>视频动作识别</li>
+<li>地理定位</li>
+<li>各种精细分类任务</li>
+</ul>
+<p>结果很惊人：即使<strong>不针对每个任务单独训练</strong>，CLIP 的表现也往往能接近甚至媲美传统的、有专门训练过的模型。例如，它在 ImageNet 上 zero-shot 的准确率，就能追平经典的 ResNet-50，而 ResNet-50 可是用了一百多万张标注图训练出来的！</p>
+<p>最后，OpenAI 也把他们的代码和预训练模型权重开源了，地址是：<a target="_blank" rel="noopener" href="https://github.com/OpenAI/CLIP%E3%80%82">https://github.com/OpenAI/CLIP。</a></p>
+<h2 id="Introduction-Motivating-Work"><a href="#Introduction-Motivating-Work" class="headerlink" title="Introduction &amp; Motivating Work"></a>Introduction &amp; Motivating Work</h2><h3 id="1-自然语言领域的启发：NLP-靠预训练起飞了"><a href="#1-自然语言领域的启发：NLP-靠预训练起飞了" class="headerlink" title="1. 自然语言领域的启发：NLP 靠预训练起飞了"></a>1. 自然语言领域的启发：NLP 靠预训练起飞了</h3><p>过去几年，自然语言处理（NLP）领域发生了翻天覆地的变化。<br> ➡️ <strong>关键原因是：直接从原始文本上进行大规模预训练</strong>。</p>
+<p>像 GPT、BERT 这些模型，通过一些简单的通用目标（比如“预测下一个词”或者“填补缺失词”），在极大的数据量和算力支持下，模型能力不断提升。<br> 而且，它们用的是统一的输入输出格式（比如“text-to-text”），这样模型就能<strong>零样本迁移</strong>到各种新任务上，不需要为每个任务单独改网络结构或者微调。</p>
+<p><strong>例子</strong>：GPT-3 只用少量甚至不需要训练数据，就能在很多任务上打败传统特制模型。</p>
+<p>这说明，<strong>互联网上的大规模文本</strong>里本身就蕴含了巨量的监督信号，远远超过了人工标注的小数据集。</p>
+<h3 id="2-视觉领域的现状：还停留在小数据集"><a href="#2-视觉领域的现状：还停留在小数据集" class="headerlink" title="2. 视觉领域的现状：还停留在小数据集"></a>2. 视觉领域的现状：还停留在小数据集</h3><p>相比之下，计算机视觉领域还停留在一种传统做法：<br> ➡️ <strong>靠人工打标签的数据集来训练，比如 ImageNet</strong>。</p>
+<p>虽然这让模型学得很精准，但显然受限很大：</p>
+<ul>
+<li>类别数目固定</li>
+<li>需要大量人工成本</li>
+<li>每换一个任务就要重新收集数据和训练</li>
+</ul>
+<p>所以一个自然的问题是：<strong>能不能像 NLP 一样，从互联网文本中学习视觉模型？</strong></p>
+<h3 id="3-过去的一些探索：早期的“图文结合”尝试"><a href="#3-过去的一些探索：早期的“图文结合”尝试" class="headerlink" title="3. 过去的一些探索：早期的“图文结合”尝试"></a>3. 过去的一些探索：早期的“图文结合”尝试</h3><p>其实，早在 20 多年前，就有人尝试过用图像和文字一起训练模型，比如：</p>
+<ul>
+<li>让模型预测配图文档中的名词和形容词（Mori et al., 1999）</li>
+<li>用图像和标题学到更高效的表示（Quattoni et al., 2007）</li>
+<li>训练神经网络预测图片的标题、标签（Joulin et al., 2016）</li>
+<li>后面还出现了 VirTex、ICMLM、ConVIRT 这样的基于 Transformer 的尝试。</li>
+</ul>
+<p>这些工作证明了一个事实：<br> <strong>用自然语言来指导视觉学习是可行的</strong>。</p>
+<p>但问题是，这些方法大多只能作为“概念验证”，真正效果并不太好。</p>
+<h3 id="4-为什么以前没火起来？"><a href="#4-为什么以前没火起来？" class="headerlink" title="4. 为什么以前没火起来？"></a>4. 为什么以前没火起来？</h3><p>主要原因是：<strong>性能太差了</strong>。</p>
+<p>比如 Li et al. (2017) 的方法在 ImageNet 上 zero-shot 准确率只有 11.5%，远低于当时有监督方法的 88.4%。<br> 甚至比传统机器视觉的方法还差。</p>
+<p>于是，工业界更倾向于走一种折中的路线：</p>
+<ul>
+<li>用带噪声的弱标注数据（比如 Instagram 的标签）来预训练</li>
+<li>比如 Mahajan et al. (2018) 就在 Instagram 上做了类似 ImageNet 标签预测的任务，提升了 ImageNet 性能。</li>
+</ul>
+<p>不过，这种方法依然有很多限制：</p>
+<ul>
+<li>只能覆盖固定数量的类别（ 1000 到 18000 多个）</li>
+<li>预测头是静态的（ softmax 分类器），没法灵活应对新任务</li>
+</ul>
+<p>相比自然语言，这种方法<strong>在灵活性和泛化能力上明显受限</strong>。</p>
+<h3 id="5-规模才是关键：CLIP-的不同之处"><a href="#5-规模才是关键：CLIP-的不同之处" class="headerlink" title="5. 规模才是关键：CLIP 的不同之处"></a>5. 规模才是关键：CLIP 的不同之处</h3><p>一个很重要的观察是：<br> ➡️ 以前这些尝试虽然方向对了，但<strong>训练规模太小了</strong>。</p>
+<p>像 VirTex、ICMLM、ConVIRT 这些方法，只在几十万到百万级图片上训练过几天。<br> 而工业界的弱监督方法（比如 Mahajan 等）可是用<strong>亿级别的数据训练了好几年的算力时间</strong>！</p>
+<p>于是 CLIP 这篇工作提出了：</p>
+<ul>
+<li>收集了 <strong>4 亿对图像-文字对</strong></li>
+<li>设计了一个简单的对比学习任务</li>
+<li><strong>真正大规模地训练</strong>了一个自然语言监督的视觉模型</li>
+</ul>
+<p>CLIP 的训练和设计思路是：</p>
+<ul>
+<li>基于 ConVIRT 的简化版，进行大规模训练</li>
+<li>训练了 8 个不同规模的模型，跨了将近两个数量级的算力规模</li>
+<li>观察到了：<strong>transfer 性能随着训练规模平滑提升</strong></li>
+</ul>
+<h3 id="6-关键结果"><a href="#6-关键结果" class="headerlink" title="6. 关键结果"></a>6. 关键结果</h3><p>CLIP 预训练出来的模型，在很多任务上可以：</p>
+<ul>
+<li>直接用自然语言描述进行 zero-shot 预测</li>
+<li>在 30 多个视觉任务上<strong>零样本迁移</strong>效果非常好</li>
+<li>超过了很多基于 ImageNet 有监督预训练的模型</li>
+<li>更重要的是：<strong>更鲁棒</strong>，抗干扰性比有监督模型好</li>
+</ul>
+<p>这说明：<strong>像 NLP 领域一样，视觉领域也能靠自然语言 + 大数据突破</strong>！</p>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><img src="/vlm/clip/image-20250427191823929.png" alt="image-20250427191823929" style="zoom:50%;">
+
+<p>本文提出的方法是：<br> <strong>用自然语言监督（Natural Language Supervision）来大规模训练视觉模型。</strong><br> 核心思想是，不是靠传统的人工分类标注，而是从互联网上大量现成的<strong>图像-文本对</strong>中学习，使得模型在训练时不仅学到视觉特征，还能学会把视觉和语言关联起来，从而实现很强的<strong>零样本（zero-shot）迁移能力</strong>。</p>
+<p>具体包括以下五个步骤：</p>
+<ul>
+<li><strong>2.1. 自然语言监督</strong>：强调自然语言本身可以作为强大的监督信号，不需要经典的 1-of-N 分类标注。</li>
+<li><strong>2.2. 构建大规模数据集</strong>：现有数据集太小，于是作者自己从互联网收集了 <strong>4 亿对图像-文本</strong>的新数据集，称为 <strong>WIT（WebImageText）</strong>。</li>
+<li><strong>2.3. 高效的预训练方法</strong>：采用<strong>对比学习（contrastive learning）</strong>而不是生成或预测具体文本，极大提高训练效率。</li>
+<li><strong>2.4. 模型设计与扩展</strong>：同时探索了改进版的 <strong>ResNet</strong> 和 <strong>Vision Transformer (ViT)</strong> 作为图像编码器，文本编码器用 Transformer。</li>
+<li><strong>2.5. 训练细节</strong>：训练了多个规模的模型，细节上简化了很多预处理和增强操作以保证高效。</li>
+</ul>
+<h3 id="2-1-Natural-Language-Supervision"><a href="#2-1-Natural-Language-Supervision" class="headerlink" title="2.1 Natural Language Supervision"></a>2.1 Natural Language Supervision</h3><ul>
+<li>过去图像-文本联合学习有很多名字：自监督、弱监督、监督学习……但本质上都是用<strong>自然语言</strong>来指导视觉表征学习。</li>
+<li>随着深度学习（比如上下文语言模型）发展，现在能更好处理自然语言了，所以可以充分利用这种“免费”的监督信号。</li>
+<li>优势：<ul>
+<li><strong>扩展性强</strong>：不需要一张一张人工打标签，能直接利用互联网上现成的图文。</li>
+<li><strong>零样本迁移能力</strong>：模型在学视觉的同时也学了语言表达，因此能直接根据自然语言描述推理新的概念。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-Creating-a-Sufficiently-Large-Dataset"><a href="#2-2-Creating-a-Sufficiently-Large-Dataset" class="headerlink" title="2.2 Creating a Sufficiently Large Dataset"></a>2.2 Creating a Sufficiently Large Dataset</h3><ul>
+<li>现有的数据集（比如 MS-COCO、Visual Genome ）规模太小（仅 10 万级图片）。</li>
+<li>YFCC100M 虽然有 1 亿张，但很多描述质量很差，需要筛选，最终有效数据只有 1500 万张。</li>
+<li>作者自己构建了一个新的超大规模数据集：<ul>
+<li>收集了 <strong>4 亿</strong>对图像和文本，来自互联网公开资源。</li>
+<li>为了尽可能覆盖更多概念，用了 <strong>50 万个查询词</strong>（包括热门维基词条、WordNet 同义词集等）进行搜索。</li>
+<li>控制了类别平衡（每个查询最多 2 万对图文）。</li>
+<li>数据量级和 WebText 相近（GPT-2 训练的数据来源）。</li>
+</ul>
+</li>
+<li>新数据集名字叫 <strong>WIT（WebImageText）</strong>。</li>
+</ul>
+<h3 id="2-3-Selecting-an-Efficient-Pre-Training-Method"><a href="#2-3-Selecting-an-Efficient-Pre-Training-Method" class="headerlink" title="2.3 Selecting an Efficient Pre-Training Method"></a>2.3 Selecting an Efficient Pre-Training Method</h3><ul>
+<li>一开始作者尝试了直接让模型预测文本内容（类似 Captioning），但发现训练很慢、效率低。</li>
+<li>启发来自对比学习（contrastive learning）研究：<ul>
+<li>不是预测完整的文字内容，而是只学<strong>正确匹配的图像-文本对</strong>，效率更高。</li>
+</ul>
+</li>
+<li>采用了 <strong>InfoNCE</strong>（一种经典的对比损失函数）：<ul>
+<li>给定一批 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="2.009ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 888 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container> 个图像-文本对，让模型在 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="3.119ex" height="1.887ex" role="img" focusable="false" viewBox="0 -833.9 1378.8 833.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mn" transform="translate(975.3,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container> 种可能匹配中，找出真实的 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="2.009ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 888 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container> 个配对。</li>
+<li>训练目标是最大化正确配对的相似度，最小化错误配对的相似度。</li>
+</ul>
+</li>
+<li>结果：训练效率提升了 <strong>4 倍</strong>，零样本 ImageNet 分类速度也快了很多。</li>
+<li>小细节：训练中还直接优化了 softmax 温度参数（<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex;" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>），使其不需要手动调参。</li>
+</ul>
+<h3 id="2-4-Choosing-and-Scaling-a-Model"><a href="#2-4-Choosing-and-Scaling-a-Model" class="headerlink" title="2.4 Choosing and Scaling a Model"></a>2.4 Choosing and Scaling a Model</h3><ul>
+<li>图像编码器尝试了两种：<ul>
+<li>改进版 <strong>ResNet-50</strong>：加了 ResNet-D 结构优化、抗锯齿采样（antialiased blur pooling）、最后用 Attention Pooling 代替平均池化。</li>
+<li>**Vision Transformer (ViT)**：基本跟 ViT 标准实现一样，加了一点小修改（比如多加一层 LayerNorm）。</li>
+</ul>
+</li>
+<li>文本编码器是 Transformer：<ul>
+<li>基于 BPE（Byte Pair Encoding）分词，最大序列长度 76。</li>
+<li>特别用 [EOS] 标记提取文本特征。</li>
+</ul>
+</li>
+<li><strong>扩展方式</strong>：参考 EfficientNet 的思路，同时增加宽度、深度和输入分辨率，而不是只放大某一个维度。</li>
+<li>文本编码器只扩宽度，不扩深度，因为实验中发现文本编码器容量对性能影响比较小。</li>
+</ul>
+<h3 id="2-5-Training"><a href="#2-5-Training" class="headerlink" title="2.5 Training"></a>2.5 Training</h3><ul>
+<li>实际训练了多种规模的模型，包括 5 个 ResNet 版本和 3 个 ViT 版本。</li>
+<li>为了效率，训练过程尽量简化：<ul>
+<li>图像增强只用简单的随机裁剪。</li>
+<li>训练从头开始，不用预训练权重（比如 ImageNet 预训练）。</li>
+<li>训练细节更偏向直接、粗暴而有效的方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="3-1-零样本迁移-Zero-Shot-Transfer"><a href="#3-1-零样本迁移-Zero-Shot-Transfer" class="headerlink" title="3.1 零样本迁移 (Zero-Shot Transfer)"></a>3.1 零样本迁移 (Zero-Shot Transfer)</h3><p>这部分是CLIP论文的亮点之一。作者们在这里展示和分析了 CLIP 模型最令人兴奋的能力：<strong>在从未见过的数据集上进行图像分类，仅仅通过提供类别的文本描述，而不需要任何针对该数据集的额外训练。</strong> 这就是所谓的“零样本迁移”。</p>
+<h4 id="3-1-1-动机-MOTIVATION"><a href="#3-1-1-动机-MOTIVATION" class="headerlink" title="3.1.1 动机 (MOTIVATION)"></a>3.1.1 动机 (MOTIVATION)</h4><ul>
+<li><strong>核心思想:</strong> 传统上，“零样本学习”指的是识别模型在训练中没见过的物体类别。但 CLIP 这里把它扩展了，指的是模型能泛化到完全没见过的数据集上。</li>
+<li><strong>为什么这么做?</strong> 作者认为，测试模型能否泛化到新数据集，更能代表模型是否具备<strong>学习新任务</strong>的能力，而不仅仅是学习好的图像特征（表示学习）。很多研究关注后者，但 CLIP 更关注前者——模型是否足够“聪明”去理解并执行一个用自然语言描述的新任务。</li>
+<li>数据集的区分:<ul>
+<li>有些数据集（如 SVHN 街景门牌号）确实对应一个明确的“真实世界任务”。在这些数据集上做零样本迁移，是测试模型的<strong>任务泛化</strong>能力。</li>
+<li>但很多经典数据集（如 CIFAR-10）更像是为了推动通用图像分类研究而创建的基准，它们来自特定的数据源（如 TinyImages ），但不一定代表一个明确的“任务”。在这些数据集上做零样本迁移，更多的是测试模型对<strong>数据分布变化</strong>的鲁棒性（即领域泛化）。</li>
+</ul>
+</li>
+<li>灵感来源:<ul>
+<li><strong>Visual N-Grams:</strong> 这是早期研究类似“零样本迁移到现有数据集”的工作，是 CLIP 的一个重要参照点。</li>
+<li><strong>NLP领域 (GPT系列):</strong> GPT 等语言模型的研究表明，大规模预训练可以带来“意外的”任务学习能力，模型可以在没有明确监督的情况下执行新任务（零样本）。CLIP 借鉴了这种思路，想在视觉领域实现类似的效果。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-1-2-使用-CLIP-进行零样本迁移-USING-CLIP-FOR-ZERO-SHOT-TRANSFER"><a href="#3-1-2-使用-CLIP-进行零样本迁移-USING-CLIP-FOR-ZERO-SHOT-TRANSFER" class="headerlink" title="3.1.2 使用 CLIP 进行零样本迁移 (USING CLIP FOR ZERO-SHOT TRANSFER)"></a>3.1.2 使用 CLIP 进行零样本迁移 (USING CLIP FOR ZERO-SHOT TRANSFER)</h4><ul>
+<li><strong>核心机制:</strong> CLIP 预训练的核心任务就是判断“图片 A 和文本 B 是否匹配”。零样本分类就巧妙地复用了这个能力。</li>
+<li>具体步骤:<ol>
+<li>拿到一张要分类的图片。</li>
+<li>获取目标数据集的所有类别名称（比如 ImageNet 的 1000 个类名：”金毛猎犬”, “虎斑猫”, “集装箱船”…）。</li>
+<li>用图像编码器提取图片的特征向量。</li>
+<li>用文本编码器提取<strong>每一个</strong>类别名称的文本特征向量。</li>
+<li>计算图片特征向量与<strong>每一个</strong>文本特征向量之间的<strong>余弦相似度</strong>。</li>
+<li>相似度得分最高的那个文本类别，就是模型预测的图片类别。</li>
+</ol>
+</li>
+<li>一种有趣的解读:<ul>
+<li>可以将这个过程看作是一个<strong>动态生成的分类器</strong>。</li>
+<li><strong>图像编码器</strong>：提取图片特征。</li>
+<li><strong>文本编码器</strong>：根据输入的类别文本描述，<strong>实时生成</strong>一个线性分类器的权重。这有点像“超网络”（Hypernetwork）的概念。</li>
+<li>整个过程就像是用自然语言“编程”了一个分类器。</li>
+</ul>
+</li>
+<li><strong>预训练的视角:</strong> 从这个角度看，CLIP 的每一次预训练迭代，都可以看作是在优化一个“代理”分类任务：这个任务有 32768 个类别（由文本描述定义），每个类别只有一个样本（配对的图片）。</li>
+<li><strong>效率:</strong> 对于一个数据集，所有类别的文本特征向量（即零样本分类器的“权重”）只需要计算一次并缓存，之后可以快速地对该数据集的所有图片进行分类预测，分摊了文本编码的成本。</li>
+</ul>
+<h4 id="3-1-3-与-Visual-N-Grams-的初步比较-INITIAL-COMPARISON-TO-VISUAL-N-GRAMS"><a href="#3-1-3-与-Visual-N-Grams-的初步比较-INITIAL-COMPARISON-TO-VISUAL-N-GRAMS" class="headerlink" title="3.1.3 与 Visual N-Grams 的初步比较 (INITIAL COMPARISON TO VISUAL N-GRAMS)"></a>3.1.3 与 Visual N-Grams 的初步比较 (INITIAL COMPARISON TO VISUAL N-GRAMS)</h4><ul>
+<li><p><strong>核心对比:</strong> 将 CLIP 与之前提到的 Visual N-Grams 在零样本迁移任务上进行比较。</p>
+</li>
+<li><p>惊人结果:</p>
+<ul>
+<li>在 ImageNet 上，最好的 CLIP 模型将零样本准确率从 Visual N-Grams 的 11.5% **大幅提升到 76.2%**！</li>
+<li>这个 76.2% 的零样本准确率，竟然<strong>媲美</strong>了在 ImageNet 上<strong>完整训练</strong>的 ResNet-50 模型的性能（后者可是用了 128 万张标注图片训练的！）。</li>
+<li>CLIP 的 Top-5 准确率（前五个预测中包含正确答案的比例）更高，达到了 95%，追平了当时很强的 Inception-V4 模型。</li>
+<li>在另外两个数据集 aYahoo 和 SUN 上，CLIP 也远超 Visual N-Grams。</li>
+</ul>
+</li>
+<li><p><strong>重要意义:</strong> 在零样本设定下能达到强监督基线的水平，表明 CLIP 是迈向灵活实用零样本视觉分类器的重要一步。</p>
+</li>
+<li><p>公平性说明 (Caveats):</p>
+<p> 作者强调，这个对比主要是为了展示 CLIP 的能力水平，而不是严格的“方法”对比，因为两者有很多差异没控制：</p>
+<ul>
+<li>CLIP用了 <strong>10 倍</strong>大的数据集。</li>
+<li>CLIP的视觉模型计算量（每次预测）大 <strong>100 倍</strong>。</li>
+<li>CLIP训练总计算量可能大了 <strong>1000 倍</strong>以上。</li>
+<li>CLIP用了 Transformer，当时 Visual N-Grams 还没有。</li>
+</ul>
+</li>
+<li><p><strong>更公平的对比:</strong> 作者做了一个补充实验，用和 Visual N-Grams <strong>相同</strong>的数据集（YFCC100M）训练了一个 CLIP ResNet-50 模型，发现在一天 GPU 时间内就达到了 Visual N-Grams 报告的 ImageNet 性能。这说明 CLIP 的基本方法是有效的，即使没有超大规模数据和算力。</p>
+</li>
+<li><p><strong>扩展评估:</strong> 为了更全面地测试，作者将评估从 3 个数据集扩展到了 <strong>30 多个</strong>，并与 <strong>50 多个</strong>现有系统进行了比较。</p>
+</li>
+</ul>
+<h4 id="3-1-4-提示工程与集成-PROMPT-ENGINEERING-AND-ENSEMBLING"><a href="#3-1-4-提示工程与集成-PROMPT-ENGINEERING-AND-ENSEMBLING" class="headerlink" title="3.1.4 提示工程与集成 (PROMPT ENGINEERING AND ENSEMBLING)"></a>3.1.4 提示工程与集成 (PROMPT ENGINEERING AND ENSEMBLING)</h4><ul>
+<li><p>面临的问题:</p>
+<ol>
+<li><strong>数据集标签质量:</strong> 很多数据集的类别标签只是简单的单词（如 “crane” ），没有上下文，容易产生歧义（多义性 Polysemy）。比如 ImageNet 里既有 “起重机(crane)” 也有 “鹤(crane)”；宠物数据集里的 “boxer” 是狗，但模型可能理解为拳击手。</li>
+<li><strong>分布差异:</strong> CLIP 预训练时看到的文本通常是描述图像的完整句子，而不仅仅是单个词。直接用单个类别词去匹配，效果可能不好。</li>
+</ol>
+</li>
+<li><p>解决方案1: 提示工程 (Prompt Engineering):</p>
+<ul>
+<li><p><strong>基本技巧:</strong> 不直接用类别标签<code>{label}</code>，而是把它嵌入一个模板句子里，比如<code>"A photo of a {label}."</code>（一张{ label }的照片）。这能提供上下文，告诉模型这是关于图像内容的描述。仅此一项就能让 ImageNet 准确率提高1.3%。</p>
+</li>
+<li><p>高级技巧:</p>
+<p> 针对不同任务定制提示。</p>
+<ul>
+<li>细粒度分类（如宠物、食物、飞机）：加入类别信息，如<code>"A photo of a {label}, a type of pet."</code>（一张{ label }的照片，一种宠物）。</li>
+<li>OCR（文字识别）：给要识别的文字加上引号，如<code>"a photo of the word '{label}'"</code>。</li>
+<li>卫星图像：明确指出是卫星图，如<code>"a satellite photo of a {label}."</code>。</li>
+</ul>
+</li>
+<li><p><strong>类比GPT-3:</strong> 这跟当时 GPT-3 社区流行的“提示工程”很像，好的提示词能显著提升模型表现。</p>
+</li>
+</ul>
+</li>
+<li><p>解决方案2: 集成 (Ensembling):</p>
+<ul>
+<li><strong>方法:</strong> 不只用一个提示模板，而是用多个不同的提示（比如<code>"A photo of a big {label}"</code>, <code>"A photo of a small {label}"</code>, <code>"A photo of a {label} in the wild"</code>等）。对每个提示生成的文本特征向量进行<strong>平均</strong>（在嵌入空间做平均，而不是概率空间），得到一个更鲁棒的“融合”类别表示。</li>
+<li><strong>好处:</strong> 计算成本低。平均后的文本特征向量可以缓存，之后分类时跟用单个提示一样快。</li>
+<li><strong>效果:</strong> 稳定提升性能。在 ImageNet 上，用了 80 个不同提示进行集成，准确率又提升了 3.5%。</li>
+</ul>
+</li>
+<li><p><strong>综合效果:</strong> 提示工程 + 集成，总共让 ImageNet 的零样本准确率提升了近 5%。</p>
+</li>
+</ul>
+<h4 id="3-1-5-零样本-CLIP-性能分析-ANALYSIS-OF-ZERO-SHOT-CLIP-PERFORMANCE"><a href="#3-1-5-零样本-CLIP-性能分析-ANALYSIS-OF-ZERO-SHOT-CLIP-PERFORMANCE" class="headerlink" title="3.1.5 零样本 CLIP 性能分析 (ANALYSIS OF ZERO-SHOT CLIP PERFORMANCE)"></a>3.1.5 零样本 CLIP 性能分析 (ANALYSIS OF ZERO-SHOT CLIP PERFORMANCE)</h4><ul>
+<li><strong>核心问题:</strong> 深入探究零样本 CLIP 的能力边界、优势、劣势以及与其他方法的比较。</li>
+<li>对比基准1: 监督学习基线 (Logistic Regression on ResNet-50 features):<ul>
+<li><strong>方法:</strong> 使用一个在 ImageNet 上预训练好的 ResNet-50 提取图片特征，然后在这个特征上训练一个简单的线性分类器（逻辑回归）来完成<strong>每个特定数据集</strong>的分类任务。这是一个常见的、不算太弱的监督学习基线。</li>
+<li><strong>结果:</strong> 在评估的 27 个数据集中，零样本 CLIP 在 <strong>16 个</strong>上表现<strong>优于</strong>这个监督基线。</li>
+<li>亮点:<ul>
+<li>在一些细粒度分类（如 Stanford Cars, Food101）上<strong>大幅领先</strong>（超过 20%）。</li>
+<li>在通用物体分类（ImageNet, CIFAR 等）上<strong>略有优势</strong>。</li>
+<li>在 STL10 数据集上达到 <strong>99.3%</strong> 准确率，创下新纪录，而且是<strong>零样本</strong>！</li>
+<li>在视频动作识别（Kinetics700, UCF101）上**显著优于 **ResNet-50 特征基线。作者推测可能是因为自然语言能更好地描述动作（动词），而 ImageNet 主要关注物体（名词）。</li>
+</ul>
+</li>
+<li>弱点:<ul>
+<li>在一些非常专业化、复杂或抽象的任务上表现较差：卫星图像分类 (EuroSAT, RESISC45)、医学图像（淋巴结肿瘤检测 PatchCamelyon）、计数 (CLEVRCounts)、自动驾驶相关（德国交通标志GTSRB，车辆距离KITTI Distance）、某些细粒度分类（Flowers102, FGVCAircraft）</li>
+<li><strong>反思:</strong> 这些任务对人类专家来说也可能很难（如肿瘤检测），或者需要特定的先验知识（如计数）。这表明零样本 CLIP 在处理复杂、需要特定推理或专业知识的任务上能力有限。零样本迁移对于模型完全没接触过的困难任务，可能不是最合适的评估方式。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对比基准2: 少样本学习 (Few-Shot Learning):<ul>
+<li><strong>逻辑:</strong> 零样本可以看作是少样本（给少量样本学习）的极限情况（0 个样本）。所以和少样本比更直接。</li>
+<li><strong>方法:</strong> 比较零样本 CLIP 与在<strong>相同 CLIP 特征</strong>上进行少样本学习（1-shot, 2-shot, 4-shot… 即每类给1, 2, 4…个样本训练逻辑回归）的性能。</li>
+<li><strong>惊人发现:</strong> 零样本 CLIP 的性能竟然<strong>相当于</strong>在它自己提取的特征上进行 <strong>4-shot</strong>学习！（零样本CLIP的性能，竟然和给它看了4个例子的模型差不多！甚至能媲美当时最好的图像模型看了16个例子后的水平！）</li>
+<li>原因推测:<ul>
+<li><strong>零样本（语言指导）:</strong> 通过自然语言直接“告知”模型要识别的概念是什么，信息明确。</li>
+<li><strong>少样本（样例学习）:</strong> 模型需要从极少的、可能包含无关信息的样本中“推断”出要学习的概念，难度更大，尤其是在只有1个样本（1-shot）时。</li>
+</ul>
+</li>
+<li><strong>结合零样本和少样本?</strong> 作者尝试将零样本生成的分类器权重作为少样本学习的先验（正则化项），但发现效果不佳，模型倾向于直接用零样本结果。如何更好地结合两者是一个未来研究方向。</li>
+<li><strong>与其他模型特征的少样本比较:</strong> 零样本 CLIP 的性能大致相当于当时<strong>最好的公开 ImageNet 模型（BiT-M ResNet-152x2）</strong>提取特征后进行 <strong>16-shot</strong>学习的水平！这再次凸显了 CLIP 零样本能力的强大。</li>
+</ul>
+</li>
+<li>数据效率 (Data Efficiency):<ul>
+<li><strong>问题:</strong> 零样本 CLIP 相当于多少个标注样本的价值？</li>
+<li><strong>估计方法:</strong> 对于每个数据集，看需要给多少个标注样本（k-shot）训练的线性分类器（在CLIP特征上），才能达到零样本CLIP的性能。</li>
+<li><strong>结果:</strong> 变化范围很大。有些数据集（Flowers102, EuroSAT）零样本还不如1-shot。但<strong>一半</strong>的数据集只需要<strong>少于5个</strong>样本/类就能赶上零样本性能（中位数5.4）。平均需要约20.8个样本/类（被一些需要很多样本的数据集拉高了）。在 ImageNet 上，零样本 CLIP 约等于<strong>16-shot</strong>。</li>
+<li><strong>结论:</strong> 零样本迁移在某些任务上非常数据高效。</li>
+</ul>
+</li>
+<li>性能上限 (Headroom):<ul>
+<li><strong>问题:</strong> 零样本 CLIP 离“完美”还有多远？</li>
+<li><strong>比较:</strong> 将零样本 CLIP 性能与其在<strong>相同 CLIP 特征</strong>上进行<strong>全量数据监督训练</strong>（即用该数据集所有训练数据训练线性分类器）的性能进行比较。后者可以看作是当前 CLIP 特征在这个任务上的性能上限。</li>
+<li><strong>结果:</strong> 大多数数据集上，零样本性能比全监督性能低**10%-25%**。说明还有很大的提升空间。</li>
+<li><strong>相关性:</strong> 零样本性能和全监督性能<strong>强正相关</strong>（0.82）。说明 CLIP 的底层表示能力和任务学习能力确实能有效地转化为零样本迁移能力。</li>
+<li><strong>接近上限的情况:</strong> 在少数几个数据集上（STL10, CIFAR10, Food101等），零样本性能非常接近全监督性能（都在90%以上）。这表明当 CLIP 的特征对某个任务本身就非常适合时，零样本迁移的效果会特别好。</li>
+</ul>
+</li>
+<li>规模效应 (Scaling Law):<ul>
+<li><strong>问题:</strong> 模型越大，零样本能力越强吗？</li>
+<li><strong>方法:</strong> 考察不同大小的 ResNet CLIP 模型（计算量跨度 44 倍）在 36 个数据集上的平均零样本错误率。</li>
+<li><strong>结果:</strong> 存在类似 GPT 模型的<strong>对数-对数线性关系</strong>。即，模型计算量（大致代表模型大小和训练量）以指数级增长时，零样本错误率也近似以指数级下降（性能以对数线性方式提升）。</li>
+<li><strong>结论:</strong> 增大模型规模确实能系统性地提升CLIP的零样本泛化能力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-表示学习-Representation-Learning"><a href="#3-2-表示学习-Representation-Learning" class="headerlink" title="3.2 表示学习 (Representation Learning)"></a>3.2 表示学习 (Representation Learning)</h3><ul>
+<li><strong>核心关注点:</strong> 前面主要讨论了 CLIP 的<strong>任务学习</strong>能力（通过零样本迁移）。这一节转而关注更传统的评估方式：模型学习到的<strong>特征表示</strong>（Representation）本身有多好？</li>
+<li>如何评估表示质量?<ul>
+<li><strong>方法1: 线性探测 (Linear Probing):</strong> 冻结预训练模型的骨干网络（比如CLIP的图像编码器），只训练一个简单的线性分类器（如逻辑回归）作用于提取出的特征上，看在下游任务上的表现。</li>
+<li><strong>方法2: 端到端微调 (End-to-end Fine-tuning):</strong> 在下游任务数据上，对整个预训练模型（或其中一部分）进行进一步训练。</li>
+</ul>
+</li>
+<li>为什么选择线性探测而非微调（CLIP 团队主要选择了线性探测）?<ul>
+<li><strong>微调的优势:</strong> 通常能获得更高的下游任务性能，因为它会调整表示以适应特定任务。</li>
+<li>CLIP 选择线性探测的原因:<ol>
+<li><strong>目标一致性:</strong> 作者的目标是开发一个<strong>任务/数据集无关</strong>的预训练方法。微调会使表示适应特定任务，可能<strong>掩盖</strong>预训练阶段表示不够通用或鲁棒的问题。</li>
+<li><strong>暴露问题:</strong> 线性分类器能力有限，更能<strong>凸显</strong>预训练表示本身的优劣。如果表示不好，线性分类器也救不了。</li>
+<li><strong>与零样本可比性:</strong> 线性探测的设置与 CLIP 的零样本分类器（本质也是特征+线性层）非常相似，便于比较分析。</li>
+<li><strong>评估成本和公平性:</strong> 微调涉及更多超参数和设计选择，对大量模型（66个）和数据集（27个）进行公平且全面的微调评估，计算成本极高且难以标准化。线性探测则简单、标准化、计算成本低。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>性能对比结果 (基于线性探测):<ul>
+<li>基准 1 (Kornblith 等人的12个数据集):<ul>
+<li>小型 CLIP 模型（ResNet-50/101）表现尚可，优于一些旧模型，但不如在更大 ImageNet-21K 上训练的模型(BiT-M)或同等计算量的 EfficientNet。</li>
+<li><strong>规模效应显著:</strong> <strong>大型 CLIP 模型 (ResNet-50x64)</strong> 表现出色，在线性探测的平均分和计算效率上都<strong>略微超过</strong>了当时的最强模型 (Noisy Student EfficientNet-L2)。</li>
+<li><strong>ViT更高效:</strong> CLIP 的 Vision Transformer (ViT) 模型比其 ResNet 版本<strong>计算效率高约 3 倍</strong>，能在同等算力下达到更高性能，印证了 ViT 在大数据训练下的优势。</li>
+<li><strong>最佳模型:</strong> 在这个基准上，最佳 CLIP 模型是一个在 336 像素分辨率下额外微调了一轮的 ViT-L/14。</li>
+</ul>
+</li>
+<li>基准 2 (更广泛的27个数据集):<ul>
+<li><strong>动机:</strong> Kornblith 基准可能偏向 ImageNet 风格的任务。CLIP 能学习更广泛的任务（OCR、地理定位、情感识别、动作识别等），这些任务在该基准中未被充分评估。</li>
+<li><strong>扩展评估:</strong> 加入了覆盖上述任务以及交通标志（GTSRB）、VTAB 等更多样化的数据集。</li>
+<li>结果:<ul>
+<li>CLIP 的优势<strong>更加明显</strong>。</li>
+<li><strong>所有 CLIP 模型</strong>在计算效率方面都优于其他所有被评估的模型。</li>
+<li>最佳 CLIP 模型相比之前最佳模型的平均得分优势从 2.6% **扩大到 5%**。</li>
+<li>自监督学习方法（如SimCLRv2）在这个更广泛的基准上表现也相对更好。</li>
+</ul>
+</li>
+<li><strong>启示:</strong> 需要更广泛、更多样化的评估基准来真正衡量模型的“通用”性能。</li>
+</ul>
+</li>
+<li>单项数据集对比 (最佳 CLIP vs EfficientNet-L2 ):<ul>
+<li>CLIP 在 27 个数据集中赢了 <strong>21 个</strong>。</li>
+<li><strong>显著优势领域:</strong> OCR（文字识别）、地理定位/场景识别、视频动作识别、细粒度汽车/交通标志识别。作者推测这可能反映了 ImageNet 监督信息的局限性（比如只有一个笼统的“交通标志”类别，导致模型忽略细节）。</li>
+<li><strong>相对劣势领域:</strong> ImageNet 本身（EfficientNet 就在上面训练的）、低分辨率数据集（CIFAR10/100，可能与 CLIP 缺乏特定尺度的数据增强有关）、以及一些两者表现都还不太好的困难任务（PatchCamelyon, CLEVRCounts）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-对自然分布漂移的鲁棒性-Robustness-to-Natural-Distribution-Shift"><a href="#3-3-对自然分布漂移的鲁棒性-Robustness-to-Natural-Distribution-Shift" class="headerlink" title="3.3 对自然分布漂移的鲁棒性 (Robustness to Natural Distribution Shift)"></a>3.3 对自然分布漂移的鲁棒性 (Robustness to Natural Distribution Shift)</h3><ul>
+<li><strong>核心问题:</strong> 现实世界的数据总是在变化的（光照、角度、风格等），模型在标准测试集上表现好，但在这些稍微“变样”的数据上表现如何？这就是<strong>分布漂移</strong>问题。现有 ImageNet 训练的模型在这方面表现不佳，存在明显的<strong>鲁棒性差距</strong>。</li>
+</ul>
+<img src="/vlm/clip/image-20250427191727346.png" alt="image-20250427191727346" style="zoom: 50%;">
+
+<ul>
+<li><p>传统模型的困境:</p>
+<ul>
+<li>在 ImageNet 测试集上超越人类表现，但在 ImageNetV2（一个重新收集的、与原 ImageNet 分布略有差异的数据集）、ImageNet-Sketch（手绘风格）、ObjectNet（不同角度、背景的物体）等“自然分布漂移”数据集上性能<strong>大幅下降</strong>。</li>
+<li><strong>原因猜测:</strong> 模型可能过度拟合了训练集（ImageNet）中存在的<strong>虚假关联</strong> (spurious correlations)，这些关联在真实或稍有变化的分布中并不成立。</li>
+</ul>
+</li>
+<li><p>CLIP的特殊性:</p>
+<ul>
+<li>CLIP 是在<strong>超大规模、多样化</strong>的网络图文数据上训练的，而非仅仅 ImageNet。</li>
+<li>它的<strong>零样本</strong>能力意味着它在评估时<strong>没有</strong>针对特定测试集（包括 ImageNet）的分布进行训练。</li>
+<li><strong>假设:</strong> 因此，零样本 CLIP 可能不会依赖 ImageNet 特有的虚假关联，从而表现出<strong>更好的鲁棒性</strong>。</li>
+</ul>
+</li>
+<li><p>衡量鲁棒性 (Taori 等人提出的框架):</p>
+<ul>
+<li><strong>自然分布漂移数据集:</strong> 关注真实世界变化（ImageNetV2, Sketch, ObjectNet等），而非人工合成的扰动（如加噪声、风格化）。</li>
+<li><strong>有效鲁棒性 (Effective Robustness):</strong> 标准模型在分布漂移数据集上的性能下降通常与其在原始数据集（如 ImageNet ）上的性能相关（越好则下降后也相对较好）。“有效鲁棒性”指的是模型在漂移数据上的表现<strong>优于</strong>基于这种相关性所<strong>预期</strong>的水平。也就是说，它的性能下降得<strong>比预期的要少</strong>。</li>
+</ul>
+</li>
+<li><p>零样本 CLIP 的鲁棒性表现:</p>
+<ul>
+<li><strong>惊人结果:</strong> <strong>所有零样本CLIP模型</strong>都表现出<strong>极高的有效鲁棒性</strong>。它们将在 ImageNet 上的准确率与在自然分布漂移数据集上的准确率之间的<strong>差距</strong>，最多**缩小了75%**！</li>
+<li><strong>解释:</strong> 这强烈支持了假设，即零样本评估（不依赖特定训练集分布）可以显著提高模型对自然分布变化的抵抗力。</li>
+</ul>
+</li>
+<li><p>验证：当 CLIP 适应 ImageNet 分布后会怎样？</p>
+<ul>
+<li><strong>实验:</strong> 使用第 3.2 节的方法，在 CLIP 提取的特征上训练一个针对 ImageNet 的线性分类器。这使得 CLIP 模型“适应”了 ImageNet 的分布。</li>
+<li>结果:<ul>
+<li>模型在 <strong>ImageNet 验证集</strong>上的准确率<strong>大幅提升</strong>了 9.2%，达到了很高的水平。</li>
+<li>但是，在 <strong>7 个自然分布漂移数据集上的平均准确率几乎没有提升，甚至略有下降</strong>！</li>
+</ul>
+</li>
+<li><strong>深度分析:</strong> 这 9.2% 的 ImageNet 准确率提升，似乎主要来自于模型学会了利用 ImageNet <strong>特有的</strong>模式或捷径，这些东西在其他分布的数据集上并不管用（甚至有害）。在 ImageNet-R, ObjectNet, Sketch 等数据集上性能反而下降了。</li>
+<li><strong>重要启示:</strong> 这个实验有力地证明了，仅仅针对某个特定分布（如 ImageNet ）进行训练或微调，确实可能导致模型学到<strong>脆弱的、非泛化</strong>的知识，从而损害其在面对真实世界数据变化时的鲁棒性。零样本 CLIP 则避免了这个问题。</li>
+</ul>
+<blockquote>
+<p>这个对比说明了什么？很可能，追求在ImageNet上更高分数的传统训练方式，确实让模型学到了一些只在ImageNet里管用的‘小聪明’，牺牲了应对真实世界变化的鲁棒性。而<strong>CLIP的零样本方法，因为它不针对任何特定数据集进行优化，反而‘因祸得福’，获得了更强的泛化能力和鲁棒性。</strong></p>
+</blockquote>
+</li>
+<li><p>其他提升鲁棒性的因素:</p>
+<ul>
+<li><strong>定制化零样本分类器:</strong> 对于分布漂移数据集，CLIP 可以根据该数据集<strong>实际的类别名称</strong>动态生成零样本分类器，而不是像传统模型那样必须映射回 ImageNet 的 1000 类（这种映射有时很粗糙）。这样做能进一步提升在部分漂移数据集上的性能和有效鲁棒性。</li>
+<li><strong>零样本 vs. 少样本鲁棒性:</strong> 即使是在 CLIP 特征上进行少样本学习（1-shot, 2-shot…），其有效鲁棒性也比传统模型高。但随着使用的 ImageNet 训练样本增多，这种鲁棒性优势会逐渐<strong>减弱</strong>。零样本 CLIP 始终是最鲁棒的。</li>
+<li><strong>结论:</strong> 似乎<strong>最小化</strong>模型接触特定分布训练数据的程度，是获得高有效鲁棒性的关键，尽管这可能牺牲一点在该特定分布上的峰值性能。</li>
+</ul>
+</li>
+<li><p>更广泛的意义:</p>
+<ul>
+<li>这项工作表明，<strong>大规模、任务/数据集无关的预训练 + 零/少样本评估 + 广泛的评估基准</strong>，是开发更鲁棒 AI 系统的有效途径，也能更准确地评估模型的真实能力。</li>
+<li>作者也期待在 NLP 领域（如 GPT 模型）看到类似的鲁棒性研究。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Comparison-to-Human-Performance"><a href="#Comparison-to-Human-Performance" class="headerlink" title="Comparison to Human Performance"></a>Comparison to Human Performance</h2><ul>
+<li><p><strong>核心问题:</strong> CLIP 的表现与人类相比如何？特别是在零样本和少样本学习方面，人类和 CLIP 有什么异同？</p>
+</li>
+<li><p>实验设计:</p>
+<ul>
+<li><strong>任务:</strong> 使用 Oxford-IIIT Pets 数据集（包含 37 种猫狗品种），让人类和 CLIP 进行品种识别。</li>
+<li><strong>人类参与者:</strong> 5 位人类评估员。</li>
+<li>评估条件:<ol>
+<li><strong>零样本 (Zero-shot):</strong> 只给人类评估员提供 37 个品种的名称列表，不给任何示例图片，并且不允许上网搜索。让他们尽力识别测试集中的图片属于哪个品种，或者选择“不知道”。</li>
+<li><strong>一样本 (One-shot):</strong> 给评估员展示<strong>每个</strong>品种的<strong>一张</strong>示例图片。</li>
+<li><strong>二样本 (Two-shot):</strong> 给评估员展示<strong>每个</strong>品种的<strong>两张</strong>示例图片。</li>
+</ol>
+</li>
+<li><strong>数据质量控制:</strong> 通过在其他数据集(STL-10)上的高准确率（94%）以及注意力检查图片上的高准确率（97-100%），确认人类评估员是认真参与的。</li>
+</ul>
+</li>
+<li><p>实验结果:</p>
+<img src="/vlm/clip/image-20250427191122150.png" alt="image-20250427191122150" style="zoom: 33%;">
+
+<ul>
+<li><strong>人类零样本:</strong> 平均准确率约为 **54%**。在不确定的情况下选择“不知道”后，在做出猜测的样本上准确率约为 64-70%。</li>
+<li><strong>人类一样本:</strong> 平均准确率<strong>大幅跃升</strong>至约 **76%**。</li>
+<li><strong>人类二样本:</strong> 平均准确率与一样本相比<strong>几乎没有提升</strong>。</li>
+<li><strong>提升来源:</strong> 从零样本到一样本的巨大性能提升，几乎完全来自于那些人类最初选择“不知道”（即非常不确定）的图片。</li>
+<li><strong>CLIP零样本:</strong> 在这个数据集上，零样本 CLIP 的准确率高达 **93.5%**。</li>
+</ul>
+</li>
+<li><p>解读与启示:</p>
+<ul>
+<li>人类学习特点:<ul>
+<li><strong>零样本:</strong> 尽管拥有丰富的常识，但在没有具体示例的情况下，精确识别特定、细分的品种对人类来说也相当困难。</li>
+<li><strong>极高样本效率:</strong> 人类从<strong>零到一样本</strong>的学习效率极高！仅仅一张示例图片就能显著提升性能，帮助他们解决之前不确定的问题。这表明人类非常擅长“知道自己不知道什么”，并能利用极少量信息快速更新认知。</li>
+<li><strong>边际效益递减:</strong> 从一样本到二样本，信息增益很小，性能提升不明显。</li>
+</ul>
+</li>
+<li>CLIP vs. 人类:<ul>
+<li><strong>零样本:</strong> CLIP 凭借其从海量数据中学到的知识，在<strong>零样本迁移</strong>任务上<strong>远超</strong>没有经过特定训练的人类（93.5% vs 54%）。</li>
+<li><strong>少样本:</strong> 人类从 0 到 1 样本的<strong>学习效率</strong>远超本论文中评估 CLIP 少样本能力的方法（即线性探测）。线性探测方法随着样本数增加性能是逐渐提升的，并没有展现出人类这种“一点即通”的飞跃。</li>
+</ul>
+</li>
+<li><strong>算法差距:</strong> 当前机器学习中的少样本方法（即使是基于高质量预训练特征的线性探测，这已接近 SOTA）与人类的少样本学习效率之间仍存在巨大鸿沟。人类显然更有效地利用了先验知识。</li>
+<li><strong>未来方向:</strong> 需要开发新的算法，能够更好地将 CLIP 这类模型强大的<strong>先验知识</strong>与<strong>少量新样本</strong>信息结合起来，以缩小与人类学习效率的差距。</li>
+<li><strong>错误相关性:</strong> 对 CLIP 来说困难的识别任务（错误率高的类别），对人类来说通常也比较困难。作者推测这可能是因为数据集本身存在噪声（如错误标注）或者某些图片确实是异常/困难样本，对模型和人类都构成了挑战。</li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../../about" rel="external nofollow noreferrer">puzhiyuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://puzhiyuan.github.io">https://puzhiyuan.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../../about" target="_blank">puzhiyuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../../tags/CLIP/">
+                                    <span class="chip bg-color">CLIP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div class="card" data-aos="fade-up">
+    <div id="utteranc-container" class="card-content">
+        <script src = "https://utteranc.es/client.js"
+                repo = "puzhiyuan/Blog_talk" 
+                issue-term = "pathname" 
+                theme = "github-light" 
+                crossorigin = "anonymous" 
+                async > 
+        </script >        
+               
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../medias/featureimages/11.jpg" class="responsive-img" alt="CLIP">
+                        
+                        <span class="card-title">CLIP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CLIP通过对比学习在4亿图文对上预训练，实现视觉与语言的对齐，支持强大的零样本识别能力。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../categories/VLM/" class="post-category">
+                                    VLM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../tags/CLIP/">
+                        <span class="chip bg-color">CLIP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../../deeplearning/distribute/zero/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../medias/featureimages/46.jpg" class="responsive-img" alt="ZeRO">
+                        
+                        <span class="card-title">ZeRO</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ZeRO 技术通过分区存储模型状态、梯度和激活值，消除冗余内存占用，降低通信开销，从而实现数十亿到万亿参数大模型的高效训练。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../categories/Distributed/" class="post-category">
+                                    Distributed
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../tags/ZeRO/">
+                        <span class="chip bg-color">ZeRO</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="../../libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024-2025</span>
+            
+            <a href="../../about" target="_blank">puzhiyuan</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
+            <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">113.2k</span>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2024";
+                        var startMonth = "5";
+                        var startDate = "26";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天' + diffHours + ' 小时 ';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/puzhiyuan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:185489643@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=185489643" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 185489643" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../../libs/materialize/materialize.min.js"></script>
+    <script src="../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../libs/aos/aos.js"></script>
+    <script src="../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="../../js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://puzhiyuan.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="../../libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="../../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

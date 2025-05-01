@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2025-03-23T05:04:23.484Z</updated>
+  <updated>2025-05-01T10:22:34.645Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CLIP</title>
+    <link href="https://puzhiyuan.github.io/vlm/clip/"/>
+    <id>https://puzhiyuan.github.io/vlm/clip/</id>
+    <published>2025-04-27T05:27:44.000Z</published>
+    <updated>2025-05-01T10:22:34.645Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;CLIP&quot;&gt;&lt;a href=&quot;#CLIP&quot; class=&quot;headerlink&quot; title=&quot;CLIP&quot;&gt;&lt;/a&gt;CLIP&lt;/h1&gt;&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="VLM" scheme="https://puzhiyuan.github.io/categories/VLM/"/>
+    
+    
+    <category term="CLIP" scheme="https://puzhiyuan.github.io/tags/CLIP/"/>
+    
+  </entry>
   
   <entry>
     <title>ZeRO</title>
@@ -499,31 +524,6 @@
     
     
     <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Concurrent &amp; Parallel</title>
-    <link href="https://puzhiyuan.github.io/language/python/multithreading_multiprocess/"/>
-    <id>https://puzhiyuan.github.io/language/python/multithreading_multiprocess/</id>
-    <published>2024-09-29T14:12:38.000Z</published>
-    <updated>2024-12-02T15:36:25.192Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;Python-多线程与多进程&quot;&gt;&lt;a href=&quot;#Python-多线程与多进程&quot; class=&quot;headerlink&quot; title=&quot;Python 多线程与多进程&quot;&gt;&lt;/a&gt;Python 多线程与多进程&lt;/h3&gt;&lt;h4 id=&quot;背景&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="https://puzhiyuan.github.io/categories/python/"/>
-    
-    
-    <category term="并发编程" scheme="https://puzhiyuan.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
