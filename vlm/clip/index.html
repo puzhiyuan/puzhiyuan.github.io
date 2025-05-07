@@ -43,7 +43,7 @@
 
     <style>
         body{
-            background-image: url('/medias/background/17.jpg');
+            background-image: url('/medias/background/7.jpg');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -539,7 +539,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-05-01
+                    2025-05-07
                 </div>
                 
 
@@ -649,7 +649,7 @@ mjx-container[display="true"] + br {
 <li>更重要的是：<strong>更鲁棒</strong>，抗干扰性比有监督模型好</li>
 </ul>
 <p>这说明：<strong>像 NLP 领域一样，视觉领域也能靠自然语言 + 大数据突破</strong>！</p>
-<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><img src="/vlm/clip/image-20250427191823929.png" alt="image-20250427191823929" style="zoom:50%;">
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><img src="/vlm/clip/image-20250427191823929.png" alt="Fig.1 CLIP framework" style="zoom:50%;">
 
 <p>本文提出的方法是：<br> <strong>用自然语言监督（Natural Language Supervision）来大规模训练视觉模型。</strong><br> 核心思想是，不是靠传统的人工分类标注，而是从互联网上大量现成的<strong>图像-文本对</strong>中学习，使得模型在训练时不仅学到视觉特征，还能学会把视觉和语言关联起来，从而实现很强的<strong>零样本（zero-shot）迁移能力</strong>。</p>
 <p>具体包括以下五个步骤：</p>
@@ -698,7 +698,7 @@ mjx-container[display="true"] + br {
 <h3 id="2-4-Choosing-and-Scaling-a-Model"><a href="#2-4-Choosing-and-Scaling-a-Model" class="headerlink" title="2.4 Choosing and Scaling a Model"></a>2.4 Choosing and Scaling a Model</h3><ul>
 <li>图像编码器尝试了两种：<ul>
 <li>改进版 <strong>ResNet-50</strong>：加了 ResNet-D 结构优化、抗锯齿采样（antialiased blur pooling）、最后用 Attention Pooling 代替平均池化。</li>
-<li>**Vision Transformer (ViT)**：基本跟 ViT 标准实现一样，加了一点小修改（比如多加一层 LayerNorm）。</li>
+<li><strong>Vision Transformer (ViT)</strong> ：基本跟 ViT 标准实现一样，加了一点小修改（比如多加一层 LayerNorm）。</li>
 </ul>
 </li>
 <li>文本编码器是 Transformer：<ul>
@@ -759,7 +759,7 @@ mjx-container[display="true"] + br {
 </li>
 <li><p>惊人结果:</p>
 <ul>
-<li>在 ImageNet 上，最好的 CLIP 模型将零样本准确率从 Visual N-Grams 的 11.5% **大幅提升到 76.2%**！</li>
+<li>在 ImageNet 上，最好的 CLIP 模型将零样本准确率从 Visual N-Grams 的 <strong>11.5% 大幅提升到 76.2%</strong> ！</li>
 <li>这个 76.2% 的零样本准确率，竟然<strong>媲美</strong>了在 ImageNet 上<strong>完整训练</strong>的 ResNet-50 模型的性能（后者可是用了 128 万张标注图片训练的！）。</li>
 <li>CLIP 的 Top-5 准确率（前五个预测中包含正确答案的比例）更高，达到了 95%，追平了当时很强的 Inception-V4 模型。</li>
 <li>在另外两个数据集 aYahoo 和 SUN 上，CLIP 也远超 Visual N-Grams。</li>
@@ -823,7 +823,7 @@ mjx-container[display="true"] + br {
 <li>在一些细粒度分类（如 Stanford Cars, Food101）上<strong>大幅领先</strong>（超过 20%）。</li>
 <li>在通用物体分类（ImageNet, CIFAR 等）上<strong>略有优势</strong>。</li>
 <li>在 STL10 数据集上达到 <strong>99.3%</strong> 准确率，创下新纪录，而且是<strong>零样本</strong>！</li>
-<li>在视频动作识别（Kinetics700, UCF101）上**显著优于 **ResNet-50 特征基线。作者推测可能是因为自然语言能更好地描述动作（动词），而 ImageNet 主要关注物体（名词）。</li>
+<li>在视频动作识别（Kinetics700, UCF101）上<strong>显著优于</strong> ResNet-50 特征基线。作者推测可能是因为自然语言能更好地描述动作（动词），而 ImageNet 主要关注物体（名词）。</li>
 </ul>
 </li>
 <li>弱点:<ul>
@@ -836,14 +836,14 @@ mjx-container[display="true"] + br {
 <li>对比基准2: 少样本学习 (Few-Shot Learning):<ul>
 <li><strong>逻辑:</strong> 零样本可以看作是少样本（给少量样本学习）的极限情况（0 个样本）。所以和少样本比更直接。</li>
 <li><strong>方法:</strong> 比较零样本 CLIP 与在<strong>相同 CLIP 特征</strong>上进行少样本学习（1-shot, 2-shot, 4-shot… 即每类给1, 2, 4…个样本训练逻辑回归）的性能。</li>
-<li><strong>惊人发现:</strong> 零样本 CLIP 的性能竟然<strong>相当于</strong>在它自己提取的特征上进行 <strong>4-shot</strong>学习！（零样本CLIP的性能，竟然和给它看了4个例子的模型差不多！甚至能媲美当时最好的图像模型看了16个例子后的水平！）</li>
+<li><strong>惊人发现:</strong> 零样本 CLIP 的性能竟然<strong>相当于</strong>在它自己提取的特征上进行 <strong>4-shot</strong> 学习！（零样本 CLIP 的性能，竟然和给它看了 4 个例子的模型差不多！甚至能媲美当时最好的图像模型看了 16 个例子后的水平！）</li>
 <li>原因推测:<ul>
 <li><strong>零样本（语言指导）:</strong> 通过自然语言直接“告知”模型要识别的概念是什么，信息明确。</li>
 <li><strong>少样本（样例学习）:</strong> 模型需要从极少的、可能包含无关信息的样本中“推断”出要学习的概念，难度更大，尤其是在只有1个样本（1-shot）时。</li>
 </ul>
 </li>
 <li><strong>结合零样本和少样本?</strong> 作者尝试将零样本生成的分类器权重作为少样本学习的先验（正则化项），但发现效果不佳，模型倾向于直接用零样本结果。如何更好地结合两者是一个未来研究方向。</li>
-<li><strong>与其他模型特征的少样本比较:</strong> 零样本 CLIP 的性能大致相当于当时<strong>最好的公开 ImageNet 模型（BiT-M ResNet-152x2）</strong>提取特征后进行 <strong>16-shot</strong>学习的水平！这再次凸显了 CLIP 零样本能力的强大。</li>
+<li><strong>与其他模型特征的少样本比较:</strong> 零样本 CLIP 的性能大致相当于当时<strong>最好的公开 ImageNet 模型（BiT-M ResNet-152x2）</strong>提取特征后进行 <strong>16-shot</strong> 学习的水平！这再次凸显了 CLIP 零样本能力的强大。</li>
 </ul>
 </li>
 <li>数据效率 (Data Efficiency):<ul>
@@ -856,7 +856,7 @@ mjx-container[display="true"] + br {
 <li>性能上限 (Headroom):<ul>
 <li><strong>问题:</strong> 零样本 CLIP 离“完美”还有多远？</li>
 <li><strong>比较:</strong> 将零样本 CLIP 性能与其在<strong>相同 CLIP 特征</strong>上进行<strong>全量数据监督训练</strong>（即用该数据集所有训练数据训练线性分类器）的性能进行比较。后者可以看作是当前 CLIP 特征在这个任务上的性能上限。</li>
-<li><strong>结果:</strong> 大多数数据集上，零样本性能比全监督性能低**10%-25%**。说明还有很大的提升空间。</li>
+<li><strong>结果:</strong> 大多数数据集上，零样本性能比全监督性能低 <strong>10%-25%</strong> 。说明还有很大的提升空间。</li>
 <li><strong>相关性:</strong> 零样本性能和全监督性能<strong>强正相关</strong>（0.82）。说明 CLIP 的底层表示能力和任务学习能力确实能有效地转化为零样本迁移能力。</li>
 <li><strong>接近上限的情况:</strong> 在少数几个数据集上（STL10, CIFAR10, Food101等），零样本性能非常接近全监督性能（都在90%以上）。这表明当 CLIP 的特征对某个任务本身就非常适合时，零样本迁移的效果会特别好。</li>
 </ul>
@@ -901,7 +901,7 @@ mjx-container[display="true"] + br {
 <li>结果:<ul>
 <li>CLIP 的优势<strong>更加明显</strong>。</li>
 <li><strong>所有 CLIP 模型</strong>在计算效率方面都优于其他所有被评估的模型。</li>
-<li>最佳 CLIP 模型相比之前最佳模型的平均得分优势从 2.6% **扩大到 5%**。</li>
+<li>最佳 CLIP 模型相比之前最佳模型的平均得分优势从 <strong>2.6% 扩大到 5%</strong> 。</li>
 <li>自监督学习方法（如SimCLRv2）在这个更广泛的基准上表现也相对更好。</li>
 </ul>
 </li>
@@ -920,7 +920,7 @@ mjx-container[display="true"] + br {
 <h3 id="3-3-对自然分布漂移的鲁棒性-Robustness-to-Natural-Distribution-Shift"><a href="#3-3-对自然分布漂移的鲁棒性-Robustness-to-Natural-Distribution-Shift" class="headerlink" title="3.3 对自然分布漂移的鲁棒性 (Robustness to Natural Distribution Shift)"></a>3.3 对自然分布漂移的鲁棒性 (Robustness to Natural Distribution Shift)</h3><ul>
 <li><strong>核心问题:</strong> 现实世界的数据总是在变化的（光照、角度、风格等），模型在标准测试集上表现好，但在这些稍微“变样”的数据上表现如何？这就是<strong>分布漂移</strong>问题。现有 ImageNet 训练的模型在这方面表现不佳，存在明显的<strong>鲁棒性差距</strong>。</li>
 </ul>
-<img src="/vlm/clip/image-20250427191727346.png" alt="image-20250427191727346" style="zoom: 50%;">
+<img src="/vlm/clip/image-20250427191727346.png" alt="Fig.2 CLIP performs better than ImageNet models under distribution shift" style="zoom: 50%;">
 
 <ul>
 <li><p>传统模型的困境:</p>
@@ -944,7 +944,7 @@ mjx-container[display="true"] + br {
 </li>
 <li><p>零样本 CLIP 的鲁棒性表现:</p>
 <ul>
-<li><strong>惊人结果:</strong> <strong>所有零样本CLIP模型</strong>都表现出<strong>极高的有效鲁棒性</strong>。它们将在 ImageNet 上的准确率与在自然分布漂移数据集上的准确率之间的<strong>差距</strong>，最多**缩小了75%**！</li>
+<li><strong>惊人结果:</strong> <strong>所有零样本CLIP模型</strong>都表现出<strong>极高的有效鲁棒性</strong>。它们将在 ImageNet 上的准确率与在自然分布漂移数据集上的准确率之间的<strong>差距</strong>，最多<strong>缩小了 75%</strong> ！</li>
 <li><strong>解释:</strong> 这强烈支持了假设，即零样本评估（不依赖特定训练集分布）可以显著提高模型对自然分布变化的抵抗力。</li>
 </ul>
 </li>
@@ -997,11 +997,11 @@ mjx-container[display="true"] + br {
 <img src="/vlm/clip/image-20250427191122150.png" alt="image-20250427191122150" style="zoom: 33%;">
 
 <ul>
-<li><strong>人类零样本:</strong> 平均准确率约为 **54%**。在不确定的情况下选择“不知道”后，在做出猜测的样本上准确率约为 64-70%。</li>
-<li><strong>人类一样本:</strong> 平均准确率<strong>大幅跃升</strong>至约 **76%**。</li>
+<li><strong>人类零样本:</strong> 平均准确率约为 <strong>54%</strong> 。在不确定的情况下选择“不知道”后，在做出猜测的样本上准确率约为 64-70%。</li>
+<li><strong>人类一样本:</strong> 平均准确率<strong>大幅跃升</strong>至约 <strong>76%</strong> 。</li>
 <li><strong>人类二样本:</strong> 平均准确率与一样本相比<strong>几乎没有提升</strong>。</li>
 <li><strong>提升来源:</strong> 从零样本到一样本的巨大性能提升，几乎完全来自于那些人类最初选择“不知道”（即非常不确定）的图片。</li>
-<li><strong>CLIP零样本:</strong> 在这个数据集上，零样本 CLIP 的准确率高达 **93.5%**。</li>
+<li><strong>CLIP零样本:</strong> 在这个数据集上，零样本 CLIP 的准确率高达 <strong>93.5%</strong> 。</li>
 </ul>
 </li>
 <li><p>解读与启示:</p>
@@ -1183,30 +1183,29 @@ mjx-container[display="true"] + br {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="">
+                <a href="../qwen2_5_vl/">
                     <div class="card-image">
                         
                         
-                        <img src="../../medias/featureimages/11.jpg" class="responsive-img" alt="CLIP">
+                        <img src="../../medias/featureimages/11.jpg" class="responsive-img" alt="Qwen2.5-VL">
                         
-                        <span class="card-title">CLIP</span>
+                        <span class="card-title">Qwen2.5-VL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CLIP通过对比学习在4亿图文对上预训练，实现视觉与语言的对齐，支持强大的零样本识别能力。
+                            Qwen2.5-VL是Qwen团队新旗舰多模态模型，在视觉理解、文档图表解析、长视频理解及交互代理能力上实现大跃进。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1219,12 +1218,11 @@ mjx-container[display="true"] + br {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../tags/CLIP/">
-                        <span class="chip bg-color">CLIP</span>
+                    <a href="../../tags/Qwen2-5-VL/">
+                        <span class="chip bg-color">Qwen2.5-VL</span>
                     </a>
                     
                 </div>
@@ -1482,7 +1480,7 @@ mjx-container[display="true"] + br {
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">113.2k</span>
+                        class="white-color">121.1k</span>
             
             
             

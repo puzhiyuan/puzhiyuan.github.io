@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2025-05-01T10:22:34.645Z</updated>
+  <updated>2025-05-07T08:22:56.914Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Qwen2.5-VL</title>
+    <link href="https://puzhiyuan.github.io/vlm/qwen2_5_vl/"/>
+    <id>https://puzhiyuan.github.io/vlm/qwen2_5_vl/</id>
+    <published>2025-05-07T07:43:05.000Z</published>
+    <updated>2025-05-07T08:22:56.914Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Qwen2-5-VL&quot;&gt;&lt;a href=&quot;#Qwen2-5-VL&quot; class=&quot;headerlink&quot; title=&quot;Qwen2.5-VL&quot;&gt;&lt;/a&gt;Qwen2.5-VL&lt;/h1&gt;&lt;p&gt;年初，Qwen团队推出了最新的视觉-语言（Vision-Language,</summary>
+        
+      
+    
+    
+    
+    <category term="VLM" scheme="https://puzhiyuan.github.io/categories/VLM/"/>
+    
+    
+    <category term="Qwen2.5-VL" scheme="https://puzhiyuan.github.io/tags/Qwen2-5-VL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CLIP</title>
     <link href="https://puzhiyuan.github.io/vlm/clip/"/>
     <id>https://puzhiyuan.github.io/vlm/clip/</id>
     <published>2025-04-27T05:27:44.000Z</published>
-    <updated>2025-05-01T10:22:34.645Z</updated>
+    <updated>2025-05-07T08:16:44.387Z</updated>
     
     
       
@@ -483,31 +508,6 @@
     <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/deformable_detr/</id>
     <published>2024-10-13T05:21:42.000Z</published>
     <updated>2024-10-29T13:56:54.168Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;0-Abstract&quot;&gt;&lt;a href=&quot;#0-Abstract&quot; class=&quot;headerlink&quot; title=&quot;0. Abstract&quot;&gt;&lt;/a&gt;0.</summary>
-        
-      
-    
-    
-    
-    <category term="2D目标检测" scheme="https://puzhiyuan.github.io/categories/2D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    
-    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DETR</title>
-    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/"/>
-    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/2d/transformer_based/detr/</id>
-    <published>2024-10-08T11:34:18.000Z</published>
-    <updated>2024-10-29T13:56:54.165Z</updated>
     
     
       

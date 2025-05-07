@@ -1,0 +1,1772 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Qwen2.5-VL, Puzhiyuan&#39;Blog">
+    <meta name="description" content="Qwen2.5-VL是Qwen团队新旗舰多模态模型，在视觉理解、文档图表解析、长视频理解及交互代理能力上实现大跃进。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQ0ZDXY56D"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-LQ0ZDXY56D');
+</script>
+
+
+    <title>Qwen2.5-VL | Puzhiyuan&#39;Blog</title>
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <!-- 
+    <style>
+        body{
+            background-image: url();
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+ -->
+
+    <style>
+        body{
+            background-image: url('/medias/background/16.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="../../libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="../../libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/matery.css">
+<link rel="stylesheet" type="text/css" href="../../css/my.css">
+<link rel="stylesheet" type="text/css" href="../../css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="../../css/reward.css">
+    
+
+
+
+    <script src="../../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="Puzhiyuan'Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Puzhiyuan&#39;Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../index.html" class="waves-effect waves-light">
+      
+      <i class="fa-solid fa-house-user" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Puzhiyuan&#39;Blog</div>
+        <div class="logo-desc">
+            
+            头发越少人越强，我还需努力...
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa-solid fa-house-user"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/puzhiyuan" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/puzhiyuan" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Qwen2.5-VL</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../../tags/Qwen2-5-VL/">
+                                <span class="chip bg-color">Qwen2.5-VL</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../../categories/VLM/" class="post-category">
+                                VLM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-05-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-05-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="../../libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Qwen2-5-VL"><a href="#Qwen2-5-VL" class="headerlink" title="Qwen2.5-VL"></a>Qwen2.5-VL</h1><p>年初，Qwen团队推出了最新的视觉-语言（Vision-Language, VL）模型 —— <strong>Qwen2.5-VL</strong>。<br> 作为Qwen视觉语言系列的旗舰新作，这一代带来了很多<strong>基础能力</strong>和<strong>创新功能</strong>上的大跃进。</p>
+<h2 id="核心升级亮点"><a href="#核心升级亮点" class="headerlink" title="核心升级亮点"></a>核心升级亮点</h2><h3 id="1-更强的视觉理解力"><a href="#1-更强的视觉理解力" class="headerlink" title="1. 更强的视觉理解力"></a>1. 更强的视觉理解力</h3><p>Qwen2.5-VL在以下几个方面表现非常突出：</p>
+<ul>
+<li><strong>图像识别</strong>：能更准确地认出图片里的物体。</li>
+<li><strong>精准定位</strong>：可以用<strong>边界框（bounding box）</strong>或<strong>关键点（points）</strong>精确标出物体位置。</li>
+<li><strong>文档解析</strong>：发票、表格、文档都能稳稳地抽取出结构化数据。</li>
+<li><strong>图表/布局分析</strong>：对图表、流程图、布局等复杂图片也能做出细致理解。</li>
+</ul>
+<p>🔵 想象你给模型一张发票，它可以告诉你：这是谁开的？多少钱？税号是多少？全部一键提取！</p>
+<h3 id="2-长视频理解也不怕"><a href="#2-长视频理解也不怕" class="headerlink" title="2. 长视频理解也不怕"></a>2. 长视频理解也不怕</h3><p>Qwen2.5-VL特别引入了两项新技术：</p>
+<ul>
+<li><strong>动态分辨率处理（Dynamic Resolution Processing）</strong><br>→ 意思是它可以灵活处理不同大小的图片或不同长度的视频，不会被尺寸卡死。</li>
+<li><strong>绝对时间编码（Absolute Time Encoding）</strong><br>→ 可以精准定位到视频中的“第几秒发生了什么事”，而且可以处理<strong>长达数小时</strong>的视频！</li>
+</ul>
+<p>而且，它实现了这些能力，<strong>不需要传统的归一化（Normalization）操作</strong>，这让模型能更自然地感知空间和时间变化。</p>
+<h3 id="3-自研动态分辨率ViT"><a href="#3-自研动态分辨率ViT" class="headerlink" title="3. 自研动态分辨率ViT"></a>3. 自研动态分辨率ViT</h3><p>Qwen2.5-VL从头训练了一个<strong>动态分辨率版Vision Transformer（ViT）</strong>，并引入了<strong>Window Attention机制</strong>。</p>
+<p>这有什么好处？</p>
+<ul>
+<li><strong>算力负担更小</strong>：不会因为处理高分辨率图像而爆炸。</li>
+<li><strong>保留原图信息</strong>：不像传统方法需要缩小图片，能看清每个细节。</li>
+</ul>
+<h3 id="4-不只是静态理解，更能交互操作！"><a href="#4-不只是静态理解，更能交互操作！" class="headerlink" title="4. 不只是静态理解，更能交互操作！"></a>4. 不只是静态理解，更能交互操作！</h3><p>Qwen2.5-VL不仅能理解静态图片、文档，还可以做“交互式视觉代理”：</p>
+<ul>
+<li>推理分析</li>
+<li>使用工具（比如打开手机App，浏览网页）</li>
+<li>执行任务（比如模拟鼠标点点点，完成一个流程）</li>
+</ul>
+<p>🔵 未来你有可能只用拍一张手机屏幕，模型就帮你“远程操控”完成文件上传！</p>
+<h3 id="5-强泛化，无需额外微调"><a href="#5-强泛化，无需额外微调" class="headerlink" title="5. 强泛化，无需额外微调"></a>5. 强泛化，无需额外微调</h3><p>在各种不同领域（文档、网页、日常照片、视频等）都能表现出很强的<strong>零样本（zero-shot）泛化能力</strong>。<br> 换句话说，大多数情况下<strong>直接用就行</strong>，不需要专门给它每个任务都微调。</p>
+<p>Qwen2.5-VL一共有<strong>三个版本</strong>，覆盖从边缘设备到高性能服务器的各种场景：</p>
+<ul>
+<li><strong>Qwen2.5-VL-3B</strong>：轻量级，适合资源受限的环境。</li>
+<li><strong>Qwen2.5-VL-7B</strong>：中等规模，综合性能好。</li>
+<li><strong>Qwen2.5-VL-72B</strong>：旗舰大模型，性能媲美 GPT-4o 和 Claude 3.5 Sonnet，特别擅长文档和图表理解！</li>
+</ul>
+<p>而且，不仅视觉理解厉害，Qwen2.5-VL依然保持了Qwen2.5系列一贯优秀的<strong>语言理解和生成能力</strong>！</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="LVLM（Large-Vision-Language-Models）？"><a href="#LVLM（Large-Vision-Language-Models）？" class="headerlink" title="LVLM（Large Vision-Language Models）？"></a>LVLM（Large Vision-Language Models）？</h3><p>简单来说，LVLM就是能“又看又懂”的大模型 —— 它们既能看图、读视频，又能用自然语言描述和推理。</p>
+<p>这种多模态的融合，让AI不只是“读文字”，还能真正“理解世界”，比如识别图片里的场景、理解视频里的动作、分析文档里的结构信息等。</p>
+<p>不过，虽然LVLMs发展迅速，目前它们还像一块夹心饼干的“中间层”：</p>
+<ul>
+<li>✅ 能胜任各种任务</li>
+<li>❌ 但在<strong>精细感知</strong>、<strong>复杂推理</strong>方面，离真正的卓越还有距离</li>
+</ul>
+<h3 id="LVLM-进化"><a href="#LVLM-进化" class="headerlink" title="LVLM 进化"></a>LVLM 进化</h3><ul>
+<li><strong>底层：精细视觉感知（Fine-grained Perception）</strong><br>→ 这就像饼干的底座，没有好的细粒度视觉理解，楼再高也不稳。</li>
+<li><strong>中层：一般多模态能力</strong><br>→ 现有LVLM基本能做个体面的“中层”，但还称不上完美。</li>
+<li><strong>顶层：多模态推理（Multi-modal Reasoning）</strong><br>→ 真正高阶的是多模态推理，比如看完表格后总结规律、看完视频后推断意图。</li>
+</ul>
+<p>Qwen2.5-VL这次就是冲着<strong>打牢底座、突破顶层</strong>这两个目标去的！</p>
+<h3 id="LVLM-的推动力"><a href="#LVLM-的推动力" class="headerlink" title="LVLM 的推动力"></a>LVLM 的推动力</h3><ol>
+<li><strong>架构创新</strong><br>LVLM通常采用：<ul>
+<li>一个<strong>视觉编码器</strong>（看图）</li>
+<li>一个<strong>跨模态投影器</strong>（桥接视觉和文本）</li>
+<li>一个<strong>大型语言模型（LLM）</strong>（理解和生成）</li>
+</ul>
+</li>
+<li><strong>精细感知模型的发展</strong><br>越来越多模型专注于细粒度视觉理解，比如识别小物体、解析复杂图表。</li>
+<li><strong>Omni架构、MoE机制</strong><br>新一代架构（比如Omni模型、MoE稀疏专家机制）启发了更灵活、可扩展的设计思路。</li>
+<li><strong>视觉编码器和分辨率扩展的改进</strong><br>视觉编码器不断升级，加上动态分辨率技术，让模型看得更清晰、处理得更快。</li>
+<li><strong>更好的数据集</strong><br>高质量、覆盖更多场景和语言的多模态数据，是训练更强LVLM的基础。</li>
+</ol>
+<h3 id="LVLM-面临的挑战"><a href="#LVLM-面临的挑战" class="headerlink" title="LVLM 面临的挑战"></a>LVLM 面临的挑战</h3><p>虽然进步很多，但现阶段LVLM还有明显短板，比如：</p>
+<ul>
+<li><strong>推理链条短</strong>：上下文理解有限，复杂推理能力不足</li>
+<li><strong>精细感知弱</strong>：小细节、复杂结构容易漏掉或误判</li>
+<li><strong>计算成本高</strong>：推理慢、内存吃紧</li>
+<li><strong>长序列处理不稳</strong>：视频太长或内容太多时容易丢信息</li>
+</ul>
+<h3 id="Qwen2-5-VL-创新突破"><a href="#Qwen2-5-VL-创新突破" class="headerlink" title="Qwen2.5-VL 创新突破"></a>Qwen2.5-VL 创新突破</h3><p>Qwen2.5-VL这次提出了<strong>四大技术亮点</strong>：</p>
+<p><strong>视觉编码器中引入窗口注意力（Window Attention）</strong></p>
+<ul>
+<li>降低计算量，推理更快</li>
+<li>保持高分辨率的同时节省资源</li>
+</ul>
+<p>🔵 可以理解为模型一次只关注小范围的局部细节，而不是整个图像，提高了处理效率。</p>
+<p><strong>动态FPS采样（Dynamic FPS Sampling）</strong></p>
+<ul>
+<li><strong>动态分辨率</strong>概念扩展到了<strong>时间维度</strong>！</li>
+<li>让模型可以根据需要灵活调整视频采样率，从而更好理解不同长度的视频。</li>
+</ul>
+<p>🔵 比如短视频可以高频采样，长视频可以低频采样+重点细节高采样。</p>
+<p><strong>升级版MRoPE时间编码（Temporal MRoPE）</strong></p>
+<ul>
+<li>时间编码对齐到<strong>绝对时间</strong></li>
+<li>让模型更聪明地学习时间上的因果关系和顺序变化</li>
+</ul>
+<p>🔵 模型可以真正知道“某事件发生在视频第几秒”，而不是模糊感知。</p>
+<p><strong>数据量大爆发（从1.2T扩展到4.1T tokens）</strong></p>
+<ul>
+<li>预训练+监督微调都用上了更优质、更丰富的数据</li>
+<li>这样不仅视觉更强，语言能力也同步升级！</li>
+</ul>
+<h3 id="Qwen2-5-VL-的明星能力总结"><a href="#Qwen2-5-VL-的明星能力总结" class="headerlink" title="Qwen2.5-VL 的明星能力总结"></a>Qwen2.5-VL 的明星能力总结</h3><ul>
+<li><strong>超强文档解析</strong>：从简单 OCR 升级成“全能文档解析”，支持多场景、多语言、各种复杂文档（手写、表格、化学式、乐谱……）</li>
+<li><strong>高精度物体定位</strong>：支持用绝对坐标、JSON等多种方式标注和推理物体位置</li>
+<li><strong>超长视频理解</strong>：原生支持小时级长视频处理，同时秒级提取关键事件</li>
+<li><strong>超能交互代理</strong>：在电脑、手机上做复杂操作（比如滑动、点选、填表），实现更强的自主行动能力</li>
+</ul>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><img src="/vlm/qwen2_5_vl/68747470733a2f2f7169616e77656e2d7265732e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f5177656e322e352d564c2f7177656e322e35766c5f6172632e6a706567.jpeg" alt="Fig.1 Qwen2.5-VL framework" style="zoom: 25%;">
+
+<h3 id="2-1-Model-Architecture"><a href="#2-1-Model-Architecture" class="headerlink" title="2.1 Model Architecture"></a>2.1 Model Architecture</h3><p>Qwen2.5-VL模型架构包括三大组件：</p>
+<ul>
+<li><strong>Large Language Model (LLM)</strong><ul>
+<li>基于 Qwen2.5 LLM 预训练权重初始化。</li>
+<li>用 <strong>Multimodal Rotary Position Embedding Aligned to Absolute Time</strong> 替换了传统的 1D RoPE，以适配多模态时序理解。</li>
+</ul>
+</li>
+<li><strong>Vision Encoder</strong><ul>
+<li>基于重新设计的 ViT（Vision Transformer）。</li>
+<li>加入 <strong>2D-RoPE</strong> 和 <strong>Window Attention</strong>。</li>
+<li>输入图像会被处理成尺寸是 28 的倍数，打成14×14的小patch。</li>
+<li>大部分层使用局部窗口注意力（窗口大小 112×112，即 8×8 patches），只有 4 层使用全局自注意力，降低计算复杂度。</li>
+<li>视频输入支持 <strong>3D patch partitioning</strong>（每两帧组成一个patch group）。</li>
+</ul>
+</li>
+<li><strong>MLP-based Vision-Language Merger</strong><ul>
+<li>采用简单有效的 MLP 对视觉特征降维：<ul>
+<li>将空间上邻近的 4 个 patch 特征拼接，通过两层 MLP 投影，压缩成与文本 embedding 对齐的维度。</li>
+<li>减少特征长度，提高效率，且能动态压缩不同长度的视觉特征序列。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/vlm/qwen2_5_vl/image-20250428155720572.png" alt="Fig.2 Configuration of Qwen2.5-VL" style="zoom: 67%;">
+
+<h4 id="2-1-1-Fast-and-Efficient-Vision-Encoder"><a href="#2-1-1-Fast-and-Efficient-Vision-Encoder" class="headerlink" title="2.1.1 Fast and Efficient Vision Encoder"></a>2.1.1 Fast and Efficient Vision Encoder</h4><ul>
+<li>核心：<strong>Window Attention</strong> + <strong>原生输入分辨率处理</strong>。</li>
+<li><strong>输入无需强制缩放或padding</strong>，原生分辨率训练，保留图像真实信息。</li>
+<li><strong>采用RMSNorm</strong> 和 <strong>SwiGLU</strong>，提高计算效率与 LLM 兼容性。</li>
+<li>训练过程：<ul>
+<li><strong>CLIP 预训练</strong>、<strong>视觉-语言对齐</strong>、<strong>端到端微调</strong>。</li>
+<li><strong>动态采样原生分辨率图片</strong>以增强鲁棒性。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-Native-Dynamic-Resolution-and-Frame-Rate"><a href="#2-1-2-Native-Dynamic-Resolution-and-Frame-Rate" class="headerlink" title="2.1.2 Native Dynamic Resolution and Frame Rate"></a>2.1.2 Native Dynamic Resolution and Frame Rate</h4><ul>
+<li>空间维度：<ul>
+<li>图像直接根据<strong>实际尺寸</strong>生成 token 序列（而不是归一化坐标）。</li>
+</ul>
+</li>
+<li>时间维度（视频处理）：<ul>
+<li>引入<strong>动态帧率（FPS）训练</strong>。</li>
+<li>通过<strong>绝对时间编码</strong>对齐，不增加推理开销。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-3-Multimodal-Rotary-Position-Embedding-Aligned-to-Absolute-Time"><a href="#2-1-3-Multimodal-Rotary-Position-Embedding-Aligned-to-Absolute-Time" class="headerlink" title="2.1.3 Multimodal Rotary Position Embedding Aligned to Absolute Time"></a>2.1.3 Multimodal Rotary Position Embedding Aligned to Absolute Time</h4><ul>
+<li>继承并改进了 Qwen2-VL 的 Multimodal RoPE（MRoPE）：<ul>
+<li>将位置编码分成<strong>时间、宽、高</strong>三部分。</li>
+<li>对文本输入：与 1D RoPE 一致。</li>
+<li>对图像输入：时间 ID 固定，高宽根据空间位置变化。</li>
+<li>对视频输入：时间 ID 逐帧递增。</li>
+</ul>
+</li>
+<li><strong>新改进</strong>：<ul>
+<li>以<strong>绝对时间</strong>对齐MRoPE的时间分量，不再仅根据帧数计算。</li>
+<li>能适应不同FPS，捕捉时间动态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-Pre-Training"><a href="#2-2-Pre-Training" class="headerlink" title="2.2 Pre-Training"></a>2.2 Pre-Training</h3><p>描述预训练数据和流程。</p>
+<h4 id="2-2-1-Pre-Training-Data"><a href="#2-2-1-Pre-Training-Data" class="headerlink" title="2.2.1 Pre-Training Data"></a>2.2.1 Pre-Training Data</h4><ul>
+<li>训练数据量：<strong>从1.2万亿tokens扩展到约4万亿tokens</strong>。</li>
+<li>数据来源：清洗的网页数据、合成数据</li>
+<li>覆盖多模态数据种类：<ul>
+<li>图像描述、图文插入数据、OCR识别、视觉知识问答、定位数据、文档解析、视频描述、视频定位、Agent交互数据等。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Interleaved Image-Text Data（交融式图文数据）</strong></p>
+<p>文章特别强调了<strong>图文交错数据</strong>的重要性，它有三个好处：支持图文混合的上下文学习、保留纯文本能力、包含丰富的通用信息。</p>
+<p><strong>问题</strong>： 很多现有的图文交错数据质量不高，图片和文字关联不强，或者信息嘈杂。</p>
+<p><strong>解决方案</strong>： Qwen2.5-VL 团队开发了一套<strong>评分和清洗流程</strong>来确保数据质量。</p>
+<ul>
+<li>先进行标准的数据清洗。</li>
+<li>然后使用一个内部模型进行<strong>四阶段评分</strong>：1) 纯文本质量，2) 图文相关性，3) 图文互补性（图片和文字是否提供了互补的新信息），4) 信息密度平衡（图文信息量分布是否均衡）。</li>
+</ul>
+<p>这种严格筛选保证了模型能从高质量的图文交错数据中学习复杂的推理和生成能力。</p>
+<p><strong>Grounding Data with Absolute Position Coordinates（带绝对坐标的定向标注数据）</strong></p>
+<p>为训练模型具备精准的视觉定位能力，构建了高质量的 Grounding 数据：</p>
+<ul>
+<li><strong>绝对坐标训练</strong>：标注使用的是原始图像尺寸下的绝对位置（而非归一化到0~1区间），保留了真实尺寸比例，有助于提升模型在实际应用中的定位准确率。</li>
+<li><strong>合成数据增强</strong>：<ul>
+<li>使用 <strong>Grounding DINO</strong> 检测器生成更多目标框标注。</li>
+<li>使用 <strong>SAM</strong>（Segment Anything Model）切分出精细物体区域。</li>
+<li>采用 <strong>Copy-Paste增强</strong>：将切分出的物体随机粘贴到不同背景中，模拟不同场景，提高模型的泛化能力。</li>
+</ul>
+</li>
+<li><strong>类别扩展</strong>：覆盖超过10,000个细粒度类别，支持Open-Vocabulary Detection（开放词汇检测）和极端小物体检测，确保模型具备良好的长尾识别和微小目标识别能力。</li>
+</ul>
+<p><strong>Pointing Data（指点数据）</strong></p>
+<p>指向式理解能力（比如用户点击物体、问”这个是什么？”）需要专门的数据支撑，因此构建了多来源的指点数据集：</p>
+<ul>
+<li><strong>公开数据集利用</strong>：使用如PixMo等公开指点数据集，补充基础训练样本。</li>
+<li><strong>检测分割数据转换</strong>：从已有的目标检测、分割数据中，自动生成”点”标注（如取物体中心、边缘等位置作为指点点位）。</li>
+<li><strong>自动化合成指点数据</strong>：基于规则和模型推理，生成指向不同物体部位、遮挡区域、复杂场景中物体边界点的精准指点标注，提升模型处理复杂点击指令的能力。</li>
+</ul>
+<p><strong>Document Omni-Parsing Data（文档全能解析数据）</strong></p>
+<p>为使模型能够理解和解析复杂文档（如PDF、扫描件、网页）中的结构与内容，构建了专门的文档解析数据集：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+# paragraph
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+# table
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token selector">table</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span> style</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>table{id}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> table content
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+# chart
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chart<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">&gt;</span></span> chart content
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+# formula
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>formula<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span> formula
+content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+# image caption
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image caption<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span> image
+caption <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+# image ocr
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image ocr<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span> image ocr
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+# music sheet
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>music sheet<span class="token punctuation">"</span></span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>abc notation<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1
+x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span> music sheet content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+# chemical formula content
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>chemical formula<span class="token punctuation">"</span></span> <span class="token attr-name">format</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>smile<span class="token punctuation">"</span></span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1 x2 y2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-bbox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x1 y1
+x2 y2<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span> chemical formula content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>统一HTML格式转化</strong>：将各类文档（扫描图片、PDF、网页快照等）解析成统一的HTML格式，清晰标注出文档的层级和逻辑结构。</li>
+<li><strong>布局框（Layout Boxes）</strong>：标注每个段落、标题、图片、表格等元素的位置框，训练模型识别文档布局。</li>
+<li><strong>插图描述（Figure Captions）</strong>：为图表、插图等提供关联的文字描述，提升跨模态理解能力。</li>
+<li><strong>段落与图表坐标标注</strong>：细粒度标注文本段落、图表等元素的绝对位置信息，支持模型进行精细的版面推理和交互。</li>
+</ul>
+<p>目标是让模型具备“一体化文档理解”能力，能够直接从复杂文档中完成版面重建、内容提取、推理分析等多种任务。</p>
+<p><strong>OCR Data（OCR数据）</strong></p>
+<p>为了让模型具备“看图识字”的能力，Qwen2.5-VL使用了<strong>合成数据、开源数据以及自建数据</strong>三类OCR数据源：</p>
+<ul>
+<li><strong>合成数据</strong>：通过视觉文本生成引擎制造出来的高质量文本图像。简单来说，就是“人工制造”街头招牌、商品标签等真实场景里的文字图像，确保多样性和清晰度。</li>
+<li><strong>多语种支持</strong>：不止中文英文，还涵盖了法语、德语、西班牙语、葡萄牙语、阿拉伯语、俄语、日语、韩语、越南语等多种语言。通过一个大规模的多语种OCR数据集，模型能识别全球多语言的文本图像。</li>
+<li><strong>场景多样性</strong>：不仅有合成图像，还有真实世界中自然场景的图像（如街头标牌、商品包装）。这种组合让模型能适应复杂的环境条件，比如模糊、阴影、扭曲等情况。</li>
+</ul>
+<p>此外，对于更结构化的视觉信息：</p>
+<ul>
+<li><strong>图表数据</strong>：使用 <code>matplotlib</code>、<code>seaborn</code> 和 <code>plotly</code> 等可视化库，合成了<strong>100万张图表样本</strong>，涵盖柱状图、关系图、热力图等。这类数据让模型具备解读统计图的能力。</li>
+<li><strong>表格数据</strong>：从真实世界收集了<strong>600万个表格</strong>，通过表格识别模型进行处理，再过滤掉低置信度、重叠或空白过多的表格，确保训练样本质量。</li>
+</ul>
+<p><strong>Video Data（视频数据）</strong></p>
+<p>视频数据带来了“时间”这一新维度，训练模型理解视频内容也就变得更具挑战。</p>
+<ul>
+<li><p><strong>动态采样帧率</strong>（FPS）：在训练时不固定帧率，而是<strong>动态采样</strong>不同的FPS值，以适应各种视频格式，从流畅的高帧动画到低帧监控录像都能识别。</p>
+</li>
+<li><p><strong>长视频处理</strong>：特别针对<strong>超过30分钟</strong>的视频，设计了一条合成流程，通过多帧联合生成长视频的字幕数据，提升模型处理长时序视频的能力。</p>
+</li>
+<li><p><strong>视频时间定位</strong>：支持两种时间戳格式：</p>
+<ul>
+<li>秒级（如 135s）</li>
+<li>帧级（如 00:02:15:10）——小时:分钟:秒:帧</li>
+</ul>
+<p>这使得模型能精准地进行视频片段的定位与理解，适用于任务如“给出某场比赛关键瞬间的截图”或“视频总结摘要”等。</p>
+</li>
+</ul>
+<p><strong>Agent Data（代理数据）</strong></p>
+<p>如果说前面是让模型“能看懂世界”，那么 Agent 数据就是让它“能动起来”。</p>
+<p><strong>感知（Perception）</strong>：</p>
+<ul>
+<li>收集了<strong>移动端、网页、桌面</strong>三种平台的截图。</li>
+<li>使用合成引擎生成了：<ul>
+<li><strong>UI元素的文字描述</strong>（captioning）：例如“点击‘确认’按钮提交表单”。</li>
+<li><strong>元素定位标注</strong>（grounding）：标出图中哪个元素是“确认”按钮。</li>
+</ul>
+</li>
+</ul>
+<p>这种训练让模型不仅能理解图形界面，还知道每个按钮、输入框的功能。</p>
+<p><strong>决策（Decision-making）</strong>：</p>
+<ul>
+<li>将各平台的用户操作<strong>统一成函数调用格式</strong>（function call），简化了跨平台操作的抽象。</li>
+<li>收集并重构了多个由人类和模型共同生成的多步骤任务轨迹（如打开网页 -&gt; 输入网址 -&gt; 点击按钮），每一步都配上了截图、操作前后变化、和<strong>操作背后的推理解释</strong>。</li>
+<li>使用模型过滤器清理掉质量低的解释内容，从而让模型不只是学到“点哪个”，而是理解“为什么点它”。</li>
+</ul>
+<h4 id="2-2-2-Training-Recipe"><a href="#2-2-2-Training-Recipe" class="headerlink" title="2.2.2 Training Recipe"></a>2.2.2 Training Recipe</h4><p>Qwen2.5-VL 训练过程就像建造一座复杂的桥梁，将视觉和语言这两个世界连接起来，并且这个过程是分步完成的，每个阶段都有特定的目标和方法。</p>
+<p><strong>模型的基础：强大的“基石”</strong></p>
+<p>Qwen2.5-VL 的构建并非从零开始。它利用了两个已经很强大的“基石”：</p>
+<ol>
+<li><strong>视觉编码器 (Vision Transformer, ViT):</strong> 负责理解图像的部分。它不是凭空训练的，而是首先在 DataComp 和一些内部数据集上进行了预训练。这就像是让它提前学习了如何“看”世界。</li>
+<li><strong>语言模型 (Large Language Model, LLM - Qwen2.5):</strong> 负责理解和生成文本的部分。直接使用了预训练好的 Qwen2.5 大型语言模型作为初始化。这就像是它已经具备了强大的语言表达和推理能力。</li>
+</ol>
+<p>训练的目标，就是让这两个强大的组件协同工作，真正实现“眼观六路，耳听八方”。</p>
+<p><strong>分阶段的训练：循序渐进增强能力</strong></p>
+<p>整个训练过程被精妙地分为了三个不同的阶段，每个阶段都在前一个阶段的基础上，逐步提升模型的多模态能力：</p>
+<ol>
+<li><p><strong>第一阶段：构建视觉与语言的“桥梁基座”</strong></p>
+<ul>
+<li><strong>目标：</strong> 核心是让视觉编码器 (ViT) 能够更好地与语言模型“对话”。这一步的目标是打下坚实的多模态理解基础。</li>
+<li><strong>训练对象：</strong> 只有 ViT 部分被训练，而 LLM 部分是冻结的（参数不改变）。</li>
+<li><strong>使用数据：</strong> 主要使用图像-文本配对数据，比如图像描述（captions）、视觉知识问答、以及 OCR (光学字符识别) 数据。</li>
+<li><strong>目的：</strong> 通过这些数据，ViT 学习如何从图像中提取出那些对语言模型有意义的视觉特征，为后续的深度融合做准备。</li>
+</ul>
+</li>
+<li><p><strong>第二阶段：多模态能力的全面融合与增强</strong></p>
+<ul>
+<li><p><strong>目标：</strong> 在第一阶段建立的基础上，全面提升模型处理复杂视觉信息和建立视觉-语言深层联系的能力。</p>
+</li>
+<li><p><strong>训练对象：</strong> 所有模型参数都被“解冻”，ViT、LLM 以及它们之间的连接部分都参与训练。</p>
+</li>
+<li><p>使用数据：</p>
+<p>数据类型变得非常丰富和多样化，包括：</p>
+<ul>
+<li><strong>交错数据 (interleaved data):</strong> 图像和文本穿插出现，模拟更自然的对话或文档。</li>
+<li><strong>多任务学习数据集 (multi-task learning datasets):</strong> 包含多种不同类型的视觉-语言任务。</li>
+<li><strong>视觉问答 (VQA):</strong> 回答关于图像内容的问题。</li>
+<li><strong>多模态数学 (multimodal mathematics):</strong> 理解包含数学符号和图示的图像。</li>
+<li><strong>基于智能体 (agent-based tasks):</strong> 需要模型理解视觉环境并做出决策。</li>
+<li><strong>视频理解 (video understanding):</strong> 虽然不是主要焦点，但引入了理解序列视觉信息的能力。</li>
+<li><strong>纯文本数据 (pure-text datasets):</strong> 保持和增强 LLM 的语言能力。</li>
+</ul>
+</li>
+<li><p><strong>目的：</strong> 通过这些更复杂、更需要推理的数据，模型学习如何将视觉信息与语言信息进行更深层次的对齐和交互，处理更复杂的任务。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>第三阶段：提升长序列推理和高级任务处理能力</strong></p>
+<ul>
+<li><strong>目标：</strong> 进一步增强模型在处理长序列信息（如视频、复杂的智能体任务）时的推理能力。</li>
+<li><strong>训练对象：</strong> 在第二阶段的基础上继续训练所有参数。</li>
+<li><strong>使用数据：</strong> 重点加入了视频和基于智能体的数据。</li>
+<li><strong>关键调整：</strong> <strong>显著增加了输入序列的长度</strong>。</li>
+<li><strong>目的：</strong> 增加序列长度让模型能够捕捉更长范围的依赖关系，这对于理解视频的时间序列、处理复杂的智能体决策链等任务至关重要，使得模型能够处理更高级、更精密的任务。</li>
+</ul>
+</li>
+</ol>
+<p><strong>训练中的优化：平衡负载</strong></p>
+<p>在训练这样一个包含大型视觉和语言组件的模型时，一个巨大的挑战是不同数据（大小各异的图像，长度不一的文本）会导致计算负载不均衡，浪费计算资源。Qwen2.5-VL 的训练采取了一种“聪明”的优化方式来解决这个问题：</p>
+<ul>
+<li><strong>挑战：</strong> 主要的计算成本来自 LLM 和 ViT。不同输入会导致它们的计算量差异很大。</li>
+<li><strong>观察：</strong> ViT 的参数相对较少，并且通过引入窗口注意力（window attention）进一步优化了其计算效率。</li>
+<li><strong>解决方案：</strong> 将优化重点放在了平衡 <strong>LLM</strong> 的计算负载上。他们不是简单地批量处理数据，而是根据输入到 LLM 的文本序列长度，动态地将数据样本进行“打包”。</li>
+<li><strong>效果：</strong> 这种动态打包确保了每个计算单元（比如 GPU）上的 LLM 计算负载尽可能保持一致，极大地提高了训练效率。</li>
+<li><strong>具体实践：</strong> 在第一和第二阶段，数据被打包到序列长度为 8,192；在第三阶段，为了适应处理更长序列的需求，打包长度增加到了 32,768。</li>
+</ul>
+<h3 id="2-3-Post-training"><a href="#2-3-Post-training" class="headerlink" title="2.3 Post-training"></a>2.3 Post-training</h3><p>Qwen2.5-VL 通过多阶段的预训练学会了“看”和“理解”世界。但就像一个资优生还需要经过专门辅导和实践才能应对各种考试和应用一样，强大的预训练模型也需要一个关键步骤来变得更加实用、更能准确遵循人类指令——后训练 (Post-training)</p>
+<p>Qwen2.5-VL 的后训练过程设计得非常巧妙，它采用了 <strong>“监督微调 (Supervised Fine-Tuning, SFT)”</strong> 和 <strong>“直接偏好优化 (Direct Preference Optimization, DPO)”</strong> 这两个阶段，就像是一个双管齐下的策略，既提升模型的“硬实力”（理解并执行指令），也优化模型的“软实力”（行为更符合人类偏好）。</p>
+<h4 id="监督微调-SFT"><a href="#监督微调-SFT" class="headerlink" title="监督微调 (SFT)"></a>监督微调 (SFT)</h4><p>SFT 阶段的目标是弥合预训练模型学到的通用知识与实际下游任务需求之间的差距。简单来说，就是教会模型如何根据具体的指令来生成恰当的多模态响应。</p>
+<p>在这个阶段，一个重要的改变是引入了 <strong>ChatML 格式</strong> 来组织训练数据。虽然这不同于预训练时使用的数据格式，但模型的整体架构是保持一致的。采用 ChatML 格式带来了几个关键优势：</p>
+<ol>
+<li><strong>明确对话角色：</strong> 能够清晰地区分用户和模型的发言，使得多轮对话成为可能，尤其是在处理交替出现的图像和文本时。</li>
+<li><strong>结构化处理视觉信息：</strong> 可以将图像的嵌入（模型理解图像后产生的数字表示）以结构化的方式与文本指令结合在一起，确保模型在处理指令时能够有效地利用图像信息。</li>
+<li><strong>保持跨模态位置关系：</strong> 在打包数据时，ChatML 格式有助于维护图像和文本在输入序列中的相对位置关系，这对于理解复杂的图文交织内容至关重要。</li>
+</ol>
+<p>通过在增强的 ChatML 格式下，向模型展示经过精心组织的大量“指令-响应”对，SFT 阶段让模型在不破坏原有强大能力的前提下，学会了如何精准地执行指令。</p>
+<h4 id="SFT-阶段的数据"><a href="#SFT-阶段的数据" class="headerlink" title="SFT 阶段的数据"></a>SFT 阶段的数据</h4><p>SFT 的效果很大程度上取决于训练数据的质量和多样性。Qwen2.5-VL 使用了一个庞大且经过精心策划的数据集：</p>
+<ul>
+<li><p><strong>规模：</strong> 大约 200 万条数据。</p>
+</li>
+<li><p><strong>构成：</strong> 纯文本数据和多模态数据（包含图像-文本、视频-文本）各占一半 (50%)。虽然数量均等，但多模态数据由于包含视觉信息，占用的计算资源更多。</p>
+</li>
+<li><p><strong>语言：</strong> 主要包含中文和英文，并补充了一些其他语言的数据以提升多语言能力。</p>
+</li>
+<li><p><strong>复杂度：</strong> 涵盖了单轮对话和多轮对话，以及涉及单张图像或多张图像序列的场景，模拟真实的交互情境。</p>
+</li>
+<li><p><strong>来源广泛：</strong> 数据来源于开源数据集、购买的数据集以及在线抓取的数据，确保了广泛的覆盖面。</p>
+</li>
+<li><p>任务全面：</p>
+<p>数据集包含了各种专门的任务类型，例如：</p>
+<ul>
+<li><strong>通用视觉问答 (VQA)</strong> 和 <strong>图像描述 (Captioning)</strong></li>
+<li><strong>数学问题求解</strong> 和 <strong>编程相关任务</strong></li>
+<li><strong>安全相关的查询</strong></li>
+<li>以及针对 <strong>文档和 OCR (Doc and OCR)<strong>、</strong>视觉定位 (Grounding)<strong>、</strong>视频分析 (Video Analysis)<strong>、</strong>智能体交互 (Agent Interactions)</strong> 等更专业领域的任务。</li>
+</ul>
+</li>
+</ul>
+<p>这种全面而多样的数据集结构，确保了 SFT 阶段能够有效地将预训练模型的通用能力，转化为能够应对各种细致入微的多模态下游任务的强大执行力。</p>
+<h4 id="数据清洗流程"><a href="#数据清洗流程" class="headerlink" title="数据清洗流程"></a>数据清洗流程</h4><p>我们知道，“垃圾进，垃圾出”的原则在模型训练中尤为适用。开源和合成数据常常包含噪音、重复或低质量的样本。为了确保 SFT 的效果，Qwen2.5-VL 引入了一个严谨的两阶段数据过滤流程：</p>
+<ol>
+<li><strong>第一阶段：领域专项分类</strong><ul>
+<li>使用一个从 Qwen2-VL-72B 衍生出来的专门分类模型 (Qwen2-VL-Instag)，将问答对分门别类。</li>
+<li>数据被分到 8 个主领域（如编程与规划），再细分为 30 个子类别。</li>
+<li>这样做的好处是可以针对不同领域和子领域的特点，采用更具针对性的清洗策略。</li>
+</ul>
+</li>
+<li><strong>第二阶段：领域定制化过滤</strong><ul>
+<li>结合了<strong>基于规则</strong>和<strong>基于模型</strong>的方法进行精细过滤。</li>
+<li><strong>基于规则：</strong> 使用预设的规则，例如剔除文档/OCR/定位数据中的重复模式，去除不完整、截断或格式错误的回应，以及过滤掉与查询无关或可能产生有害输出的内容。</li>
+<li><strong>基于模型：</strong> 使用在 Qwen2.5-VL 系列上训练的奖励模型，从多个维度评估问答对的质量。模型会评估问题的复杂性和相关性，以及答案的正确性、完整性、清晰度、与问题的相关性和实用性。对于涉及视觉定位的任务，还会特别检查模型是否准确理解和使用了视觉信息。只有通过这些严格评估的高质量数据才能进入 SFT 训练。</li>
+</ul>
+</li>
+</ol>
+<h4 id="“拒绝采样”提升推理能力"><a href="#“拒绝采样”提升推理能力" class="headerlink" title="“拒绝采样”提升推理能力"></a>“拒绝采样”提升推理能力</h4><p>除了结构化的数据过滤，Qwen2.5-VL 还使用了“拒绝采样 (Rejection Sampling)”这种技术来进一步提炼数据集，特别是在增强模型的推理能力方面。</p>
+<blockquote>
+<p>在构造训练数据时，我们不盲目使用所有模型生成的样本，而是<strong>挑选那些“推理过程正确、结果准确”的样本用于训练</strong>。这就像老师只让学生看解题正确的范例，而忽略错误或不清晰的解答。</p>
+</blockquote>
+<p>这个方法对于数学、编程等需要多步骤推理的任务尤为重要。研究表明，引入思维链 (Chain-of-Thought, CoT) 推理可以显著提升模型的推理表现。拒绝采样就是用来确保训练数据中的 CoT 过程是高质量且准确的。</p>
+<ul>
+<li><strong>过程：</strong> 从包含正确答案（ground truth）的数据集开始。使用一个能力较强的 Qwen2.5-VL 版本来生成推理过程和答案。<strong>只保留那些模型生成的答案与正确答案完全匹配的样本。</strong></li>
+<li><strong>进一步优化：</strong> 还会过滤掉那些推理过程混乱、冗长、重复或包含代码切换（code-switching）的样本，确保思维链清晰连贯。</li>
+<li><strong>挑战与应对：</strong> 多模态模型的推理需要同时利用文本和视觉信息。确保思维链中的每一步都准确地整合了视觉信息是一个挑战。为此，他们开发了规则和模型相结合的过滤策略来验证推理步骤是否有效地利用了视觉信息。</li>
+</ul>
+<p>通过拒绝采样获得的这种高保真、强调准确推理的数据，极大地提升了模型处理复杂推理任务的能力。</p>
+<h4 id="后训练的“训练秘籍”"><a href="#后训练的“训练秘籍”" class="headerlink" title="后训练的“训练秘籍”"></a>后训练的“训练秘籍”</h4><p>总结来说，Qwen2.5-VL 的后训练流程是：</p>
+<ol>
+<li><strong>SFT 阶段：</strong> 在 ViT 参数<strong>冻结</strong>（不改变）的情况下，使用包括文本、图像-文本、视频-文本在内的各种多模态指令数据进行微调。数据来源多样，包括通用 VQA、通过拒绝采样得到的高质量推理数据，以及文档、OCR、定位、视频、智能体等领域的专业数据。</li>
+<li><strong>DPO 阶段：</strong> 在 SFT 之后进行，专注于使用偏好数据（例如，模型对同一个指令给出的不同回应，哪一个更好）来进一步将模型行为与人类偏好对齐。这个阶段仅使用图像-文本和纯文本的偏好数据，并且每个样本只处理一次以提高效率。同样，ViT 参数在此阶段也是冻结的。</li>
+</ol>
+<p>通过 SFT 和 DPO 这两个阶段，Qwen2.5-VL 在预训练的强大基础上，通过结构化的指令学习和人类偏好对齐，被塑造成一个更加实用、可靠且能够精准理解和执行复杂多模态指令的 AI 助手。数据质量的严格把控和推理能力的特别强化，是其成功的关键所在。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../../about" rel="external nofollow noreferrer">puzhiyuan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://puzhiyuan.github.io">https://puzhiyuan.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="../../about" target="_blank">puzhiyuan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../../tags/Qwen2-5-VL/">
+                                    <span class="chip bg-color">Qwen2.5-VL</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="../../libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="../../medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="../../medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+        <div class="card" data-aos="fade-up">
+    <div id="utteranc-container" class="card-content">
+        <script src = "https://utteranc.es/client.js"
+                repo = "puzhiyuan/Blog_talk" 
+                issue-term = "pathname" 
+                theme = "github-light" 
+                crossorigin = "anonymous" 
+                async > 
+        </script >        
+               
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../medias/featureimages/11.jpg" class="responsive-img" alt="Qwen2.5-VL">
+                        
+                        <span class="card-title">Qwen2.5-VL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Qwen2.5-VL是Qwen团队新旗舰多模态模型，在视觉理解、文档图表解析、长视频理解及交互代理能力上实现大跃进。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../categories/VLM/" class="post-category">
+                                    VLM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../tags/Qwen2-5-VL/">
+                        <span class="chip bg-color">Qwen2.5-VL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../clip/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="../../medias/featureimages/11.jpg" class="responsive-img" alt="CLIP">
+                        
+                        <span class="card-title">CLIP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CLIP通过对比学习在4亿图文对上预训练，实现视觉与语言的对齐，支持强大的零样本识别能力。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../categories/VLM/" class="post-category">
+                                    VLM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../tags/CLIP/">
+                        <span class="chip bg-color">CLIP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../../libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="../../libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="../../libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="../../libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2024-2025</span>
+            
+            <a href="../../about" target="_blank">puzhiyuan</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
+            <!-- |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">121.1k</span>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2024";
+                        var startMonth = "5";
+                        var startDate = "26";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours); 
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes); 
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天' + diffHours + ' 小时 ';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天' + diffHours + " 小时 ";
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/puzhiyuan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:185489643@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=185489643" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 185489643" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../../libs/materialize/materialize.min.js"></script>
+    <script src="../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../libs/aos/aos.js"></script>
+    <script src="../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="../../js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "https://puzhiyuan.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="../../libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="../../libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="../../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
