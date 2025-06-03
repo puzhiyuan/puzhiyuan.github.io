@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2025-05-11T06:10:34.098Z</updated>
+  <updated>2025-06-03T11:55:07.350Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GRPO</title>
+    <link href="https://puzhiyuan.github.io/llm/rlhf/grpo/"/>
+    <id>https://puzhiyuan.github.io/llm/rlhf/grpo/</id>
+    <published>2025-06-03T09:36:20.000Z</published>
+    <updated>2025-06-03T11:55:07.350Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;GRPO&quot;&gt;&lt;a href=&quot;#GRPO&quot; class=&quot;headerlink&quot; title=&quot;GRPO&quot;&gt;&lt;/a&gt;GRPO&lt;/h1&gt;&lt;h2 id=&quot;核心流程概述&quot;&gt;&lt;a href=&quot;#核心流程概述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="RLHF" scheme="https://puzhiyuan.github.io/categories/RLHF/"/>
+    
+    
+    <category term="GRPO" scheme="https://puzhiyuan.github.io/tags/GRPO/"/>
+    
+  </entry>
   
   <entry>
     <title>nvidia_container_toolkit</title>
@@ -498,33 +523,6 @@
     
     
     <category term="File" scheme="https://puzhiyuan.github.io/tags/File/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sparse4D</title>
-    <link href="https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/"/>
-    <id>https://puzhiyuan.github.io/autonomousdriving/object_detection/3d/camera/sparse4d/</id>
-    <published>2024-10-19T11:50:41.000Z</published>
-    <updated>2024-11-20T13:24:13.220Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/2211.10581&quot;&gt;原文链接：Sparse4D: Multi-view 3D Object Detection with Sparse Spatial-Temporal</summary>
-        
-      
-    
-    
-    
-    <category term="3D目标检测" scheme="https://puzhiyuan.github.io/categories/3D%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-    
-    <category term="TransformerBased" scheme="https://puzhiyuan.github.io/tags/TransformerBased/"/>
-    
-    <category term="纯视觉" scheme="https://puzhiyuan.github.io/tags/%E7%BA%AF%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
