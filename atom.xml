@@ -6,7 +6,7 @@
   <link href="https://puzhiyuan.github.io/atom.xml" rel="self"/>
   
   <link href="https://puzhiyuan.github.io/"/>
-  <updated>2025-06-03T11:55:07.350Z</updated>
+  <updated>2025-06-15T07:11:46.627Z</updated>
   <id>https://puzhiyuan.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>verl_multinode</title>
+    <link href="https://puzhiyuan.github.io/llm/rlhf/verl_multinode/"/>
+    <id>https://puzhiyuan.github.io/llm/rlhf/verl_multinode/</id>
+    <published>2025-06-11T08:34:52.000Z</published>
+    <updated>2025-06-15T07:11:46.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;verl-multi-node-train&quot;&gt;&lt;a href=&quot;#verl-multi-node-train&quot; class=&quot;headerlink&quot; title=&quot;verl multi-node train&quot;&gt;&lt;/a&gt;verl multi-node</summary>
+        
+      
+    
+    
+    
+    <category term="RLHF" scheme="https://puzhiyuan.github.io/categories/RLHF/"/>
+    
+    
+    <category term="verl" scheme="https://puzhiyuan.github.io/tags/verl/"/>
+    
+    <category term="multinode" scheme="https://puzhiyuan.github.io/tags/multinode/"/>
+    
+  </entry>
   
   <entry>
     <title>GRPO</title>
@@ -498,31 +525,6 @@
     
     
     <category term="SSH" scheme="https://puzhiyuan.github.io/tags/SSH/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>File_Flex</title>
-    <link href="https://puzhiyuan.github.io/linux/file_flex/"/>
-    <id>https://puzhiyuan.github.io/linux/file_flex/</id>
-    <published>2024-10-20T14:10:00.000Z</published>
-    <updated>2024-10-29T13:56:54.082Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Linux下压缩-解压文件&quot;&gt;&lt;a href=&quot;#Linux下压缩-解压文件&quot; class=&quot;headerlink&quot; title=&quot;Linux下压缩/解压文件&quot;&gt;&lt;/a&gt;Linux下压缩/解压文件&lt;/h2&gt;&lt;h3 id=&quot;1-tar文件&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="https://puzhiyuan.github.io/categories/Linux/"/>
-    
-    
-    <category term="File" scheme="https://puzhiyuan.github.io/tags/File/"/>
     
   </entry>
   
