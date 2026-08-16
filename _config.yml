@@ -131,8 +131,9 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/puzhiyuan/puzhiyuan.github.io
-  # repository: git@github.com:puzhiyuan/puzhiyuan.github.io.git
+  # 走 SSH 部署（https 直连 github.com 不通；走 https 时需配代理和 PAT）
+  repository: git@github.com:puzhiyuan/puzhiyuan.github.io.git
+  # repository: https://github.com/puzhiyuan/puzhiyuan.github.io
   branch: main
 
 # 主题中有覆盖
