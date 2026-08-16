@@ -13,7 +13,6 @@ categories:
   - 目标跟踪
 abbrlink: 34b78511
 date: 2024-10-24 21:34:25
-password:
 ---
 
 [Github：Sparse4Dv3](https://github.com/linxuewu/Sparse4D)

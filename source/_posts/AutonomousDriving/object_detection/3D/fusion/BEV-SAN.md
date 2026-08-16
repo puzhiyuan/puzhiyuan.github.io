@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: e29aef43
 date: 2024-05-29 20:18:01
-password:
 ---
 
 **《BEV-SAN: Accurate BEV 3D Object Detection via Slice Attention Networks》**，作者提出了一种新的用于鸟瞰图（BEV）3D目标检测的方法，称为BEV Slice Attention Network（BEV-SAN）。

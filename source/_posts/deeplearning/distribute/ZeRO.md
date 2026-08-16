@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 abbrlink: 21374
 date: 2025-02-17 19:28:28
-password:
 summary: ZeRO 技术通过分区存储模型状态、梯度和激活值，消除冗余内存占用，降低通信开销，从而实现数十亿到万亿参数大模型的高效训练。
 tags: ZeRO
 categories: Distributed

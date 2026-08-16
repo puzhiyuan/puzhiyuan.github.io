@@ -1,4 +1,6 @@
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% } %>
 
 <footer class="page-footer bg-color">
     <% if (theme.music.enable && theme.music.fixed) { %>
@@ -29,13 +31,13 @@
             <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
                 <% socialClass = 'social-statis' %>
             <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable && theme.busuanziStatistics.totalTraffic) { %>
                 <span id="busuanzi_container_site_pv">
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;<%- __('siteTotalVisits') %>:&nbsp;
                     <span id="busuanzi_value_site_pv" class="white-color"></span>
             </span>
             <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable && theme.busuanziStatistics.totalNumberOfvisitors) { %>
                 <span id="busuanzi_container_site_uv">
                 &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;<%- __('siteTotalVisitors') %>:&nbsp;
                     <span id="busuanzi_value_site_uv" class="white-color"></span>

@@ -63,10 +63,8 @@ cover:
   # useConfig 使用方式: 将主题 hexo-theme-matery/source/_data/covers.json 移动到 my-blog/source/_data/下修改配置即可
   video:
     enable: false
-    src: 
-      - https://txmov2.a.yximgs.com/upic/2021/04/09/22/BMjAyMTA0MDkyMjMwMDhfMTg1ODk2MDg4N180NzUyOTMyMjA4Nl8xXzM=_b_B8e080d7ede19e6674d48a9f12545007b.mp4?pkey=AAVAfNhi5_f-HGkIPXrY5w6nyf4JibwOY-WwdHgSJ2aSoi-2WQLpiYDunLbRZQuESz875eMdsepRlVFtXg9nuQY58uRc-7AsF0kEMNR6QYBj56g9JFFMSGdsoKK2-SV27u8&tag=1-1617978682-xpcwebprofile-0-lcvipceuti-9e40072f87531f1a&clientCacheKey=3xbbtbrfxqpccp4_b.mp4
-      - https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTQyNDRfMTg1ODk2MDg4N180NzUyNjAyMzA0N18xXzM=_b_B83b004b85aba8eca3ded270637616575.mp4
-      - https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTU4MDNfMTg1ODk2MDg4N180NzUyNzE0MzkyNV8xXzM=_b_Bf94cee6bd181efeaca64049bd2e4e276.mp4
+    # 原 2021 年快手热链（带过期签名）已删除；如需开启首页背景视频，请换成自己的视频地址
+    src:
 
 # index page dream text,
 # 配置首页显示"梦想"的语句.
@@ -210,7 +208,8 @@ copyright:
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
 mathjax:
   enable: true
-  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  # 本地托管（原 cdn.bootcss.com 已停止服务）：MathJax 2.7.5，与原线上版本一致
+  cdn: /libs/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # Post word count, reading duration, site total word count.
 # Before you activate, please confirm that you have installed the hexo-wordcount plugin,
@@ -375,7 +374,7 @@ livere:
 # 介绍: https://cloud.tencent.com/document/product/1110/36841
 # 管理验证码: https://console.cloud.tencent.com/captcha/graphical
 tcaptcha:
-  enable: true
+  enable: false
   appid: xxxxxxxxxx # 你的appid
 
 # The configuration of the Valine comment module is not activated by default.
@@ -414,7 +413,7 @@ changyan:
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
-  url: https://github.com/puzhiyuan
+  url: https://github.com/puzhiyuan/puzhiyuan.github.io-source
   title: Fork Me
 
 # The configuration of the Twikoo comment module is not activated by default.

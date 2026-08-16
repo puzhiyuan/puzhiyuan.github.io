@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 abbrlink: 8981
 date: 2025-05-07 15:43:05
-password:
 summary: Qwen2.5-VL是Qwen团队新旗舰多模态模型，在视觉理解、文档图表解析、长视频理解及交互代理能力上实现大跃进。
 tags: Qwen2.5-VL
 categories: VLM

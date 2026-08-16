@@ -8,7 +8,6 @@ summary: CLIP通过对比学习在4亿图文对上预训练，实现视觉与语
 tags: CLIP
 abbrlink: 65507
 date: 2025-04-27 13:27:44
-password:
 categories: VLM
 ---
 

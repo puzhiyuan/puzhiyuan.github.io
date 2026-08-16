@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: c08f6507
 date: 2024-05-29 15:18:01
-password:
 ---
 
 ### 1. 为什么要做融合（单模态的缺陷）

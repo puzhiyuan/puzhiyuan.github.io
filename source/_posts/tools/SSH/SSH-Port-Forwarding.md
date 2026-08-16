@@ -6,12 +6,11 @@ toc: true
 mathjax: true
 summary: SSH 端口映射是一种通过 SSH 协议将本地端口或远程端口映射到另一个端口的方法，用于实现安全的网络访问。
 tags:
-  - ssh
+  - SSH
 categories:
   - tool
 abbrlink: 22693
 date: 2024-11-21 20:27:31
-password:
 ---
 
 ### SSH实现端口映射

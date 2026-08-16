@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: fa96e487
 date: 2024-06-11 14:11:13
-password:
 ---
 
 ### BEVDet4D

@@ -91,8 +91,7 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: 
-  "yesterday's thoughts": yesterdays-thoughts
+default_category: uncategorized
 
 category_map:
 tag_map:
@@ -108,7 +107,8 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
+## 'date'：更新时间取发布时间，避免每次 checkout 后全部文章的 updated 变成文件检出时刻、RSS 整体翻新
+updated_option: 'date'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -199,10 +199,6 @@ githubEmojis:
   customEmojis:
 
 
-translate:
-  enable: true
-
-
 # hexo-theme-matery：RSS订阅相关
 feed:
   type: atom
@@ -213,3 +209,10 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
+
+# 站点地图（hexo-generator-sitemap）
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true

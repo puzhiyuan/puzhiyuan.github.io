@@ -6,10 +6,9 @@ toc: true
 mathjax: true
 abbrlink: 56390
 date: 2024-12-07 23:12:01
-password:
 summary: 总结一些深度学习的基础知识点。
-tags:
-categories:
+tags: Deep Learning
+categories: Deep Learning
 ---
 
 

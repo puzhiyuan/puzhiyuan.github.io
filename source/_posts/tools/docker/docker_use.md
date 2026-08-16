@@ -11,7 +11,6 @@ categories:
   - tool
 abbrlink: 4c3c1aa5
 date: 2024-10-26 21:32:04
-password:
 ---
 
 ## Docker 使用教程
@@ -32,7 +31,7 @@ Docker 是一个开源平台，用于开发、交付和运行应用程序。它�
 
 ### 3. 安装 Docker
 
-见 [docker 安装](./docker_install.md) 。
+见 [docker 安装](/tools/docker/docker_install/) 。
 
 
 

@@ -9,8 +9,7 @@ categories:
   - Hexo tips
 abbrlink: cd7cca12
 date: 2024-06-23 18:41:49
-password:
-tags:
+tags: hexo
 ---
 
 ### Hexo文章中插入图片的记录

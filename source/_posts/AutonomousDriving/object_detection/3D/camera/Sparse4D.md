@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: ef54e4f0
 date: 2024-10-19 19:50:41
-password:
 ---
 
 [原文链接：Sparse4D: Multi-view 3D Object Detection with Sparse Spatial-Temporal Fusion](https://arxiv.org/abs/2211.10581)

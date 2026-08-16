@@ -6,9 +6,8 @@ toc: true
 mathjax: true
 abbrlink: 1412
 date: 2024-12-07 13:38:22
-password:
 summary: python 语言相关的知识点总结。
-tags: 
+tags: python
 categories: python
 ---
 

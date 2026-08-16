@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 abbrlink: 21576
 date: 2025-02-15 22:08:19
-password:
 summary: 介绍了模型并行（mp）、张量并行（tp）、流水线（pp）并行等并行训练策略，重点讲解了其基本原理、实现方式及代码示例。
 tags: ModelParallel
 categories: Distributed

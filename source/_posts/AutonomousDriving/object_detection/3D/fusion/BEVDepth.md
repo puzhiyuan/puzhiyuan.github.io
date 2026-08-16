@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: 3f3e6fbd
 date: 2024-06-23 15:19:38
-password:
 ---
 
 <img src="./BEVDepth/image-20240612101031335.png" alt="BEVDepth框架" style="zoom:50%;" />

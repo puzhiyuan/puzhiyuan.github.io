@@ -12,7 +12,6 @@ categories:
   - 3D目标检测
 abbrlink: 6ff9b549
 date: 2024-07-09 16:00:15
-password:
 ---
 
 [原文链接：Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection](https://arxiv.org/abs/2303.11926)
